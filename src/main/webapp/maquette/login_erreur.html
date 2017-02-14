@@ -1,19 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="bootstrap-theme.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Mediatic</title>
 </head>
 <body>
 	<header>
-	<!-- nav bar -->
+		<nav class="navbar navbar-default navbar-inverse" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Mediatic</a>
+		    </div>
+		
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Médias <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="#">Recherche</a></li>
+		            <li class="divider"></li>
+		            <li><a href="#">Création</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Adhérents <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="#">Recherche</a></li>
+		            <li class="divider"></li>
+		            <li><a href="#">Création</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li class="dropdown">
+		          <a href="#" data-toggle="dropdown"><b>Déconnexion</b></a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
 	</header>
 	
-	<main>
+	<main  class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 		<!-- corps de la page-->
+		<br>
+		<aside class="text-danger"><em>Nom utilisateur ou mot de passe faux</em></aside>
+		<br>
+		<form>
+		<div class="form-group">
+			<label>Nom utilisateur :</label>
+			<input type="text" class="form-control" id="username" placeholder="Nom utilisateur">
+		</div>
+		<div class="form-group">
+			<label>Mot de passe :</label>
+			<input type="text" class="form-control" id="password" placeholder="Mot de passe">
+		</div>
+		<br>
+		<button type="submit" class="btn btn-primary">Connexion</button>
+	</form>
 	</main>
 
 	<footer>
