@@ -63,11 +63,11 @@
 			<div class="panel-body">
 				<div class="row form-group">
 				<div class="row col-xs-5 col-xs-offset-1 form-inline has-error" >
-				<label>Titre :</label>  <input type="text" class="form-control" placeholder="Titre">
+				<label>Titre :</label>  <input type="text" class="form-control" placeholder="ex : Le Hobbit">
 				</div>
 				
 				<div class="row col-xs-5 col-xs-offset-1 form-inline has-error">
-				<label>Auteur :</label>  <input type="text" class="form-control" placeholder="Auteur">
+				<label>Auteur :</label>  <input type="text" class="form-control" placeholder="ex : J.R.R. Tolkien">
 				</div>
 				</div>
 			
@@ -88,7 +88,7 @@
 
 					</div>
 				</div>
-				<div class="alert alert-danger form-group col-xs-6 col-xs-offset-3">Champs non-rempli</div>
+				<div class="alert alert-danger form-group col-xs-6 col-xs-offset-3">Champs non renseigné</div>
 			</div>
 			
 			<div class="panel-footer">
@@ -98,7 +98,7 @@
 		</div>
 	</div>
 	<div class="row form-group">
-		<button class="btn btn-default" type="button">
+		<button class="btn btn-default hidden" type="button">
 		<span class="glyphicon glyphicon-plus"></span>
 		</button>
 		<table class="table table-bordered">
@@ -119,8 +119,8 @@
 						<td>13/01/2017</td>
 						<td>30/01/2017</td>
 					</tr>
-					<tr class="form-group has-error">
-						<td><button class="btn btn-success" type="submit">Ajouter</button>	</td>
+					<tr class="has-error">
+						<td></td>
 						<td><input type="text" class="form-control" placeholder="Nom"></td>
 						<td><input type="text" class="form-control" placeholder="Prénom"></td>
 						<td><input type="text" class="form-control" placeholder="Date de l'emprunt"></td>
@@ -128,12 +128,12 @@
 					</tr>
 				</tbody>
 		</table>
-		<div class="form-group">
-		<button class="btn btn-info form-group" type="submit">plus</button>
-		</div>
-		<div class="alert alert-danger form-group">Champs non-rempli
-		</div>
 		
+		<div class="form-group">	
+		<button class="btn btn-info col-xs-offset-11 btn-sm hidden" type="submit">Voir plus</button>
+		<button class="btn btn-success form-group" type="submit">Ajouter</button>
+		</div>
+		<div class="alert alert-danger form-group col-xs-5 col-xs-offset-3">Champs non renseigné</div>
 	</div>
 	</main>
 
