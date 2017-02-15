@@ -63,26 +63,37 @@
 			<div class="panel-body">
 				<div class="row form-group">
 				<div class="row col-xs-5 col-xs-offset-1 form-inline has-error" >
-				<div class="alert alert-danger">Champs non-rempli</div>
-				Titre :  <input type="text" class="form-control" placeholder="titre">
+				Titre :  <input type="text" class="form-control" placeholder="Titre">
 				</div>
 				
 				<div class="row col-xs-5 col-xs-offset-1 form-inline has-error">
-				<div class="alert alert-danger">Champs non-rempli</div>
-				Auteur :  <input type="text" class="form-control" placeholder="auteur">
+				Auteur :  <input type="text" class="form-control" placeholder="Auteur">
 				</div>
 				</div>
 			
 				<div class="row form-group">
 					<div class="row col-xs-5 col-xs-offset-1 form-inline has-error" >
-					<div class="alert alert-danger">Champs non-rempli</div>
-						Type : <input type="text" class="form-control" placeholder="type">
+						Type : 
+					<div class="dropdown form-group">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    Type
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Livre</a></li>
+				    <li><a href="#"><span class="glyphicon glyphicon-music"></span> CD</a></li>
+				    <li><a href="#"><span class="glyphicon glyphicon-film"></span> DVD</a></li>
+				    <li><a href="#">Tout</a></li>
+				  </ul>
+				</div>
+
 					</div>
 				</div>
+				<div class="alert alert-danger form-group col-xs-5 col-xs-offset-3">Champs non-rempli</div>
 			</div>
 			
 			<div class="panel-footer">
-				<button class="btn btn-info" type="submit">Enregistrer</button>	
+				<button class="btn btn-success" type="submit">Enregistrer</button>	
 				<button class="btn btn-warning" type="submit">Annuler</button>	
 			</div>
 		</div>
@@ -108,10 +119,22 @@
 						<td>Guillaume</td>
 						<td>13/01/2017</td>
 						<td>30/01/2017</td>
-						
+					</tr>
+					<tr class="form-group has-error">
+						<td><button class="btn btn-success" type="submit">Ajouter</button>	</td>
+						<td><input type="text" class="form-control" placeholder="Nom"></td>
+						<td><input type="text" class="form-control" placeholder="Prénom"></td>
+						<td><input type="text" class="form-control" placeholder="Date de l'emprunt"></td>
+						<td></td>
 					</tr>
 				</tbody>
 		</table>
+		<div class="form-group">
+		<button class="btn btn-info form-group" type="submit">plus</button>
+		</div>
+		<div class="alert alert-danger form-group">Champs non-rempli
+		</div>
+		
 	</div>
 	</main>
 
