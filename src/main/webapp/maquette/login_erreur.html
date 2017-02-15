@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Mediatic</title>
@@ -42,7 +42,9 @@
 		          </ul>
 		        </li>
 		      </ul>
-		     <!-- <ul class="nav navbar-nav navbar-right">
+		     <!-- J'enleve le bouton déconnexion inutile dans la page de connexion
+		     
+		      <ul class="nav navbar-nav navbar-right">
 		        <li class="dropdown">
 		          <a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a>
 		        </li>
@@ -54,9 +56,9 @@
 	
 	<main  class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 		<!-- corps de la page-->
-		<br>
-		<aside class="alert alert-danger"><em>Nom utilisateur ou mot de passe faux</em></aside>
-		<br>
+		<div class="form-group">
+		<aside class="alert alert-danger">Nom utilisateur ou mot de passe incorrect(s)</aside>
+		</div>
 		<form>
 		<div class="form-group has-error">
 			<label>Nom utilisateur :</label>
@@ -65,9 +67,10 @@
 		<div class="form-group has-error">
 			<label>Mot de passe :</label>
 			<input type="text" class="form-control" id="password" placeholder="Mot de passe">
-		</div>
-		<br>
+		</div>		
+		<div class="form-group">
 		<button type="submit" class="btn btn-primary">Connexion</button>
+		</div>
 	</form>
 	</main>
 
