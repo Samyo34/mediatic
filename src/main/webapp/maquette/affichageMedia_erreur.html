@@ -54,6 +54,65 @@
 	
 	<main  class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 container">
 		<!-- corps de la page-->
+		<div class="row form-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="panel-title">Details du Média</h1>
+			</div>
+			
+			<div class="panel-body">
+				<div class="row form-group">
+				<div class="row col-xs-5 col-xs-offset-1 form-inline has-error" >
+				<div class="alert alert-danger">Champs non-rempli</div>
+				Titre :  <input type="text" class="form-control" placeholder="titre">
+				</div>
+				
+				<div class="row col-xs-5 col-xs-offset-1 form-inline has-error">
+				<div class="alert alert-danger">Champs non-rempli</div>
+				Auteur :  <input type="text" class="form-control" placeholder="auteur">
+				</div>
+				</div>
+			
+				<div class="row form-group">
+					<div class="row col-xs-5 col-xs-offset-1 form-inline has-error" >
+					<div class="alert alert-danger">Champs non-rempli</div>
+						Type : <input type="text" class="form-control" placeholder="type">
+					</div>
+				</div>
+			</div>
+			
+			<div class="panel-footer">
+				<button class="btn btn-info" type="submit">Enregistrer</button>	
+				<button class="btn btn-warning" type="submit">Annuler</button>	
+			</div>
+		</div>
+	</div>
+	<div class="row form-group">
+		<button class="btn btn-default" type="button">
+		<span class="glyphicon glyphicon-plus"></span>
+		</button>
+		<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom <button class="glyphicon glyphicon-sort-by-alphabet"></button></th>
+						<th>Prénom <button class="glyphicon glyphicon-sort-by-alphabet"></button></th>
+						<th>Date de l'emprunt</th>
+						<th>Date de retour prévu</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>Drouard</td>
+						<td>Guillaume</td>
+						<td>13/01/2017</td>
+						<td>30/01/2017</td>
+						
+					</tr>
+				</tbody>
+		</table>
+	</div>
 	</main>
 
 	<footer>
