@@ -53,7 +53,93 @@
 	</header>
 	
 	<main  class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 container">
-		<!-- corps de la page-->
+	<div class='row form-group'>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Détails adhérent</h3>
+		  </div>
+		  <div class ='panel-body'>
+		  	<div class='row form-group'>
+			  	<div class="col-xs-5 col-xs-offset-1">
+			    	Nom : Drouard
+			 	</div>
+			 	<div class="col-xs-5 col-xs-offset-1">
+			    	Prenom : Guillaume
+			 	</div>
+		  	</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1">
+			    	Date de naissance : 13/12/1995
+			 	</div>
+			 	<div class="col-xs-5 col-xs-offset-1 ">
+			    	Adresse : 12 rue du Boulevard, 34000 Montpellier
+			 	</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1">
+			    	Date cotisation : 01/02/2017
+			 	</div>
+				<div class="col-xs-5 col-xs-offset-1">
+			    	Montant cotisation : 60 <span class='glyphicon glyphicon-euro'></span>
+			 	</div>
+			</div>
+			<div class='row form-group'>
+			 	<div class="col-xs-5 col-xs-offset-1">
+			    	Mail : gDrouard@mail.fr
+			 	</div>
+			</div>
+		  </div>
+
+		  <div class="panel-footer">
+		  	<button type="button" class="btn btn-info">modifier</button>
+		  </div>
+		</div>	
+	</div>
+	<div class='row form-group'>
+		<button class="btn btn-default" type="button">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+		<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Titre <button class="glyphicon glyphicon-sort-by-alphabet"></button></th>
+						<th>Auteur <button class="glyphicon glyphicon-sort-by-alphabet"></button></th>
+						<th>Type</th>
+						<th>Détails</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>Le petit cheval de manège</td>
+						<td>Just Leblanc</td>
+						<td><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</td>
+						<td>
+							<a href="./affichageMedia.html">
+								<button type="button" class="btn btn-default btn-lg">
+				    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				    			</button>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>Batman Lego</td>
+						<td>Lego</td>
+						<td><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</td>
+						<td>
+							<a href="./affichageMedia.html">
+								<button type="button" class="btn btn-default btn-lg">
+				    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				    			</button>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+		</table>
+	</div>
+
 	</main>
 
 	<footer>
