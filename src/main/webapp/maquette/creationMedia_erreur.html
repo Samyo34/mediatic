@@ -55,39 +55,55 @@
 	
 	<main class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 container">
 		<p>
-			<form>
+		<form>
+		<div class="panel panel-default">
+		 <div class="panel-heading">
+		    <h3 class="panel-title">Création média</h3>
+		  </div>
+		  
+			<div class=" panel-body">
 			
-			<div class="form-group"> 
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline"> 
 				<label for="titre" class="control-label">Titre de l'oeuvre :</label>
 				<input type="text" class="form-control" id="titre" name="titre" placeholder="Titre">
-			</div>		
-			
-			<div class="form-group"> 
-				<label for="nom" class="control-label">Type :</label><br>
-				<select class="selectpicker form-control">
-					  <option>CD</option>
-					  <option>DVD</option>
-					  <option>Livre</option>
-				</select>
-			</div>	
-			
-				<div class="alert alert-danger">
-  				 Auteur non trouvé
+			</div>
+							<div class="row form-group">
+					<div class="row col-xs-5 col-xs-offset-1 form-inline has-error" >
+						Type : 
+					<div class="dropdown form-group">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    Type
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Livre</a></li>
+				    <li><a href="#"><span class="glyphicon glyphicon-music"></span> CD</a></li>
+				    <li><a href="#"><span class="glyphicon glyphicon-film"></span> DVD</a></li>
+				  </ul>
 				</div>
-			
-			<div class="form-group has-error"> 
+
+					</div>
+				</div>
+				
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline has-error"> 
 				<label for="auteur" class="control-label">Auteur :</label>
 				<input type="text" class="form-control" id="auteur" name="auteur" placeholder="Auteur">
 			</div>	
 			
-		
-			<div id="submit"  class="form-group">
-			<button type="button" class="btn btn-primary">Enregister</button>
+			<div class="alert alert-danger row col-xs-6 col-xs-offset-3 form-inline text-center">
+  				 Auteur introuvable
 			</div>
-			
-		</form>	
-	</p>
+				
+	</div>
 		
+		<div class="panel-footer">
+		  	<button type="button" class="btn btn-primary text-center">Enregister</button>
+		  	<button type="button" class="btn btn-warning text-center">Annuler</button>
+		  </div>
+	</div>
+	</p>
+	
+		</form>	
 	</main>
 
 	<footer>

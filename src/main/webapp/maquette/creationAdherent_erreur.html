@@ -58,48 +58,59 @@
 	
 	<p>
 		<form>
-			<div class="form-group"> 
+			<div class="panel panel-default">
+					 
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Création adhérent</h3>
+		  </div>
+		  
+		   <div class="panel-body">
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline"> 
 				<label for="nom" class="control-label">Nom de famille :</label>
 				<input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de famille">
 			</div>	
 			
-			<div class="form-group"> 
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline"> 
 				<label for="prenom" class="control-label">Prénom :</label>
 				<input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom">
 			</div>	
 		
 		
-			<div class="form-group">
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline">
 				<label for="adresse" class="control-label">Adresse :</label>
 				<input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse">
 			</div>		
 			
-			<div class="form-group">
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline">
 				<label for="date" class="control-label">Date de naissance :</label>
 				<input type="date" class="form-control" id="date" name="date" placeholder="Date de naissance ">
 			</div>				
 					
-			<div class="form-group">
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline">
 				<label for="email" class="control-label">E-mail :</label>
 				<input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
 			</div>	
 			
-			<div class="form-group"> 
+			<div class="form-group row col-xs-5 col-xs-offset-1 form-inline"> 
 				<label for="city" class="control-label">Ville :</label>
 				<input type="text" class="form-control" id="city" name="city" placeholder="Ville" >
 			</div>									
 			
-				<div class="alert alert-danger">
-  				 Mauvais code postal
-				</div>
 			
-			<div class="form-group has-error"> 
+			<div class="form-group has-error row col-xs-5 col-xs-offset-1 form-inline"> 
 				<label for="zip" class="control-label">Code postal :</label>
 				<input type="text" class="form-control" id="zip" name="zip" placeholder="Code postal" >
 			</div>		
 			
+				<div class="alert alert-danger row col-xs-6 col-xs-offset-3 form-inline text-center">
+  				 Mauvais code postal
+				</div>
+			</div>
+			
+			<div class="panel-footer">
 			<div id="submit"  class="form-group has-error">
-			<button type="button" class="btn btn-danger">Enregister</button>
+			<button type="button" class="btn btn-success text-center">Enregister</button>
+			<button type="button" class="btn btn-warning text-center">Annuler</button>
 			</div>
 			
 		</form>	
