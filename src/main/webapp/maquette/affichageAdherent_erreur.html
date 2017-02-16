@@ -61,35 +61,35 @@
 		  <div class ='panel-body'>
 		  	<div class='row form-group'>
 			  	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			    	<label>Nom : </label> <input type='text' class="form-control" placeholder='Drouard'></input>
+			    	<span class="col-xs-3">Nom : </span> <input type='text' class="form-control col-xs-offset-1" placeholder='Drouard'></input>
 			 	</div>
 			 	<div class="col-xs-5 col-xs-offset-1 form-inline has-error">
-			    	<label>Prenom : </label><input type='text' class="form-control" placeholder=''></input>
+			 		<span class="col-xs-3">Prenom : </span> <input type='text' class="form-control col-xs-offset-1" placeholder=''></input>
 			 	</div>
 		  	</div>
 			<div class='row form-group'>
 				<div class="col-xs-5 col-xs-offset-1 form-inline">
-			    	<label>Date de naissance : </label><input type='date' class="form-control" ></input>
+					<span class="col-xs-3">Date de naissance : </span> <input type='date' class="form-control col-xs-offset-1"></input>
 			 	</div>
 			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			    	<label>Adresse : </label><input type='text' class="form-control" placeholder='12 rue du Boulevard, 34000 Montpellier'></input>
+			 		<span class="col-xs-3">Adresse : </span> <input type='text' class="form-control col-xs-offset-1" placeholder='12 rue du Boulevard, 34000 Montpellier'></input>
 			 	</div>
 			</div>
 			<div class='row form-group'>
 				<div class="col-xs-5 col-xs-offset-1 form-inline">
-			    	<label>Date cotisation : </label><input type='date' class='form-control' ></input>
+					<span class="col-xs-3">Date cotisation : </span> <input type='date' class="form-control col-xs-offset-1"></input>
 			 	</div>
 				<div class="col-xs-5 col-xs-offset-1 form-inline">
-			    	<label>Montant cotisation : </label> <input type='number' class="form-control" placeholder='60'></input> &euro;
+					<span class="col-xs-3">Montant cotisation : </span> <input type='number' class="form-control col-xs-offset-1" placeholder='60'></input>&euro;	
 			 	</div>
 			</div>
 			<div class='row form-group'>
-			 	<div class="col-xs-6 col-xs-offset-1 form-inline">
-			    	<label>Mail : </label><input type='mail' class="form-control" placeholder='gDroudard@mail.fr'></input>
+			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
+			 		<span class="col-xs-3">Mail : </span> <input type='mail' class="form-control col-xs-offset-1" placeholder='gDroudard@mail.fr'></input>
 			 	</div>
 			</div>
 			<div class="row col-xs-6 col-xs-offset-3 form-group alert alert-danger" role="alert">
-		  		<p class="text-center">Les champs du formulaire ne sont pas remplis</p>
+		  		<p class="text-center">Champs non renseignés</p>
 		  	</div>
 		  </div>
 
@@ -101,75 +101,77 @@
 		</div>	
 	</div>
 	<div class='row form-group'>
-		<button class="btn btn-default" type="button">
-			<span class="glyphicon glyphicon-plus"></span>
-		</button>
-		<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Type</th>
-						<th>Détails</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Le petit cheval de manège</td>
-						<td>Just Leblanc</td>
-						<td><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default btn-lg">
-				    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Batman Lego</td>
-						<td>Lego</td>
-						<td><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default btn-lg">
-				    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td><button type="button" class="btn btn-success btn-block">Ajouter</button></td>
-						<td><input type='text' class="form-control"></input></td>
-						<td><input type='text' class="form-control"></input></td>
-						<td>
-							<div class="dropdown form-group">
-				  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    				Type
-				    				<span class="caret"></span>
-				  				</button>
-				  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    				<li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</a></li>
-				    				<li><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span> CD</a></li>
-				    				<li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</a></li>
-				  				</ul>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-		</table>
-		<div class='form-group'>
-			<button type="button" class="btn btn-info form-group">plus</button>
-		</div>
-		
-		<div class="row col-xs-6 col-xs-offset-3 form-group alert alert-danger" role="alert">
-		  	<p class="text-center">Les champs du formulaire ne sont pas remplis</p>  	
+		<div class="col-xs-6 col-xs-offset-3 alert alert-danger" role="alert">
+		  	<p class="text-center">Champs non renseignés</p>  	
 	    </div>
-		
-	</div>
+	 </div>
+	    <div class="row">
+			<button class="btn btn-success form-group" type="button">
+				Ajouter
+			</button>
+			<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
+							<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
+							<th>Type</th>
+							<th>Détails</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr>
+							<td></td>
+							<td class="has-error"><input type='text' class="form-control"></input></td>
+							<td class="has-error"><input type='text' class="form-control"></input></td>
+							<td>
+								<div class="dropdown form-group">
+					  				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    				Type
+					    				<span class="caret"></span>
+					  				</button>
+					  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    				<li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</a></li>
+					    				<li><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span> CD</a></li>
+					    				<li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</a></li>
+					  				</ul>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>1</td>
+							<td>Le petit cheval de manège</td>
+							<td>Just Leblanc</td>
+							<td><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</td>
+							<td>
+								<a href="./affichageMedia.html">
+									<button type="button" class="btn btn-default btn-lg">
+					    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					    			</button>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Batman Lego</td>
+							<td>Lego</td>
+							<td><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</td>
+							<td>
+								<a href="./affichageMedia.html">
+									<button type="button" class="btn btn-default btn-lg">
+					    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					    			</button>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+			</table>
+		</div>
+		<div class='form-group'>
+			<button type="button" class="btn btn-info form-group">voir plus</button>
+		</div>
 
 	</main>
 
