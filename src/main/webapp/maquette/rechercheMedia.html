@@ -56,24 +56,24 @@
 		<div class='row form-group'>
 			<form class="form-inline">
 			  <div class="form-group col-xs-7">
-			    <label for="rechercher">Rechercher : </label>
-			    <input type="text" class="form-control" id="rechercher" placeholder="Rechercher">
-				<div class="dropdown form-group">
-				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    Type
-				    <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a href="#"><td><span class="glyphicon glyphicon-book"></span> Livre</a></li>
-				    <li><a href="#"><td><span class="glyphicon glyphicon-music"></span> CD</a></li>
-				    <li><a href="#"><td><span class="glyphicon glyphicon-film"></span> DVD</a></li>
-				    <li><a href="#"><td>Tout</a></li>
-				  </ul>
-				</div>
-			    <button type="button" class="btn btn-info">
-			    	<span class="glyphicon glyphicon-search"></span>
-			    </button>
+ 			  	<div class="input-group">
+			      <input type="text" class="form-control" placeholder="Rechercher">
+			      <div class="input-group-btn">
+			        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Type <span class="caret"></span></button>
+			        <ul class="dropdown-menu dropdown-menu-right">
+			         	<li><a href="#"><span class="glyphicon glyphicon-book"></span> Livre</a></li>
+				    	<li><a href="#"><span class="glyphicon glyphicon-music"></span> CD</a></li>
+				    	<li><a href="#"><span class="glyphicon glyphicon-film"></span> DVD</a></li>
+			          	<li role="separator" class="divider"></li>
+			          	<li><a href="#">Tout</a></li>
+			        </ul>
+			      </div>
+			      <span class="input-group-btn">
+			        <button class="btn btn-info" type="button"><span class="glyphicon glyphicon-search"></span></button>
+			      </span>
+			    </div>
 			  </div>
+ 			  	
 			  <a href='./creationAdherent.html' class="btn btn-success col-xs-2 col-xs-offset-3">
 			 	Nouveau
 			  </a>
