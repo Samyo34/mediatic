@@ -101,75 +101,77 @@
 		</div>	
 	</div>
 	<div class='row form-group'>
-		<button class="btn btn-success" type="button">
-			Nouvel emprunt
-		</button>
-		<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Type</th>
-						<th>Détails</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Le petit cheval de manège</td>
-						<td>Just Leblanc</td>
-						<td><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default btn-lg">
-				    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Batman Lego</td>
-						<td>Lego</td>
-						<td><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default btn-lg">
-				    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td><button type="button" class="btn btn-success btn-block">Ajouter</button></td>
-						<td><input type='text' class="form-control"></input></td>
-						<td><input type='text' class="form-control"></input></td>
-						<td>
-							<div class="dropdown form-group">
-				  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    				Type
-				    				<span class="caret"></span>
-				  				</button>
-				  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    				<li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</a></li>
-				    				<li><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span> CD</a></li>
-				    				<li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</a></li>
-				  				</ul>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-		</table>
+		<div class="col-xs-6 col-xs-offset-3 alert alert-danger" role="alert">
+		  	<p class="text-center">Champs non renseignés</p>  	
+	    </div>
+	 </div>
+	    <div class="row">
+			<button class="btn btn-success form-group" type="button">
+				Ajouter
+			</button>
+			<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
+							<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
+							<th>Type</th>
+							<th>Détails</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr>
+							<td></td>
+							<td class="has-error"><input type='text' class="form-control"></input></td>
+							<td class="has-error"><input type='text' class="form-control"></input></td>
+							<td>
+								<div class="dropdown form-group">
+					  				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    				Type
+					    				<span class="caret"></span>
+					  				</button>
+					  				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    				<li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</a></li>
+					    				<li><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span> CD</a></li>
+					    				<li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</a></li>
+					  				</ul>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>1</td>
+							<td>Le petit cheval de manège</td>
+							<td>Just Leblanc</td>
+							<td><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Livre</td>
+							<td>
+								<a href="./affichageMedia.html">
+									<button type="button" class="btn btn-default btn-lg">
+					    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					    			</button>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Batman Lego</td>
+							<td>Lego</td>
+							<td><span class="glyphicon glyphicon-film" aria-hidden="true"></span> DVD</td>
+							<td>
+								<a href="./affichageMedia.html">
+									<button type="button" class="btn btn-default btn-lg">
+					    				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					    			</button>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+			</table>
+		</div>
 		<div class='form-group'>
 			<button type="button" class="btn btn-info form-group">voir plus</button>
 		</div>
-		
-		<div class="row col-xs-6 col-xs-offset-3 form-group alert alert-danger" role="alert">
-		  	<p class="text-center">Les champs du formulaire ne sont pas remplis</p>  	
-	    </div>
-		
-	</div>
 
 	</main>
 
