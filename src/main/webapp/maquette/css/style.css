@@ -1,0 +1,22 @@
+.icon-tab {
+	font-size: 20px;
+	text-align: center;
+}
+
+.icon-success {
+	color: #5cb85c;
+}
+
+.icon-warning {
+	color: #f0ad4e;
+}
+
+.icon-error {
+	color: #c9302c;
+}
+
+.container .table>tbody>tr>td, .container .table>tbody>tr>th,
+.container .table>tfoot>tr>td, .container .table>tfoot>tr>th,
+.container .table>thead>tr>td, .container .table>thead>tr>th{
+	vertical-align: middle;
+}
