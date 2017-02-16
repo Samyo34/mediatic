@@ -55,6 +55,9 @@
 	<main  class="container">
 		<!-- corps de la page-->
 	<div class="row form-group">
+	<a href="./rechercheMedia.html">
+	<button type="button" class="btn btn-warning btn-sm col-xs-2 col-xs-offset-10"><span class="glyphicon glyphicon-circle-arrow-left"></span>  Retour à la recherche</button>
+		</a>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h1 class="panel-title">Details du Média</h1>
@@ -63,29 +66,31 @@
 			<div class="panel-body">
 				<div class="row form-group">
 				<div class="row col-xs-5 col-xs-offset-1 " >
-				Titre : <strong>ex : Le Hobbit</strong>
+				<span class="col-xs-3 col-xs-offset-1">Titre :</span> <label class="col-xs-offset-1">ex : Le Hobbit</label>
 				</div>
 				
-				<div class="row col-xs-5 col-xs-offset-1 ">
-				Auteur : <strong>ex : J.R.R. Tolkien</strong>
+				<div class="row col-xs-5">
+				<span class="col-xs-3 col-xs-offset-1">Auteur :</span> <label class="col-xs-offset-1">ex : J.R.R. Tolkien</label>
 				</div>
 				</div>
 			
 				<div class="row form-group">
 					<div class="row col-xs-5 col-xs-offset-1" >
-				Type : <span class="glyphicon glyphicon-book"></span> Livre
+				<span class="col-xs-3 col-xs-offset-1">Type :</span> <label class="col-xs-offset-1"> <span class="glyphicon glyphicon-book"></span> Livre</label>
 					</div>
 				</div>
 			</div>
 			
 			<div class="panel-footer">
-				<button class="btn btn-info" type="submit">Modifier</button>	
+				<a href="./affichageMedia_erreur.html">
+				<button type="button" class="btn btn-info">Modifier</button>
+				</a>	
 			</div>
 		</div>
 	</div>
 	<div class="row form-group">
-		<button class="btn btn-default" type="button">
-		<span class="glyphicon glyphicon-plus"></span>
+		<button class="btn btn-success" type="button">
+		Nouvelle emprunt
 		</button>
 		<table class="table table-bordered">
 				<thead>
@@ -99,24 +104,15 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th>1</th>
+						<td>1</td>
 						<td>Drouard</td>
 						<td>Guillaume</td>
 						<td>13/01/2017</td>
 						<td>30/01/2017</td>
-					</tr>
-					
-					<tr>
-						<td></td>
-						<td><input type="text" class="form-control" placeholder="Nom"></td>
-						<td><input type="text" class="form-control" placeholder="Prénom"></td>
-						<td><input type="text" class="form-control" placeholder="Date de l'emprunt"></td>
-						<td></td>
-					</tr>
+					</tr>				
 				</tbody>
 		</table>
-		<button class="btn btn-info form-group col-xs-offset-11" type="submit">Voir plus</button>
-		<button class="btn btn-success" type="submit">Ajouter</button>
+		<button class="btn btn-info form-group col-xs-offset-11 btn-sm" type="button">Voir plus</button>
 	</div>
 	</main>
 
