@@ -22,6 +22,9 @@ public class MediaDAO extends DAO{
 	public static Media findOneWithAdherent(Long id){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
+		TypedQuery<Media> query = em.createQuery(
+				"select "
+				,Media.class);
 		Media md = em.find(Media.class,id);
 		DatabaseHelper.commitTxAndClose(em);
 		return md;
