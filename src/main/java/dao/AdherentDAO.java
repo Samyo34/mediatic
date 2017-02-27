@@ -9,7 +9,7 @@ import globale.DatabaseHelper;
 import model.Adherent;
 import model.Media;
 
-public class AdherentDAO extends DAO {
+public class AdherentDAO extends DAO<Adherent> {
 	
     private static AdherentDAO dao;
 

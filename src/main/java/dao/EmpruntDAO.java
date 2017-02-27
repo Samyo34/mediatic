@@ -2,7 +2,7 @@ package dao;
 
 import model.Emprunt;
 
-public class EmpruntDAO extends DAO{
+public class EmpruntDAO extends DAO<Emprunt>{
 	
     private static EmpruntDAO dao;
 

@@ -6,7 +6,7 @@ import javax.persistence.TypedQuery;
 import globale.DatabaseHelper;
 import model.Media;
 
-public class MediaDAO extends DAO {
+public class MediaDAO extends DAO<Media> {
 
 	private static MediaDAO dao;
 
@@ -21,16 +21,18 @@ public class MediaDAO extends DAO {
 		return dao;
 	}
 
-	
-
-	public Media findOneWithAdherent(Long id) {
+	public Media findOneWithAdherentByID(Long id) {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Media> query = em.createQuery(
-				"select m" + 
-				"from Media m"
+				  "select m "
+				+ "from Media m "
+				+ "left join fetch m.emprunts e "
+				+ "left join fetch e.adherent a "
+				+ "where m.id =:id"
 				, Media.class);
-		Media md = em.find(Media.class, id);
+		query.setParameter("id", id);
+		Media md = query.getSingleResult();
 		DatabaseHelper.commitTxAndClose(em);
 		return md;
 	}

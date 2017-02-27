@@ -33,11 +33,27 @@ public class Emprunt {
 	private Date dateEmprunt;
 	
 	@NotNull
-	private boolean isReturn = false;
+	private boolean estRetourne = false;
 	
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateRetourPrevu;
+
+	public Emprunt(){}
+	
+	public Emprunt(Media media, Adherent adherent, Date dateEmprunt, Date dateRetourPrevu) {
+		this.media = media;
+		this.adherent = adherent;
+		this.dateEmprunt = dateEmprunt;
+		this.estRetourne = false;
+		this.dateRetourPrevu = dateRetourPrevu;
+	}
+
+	@Override
+	public String toString() {
+		return "Emprunt [id=" + id + ", media=" + media + ", adherent=" + adherent + ", dateEmprunt=" + dateEmprunt
+				+ ", estRetourne=" + estRetourne + ", dateRetourPrevu=" + dateRetourPrevu + "]";
+	}
 
 	public Long getId() {
 		return id;
@@ -71,12 +87,12 @@ public class Emprunt {
 		this.dateEmprunt = dateEmprunt;
 	}
 
-	public boolean isReturn() {
-		return isReturn;
+	public boolean estRetourne() {
+		return estRetourne;
 	}
 
-	public void setReturn(boolean isReturn) {
-		this.isReturn = isReturn;
+	public void setRetourne(boolean estRetourne) {
+		this.estRetourne = estRetourne;
 	}
 
 	public Date getDateRetourPrevu() {

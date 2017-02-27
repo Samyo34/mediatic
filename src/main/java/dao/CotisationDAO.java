@@ -2,7 +2,7 @@ package dao;
 
 import model.Cotisation;
 
-public class CotisationDAO extends DAO{
+public class CotisationDAO extends DAO<Cotisation>{
 	
     private static CotisationDAO dao;
 
