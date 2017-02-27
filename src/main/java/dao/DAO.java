@@ -14,14 +14,14 @@ public class DAO<T> {
 		this.klass = klass;
 	}
 	
-	public void createEntity(T entity){
+	public void create(T entity){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		em.persist(entity);
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
-	public void createEntities(List<T> entities){
+	public void create(List<T> entities){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		for (T entity : entities) {
@@ -31,14 +31,14 @@ public class DAO<T> {
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
-	public void udpateEntity(T entity){
+	public void udpate(T entity){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		em.merge(entity);
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
-	public void udpateEntities(List<T> entities){
+	public void udpate(List<T> entities){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		for (T entity : entities) {
@@ -47,4 +47,11 @@ public class DAO<T> {
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
+	public T getByID(Long id) {
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		T entity = em.find(klass, id);
+		DatabaseHelper.commitTxAndClose(em);
+		return entity;
+	}
 }

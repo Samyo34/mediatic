@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Media {
@@ -15,13 +19,16 @@ public class Media {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String titre;
 	
-	@Column(nullable = false)
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private MediaType type;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String auteur;
+	
+	@OneToMany (mappedBy = "media")
+	private List<Emprunt> emprunts;
 }

@@ -1,30 +1,36 @@
 package dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import globale.DatabaseHelper;
-import model.Emprunt;
 import model.Media;
 
-public class MediaDAO extends DAO{
-	
-    private static MediaDAO dao;
+public class MediaDAO extends DAO {
 
-    private MediaDAO() {
-        super(Media.class);
-    }
+	private static MediaDAO dao;
 
-    public static MediaDAO instance() {
-        if (dao == null) {
-            dao = new MediaDAO();
-        }
-        return dao;
-    }
+	private MediaDAO() {
+		super(Media.class);
+	}
+
+	public static MediaDAO instance() {
+		if (dao == null) {
+			dao = new MediaDAO();
+		}
+		return dao;
+	}
+
 	
-	public Media getAdherentByID(Long id){
+
+	public Media findOneWithAdherent(Long id) {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
-		Media md = em.find(Media.class,id);
+		TypedQuery<Media> query = em.createQuery(
+				"select m" + 
+				"from Media m"
+				, Media.class);
+		Media md = em.find(Media.class, id);
 		DatabaseHelper.commitTxAndClose(em);
 		return md;
 	}

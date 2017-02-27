@@ -23,15 +23,6 @@ public class AdherentDAO extends DAO {
         return dao;
     }
 	
-	
-	public Adherent getAdherentByID(Long id){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		Adherent ad = em.find(Adherent.class,id);
-		DatabaseHelper.commitTxAndClose(em);
-		return ad;
-	}
-	
 	public List<Adherent> getAdherentByNom(String nom){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
