@@ -10,7 +10,21 @@ import model.Adherent;
 
 public class AdherentDAO extends DAO {
 	
-	public static Adherent getAdherentByID(Long id){
+    private static AdherentDAO dao;
+
+    private AdherentDAO() {
+        super(Adherent.class);
+    }
+
+    public static AdherentDAO instance() {
+        if (dao == null) {
+            dao = new AdherentDAO();
+        }
+        return dao;
+    }
+	
+	
+	public Adherent getAdherentByID(Long id){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		Adherent ad = em.find(Adherent.class,id);
@@ -18,7 +32,7 @@ public class AdherentDAO extends DAO {
 		return ad;
 	}
 	
-	public static List<Adherent> getAdherentByNom(String nom){
+	public List<Adherent> getAdherentByNom(String nom){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
@@ -30,7 +44,7 @@ public class AdherentDAO extends DAO {
 		return ad;
 	}
 	
-	public static List<Adherent> getAdherentByPrenom(String prenom){
+	public List<Adherent> getAdherentByPrenom(String prenom){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
@@ -42,7 +56,7 @@ public class AdherentDAO extends DAO {
 		return ad;
 	}
 	
-	public static List<Adherent> getAdherentByNomPrenom(String nom, String prenom){
+	public List<Adherent> getAdherentByNomPrenom(String nom, String prenom){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
