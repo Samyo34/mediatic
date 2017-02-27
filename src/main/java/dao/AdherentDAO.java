@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import globale.DatabaseHelper;
 import model.Adherent;
+import model.Media;
 
 public class AdherentDAO extends DAO {
 	
@@ -59,4 +60,25 @@ public class AdherentDAO extends DAO {
 		DatabaseHelper.commitTxAndClose(em);
 		return ad;
 	}
+	
+	/**
+	 * return all adherents who borrow the media passed in parameters
+	 * 
+	 * @param m
+	 * @return List<Adherent>
+	 */
+	public List<Adherent> getAdherentsByMedia(Media m){
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		TypedQuery<Adherent> query = em.createQuery("select a "+
+				"from Adherent a "+
+				"inner join emprunt e"+
+				"where a.id =:mediaId",Adherent.class);
+		query.setParameter("id", m.getId());
+		List<Adherent> adherents = query.getResultList();
+		DatabaseHelper.commitTxAndClose(em);
+		return adherents;
+	}
+	
+	
 }

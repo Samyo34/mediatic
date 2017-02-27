@@ -31,4 +31,36 @@ public class Cotisation {
 	@Temporal(TemporalType.DATE)
 	private Date dateCotisation;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Adherent getAdherent() {
+		return adherent;
+	}
+
+	public void setAdherent(Adherent adherent) {
+		this.adherent = adherent;
+	}
+
+	public Float getMontant() {
+		return montant;
+	}
+
+	public void setMontant(Float montant) {
+		this.montant = montant;
+	}
+
+	public Date getDateCotisation() {
+		return dateCotisation;
+	}
+
+	public void setDateCotisation(Date dateCotisation) {
+		this.dateCotisation = dateCotisation;
+	}
+
 }
