@@ -3,15 +3,16 @@ package dao;
 import javax.persistence.EntityManager;
 
 import globale.DatabaseHelper;
-import model.Adherent;
+import model.Media;
 
-public class Media_DAO {
+public class MediaDAO extends DAO{
 	
-	public static void createAdherent(Adherent ad){
+	public static Media getAdherentByID(Long id){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
-		em.persist(ad);
+		Media md = em.find(Media.class,id);
 		DatabaseHelper.commitTxAndClose(em);
+		return md;
 	}
 
 }

@@ -8,24 +8,7 @@ import javax.persistence.TypedQuery;
 import globale.DatabaseHelper;
 import model.Adherent;
 
-public class Adherent_DAO {
-	
-	public static void createAdherent(Adherent ad){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		em.persist(ad);
-		DatabaseHelper.commitTxAndClose(em);
-	}
-	
-	public static void  createAdherents(List<Adherent> ads){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		for (Adherent adherent : ads) {
-			em.persist(adherent);
-		}
-		
-		DatabaseHelper.commitTxAndClose(em);
-	}
+public class AdherentDAO extends DAO {
 	
 	public static Adherent getAdherentByID(Long id){
 		EntityManager em = DatabaseHelper.createEntityManager();
@@ -39,7 +22,7 @@ public class Adherent_DAO {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
-				"from adherent a "+
+				"from Adherent a "+
 				"where a.nom =:nom",Adherent.class);
 		query.setParameter("nom", nom);
 		List<Adherent> ad = query.getResultList();
@@ -51,7 +34,7 @@ public class Adherent_DAO {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
-				"from adherent a "+
+				"from Adherent a "+
 				"where a.prenom =:prenom",Adherent.class);
 		query.setParameter("prenom", prenom);
 		List<Adherent> ad = query.getResultList();
@@ -63,7 +46,7 @@ public class Adherent_DAO {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
-				"from adherent a "+
+				"from Adherent a "+
 				"where a.nom =:nom AND a.prenom =:prenom",Adherent.class);
 		query.setParameter("nom", nom);
 		query.setParameter("prenom", prenom);
@@ -71,22 +54,4 @@ public class Adherent_DAO {
 		DatabaseHelper.commitTxAndClose(em);
 		return ad;
 	}
-	
-	public static void udpateAdherent(Adherent ad){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		em.merge(ad);
-		DatabaseHelper.commitTxAndClose(em);
-	}
-	
-	public static void udpateAdherents(List<Adherent> ads){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		for (Adherent adherent : ads) {
-			em.merge(adherent);
-		}
-		DatabaseHelper.commitTxAndClose(em);
-	}
-	
-
 }
