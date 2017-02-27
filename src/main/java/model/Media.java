@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Media {
@@ -18,17 +19,16 @@ public class Media {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String titre;
 	
-	@Column(nullable = false)
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private MediaType type;
 	
-	@Column(nullable = false)
+	@NotNull
 	private String auteur;
 	
-	@Column
 	@OneToMany (mappedBy = "media")
 	private List<Emprunt> emprunts;
 }

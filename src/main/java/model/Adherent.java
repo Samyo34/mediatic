@@ -1,6 +1,7 @@
 package model;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="adherent",uniqueConstraints=@UniqueConstraint(columnNames = {"mail"}))
@@ -18,13 +23,14 @@ public class Adherent {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@NotBlank
 	private String prenom;
 	
-	@Column
+	@NotBlank
 	private String nom;
 	
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date naissance;
 	
 	@Column

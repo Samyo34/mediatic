@@ -6,16 +6,22 @@ import javax.persistence.EntityManager;
 
 import globale.DatabaseHelper;
 
-public abstract class DAO {
+public class DAO<T> {
 	
-	public static <T> void createEntity(T entity){
+	private Class<T> klass;
+	
+	public DAO(Class<T> klass){
+		this.klass = klass;
+	}
+	
+	public void create(T entity){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		em.persist(entity);
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
-	public static <T> void createEntities(List<T> entities){
+	public void create(List<T> entities){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		for (T entity : entities) {
@@ -25,14 +31,14 @@ public abstract class DAO {
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
-	public static <T> void udpateEntity(T entity){
+	public void udpate(T entity){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		em.merge(entity);
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
-	public static <T> void udpateEntities(List<T> entities){
+	public void udpate(List<T> entities){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 		for (T entity : entities) {
@@ -41,4 +47,11 @@ public abstract class DAO {
 		DatabaseHelper.commitTxAndClose(em);
 	}
 	
+	public T getByID(Long id) {
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		T entity = em.find(klass, id);
+		DatabaseHelper.commitTxAndClose(em);
+		return entity;
+	}
 }
