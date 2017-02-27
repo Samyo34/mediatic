@@ -1,9 +1,13 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import globale.DatabaseHelper;
+import model.Adherent;
+import model.Cotisation;
 import model.Media;
 
 public class MediaDAO extends DAO<Media> {
@@ -36,5 +40,25 @@ public class MediaDAO extends DAO<Media> {
 		DatabaseHelper.commitTxAndClose(em);
 		return md;
 	}
+	
+	/**
+	 * return all the media borrow by the adherent given in parameters
+	 * 
+	 * @param a
+	 * @return List<Media>
+	 */
+	private List<Media> getMediasByAdherent(Adherent a){
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		TypedQuery<Media> query = em.createQuery("select m "+
+				"from Media m "+
+				"inner join emprunt e"+
+				"where e.adherent =:id",Media.class);
+		query.setParameter("id", a.getId());
+		List<Media> med = query.getResultList();
+		DatabaseHelper.commitTxAndClose(em);
+		return med;
+	}
+	
 
 }

@@ -23,6 +23,20 @@ public class AdherentDAO extends DAO<Adherent> {
         }
         return dao;
     }
+    
+    public Adherent getAdherentWithEmpruntById(Long idAdherent){
+    	EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		TypedQuery<Adherent> query = em.createQuery("select a "+
+				"from Adherent a "+
+				"left join fetch a.emprunts e "+
+				"left join fetch e.media "+
+				"where a.id =:id",Adherent.class);
+		query.setParameter("id", idAdherent);
+		Adherent ad = query.getSingleResult();
+		DatabaseHelper.commitTxAndClose(em);
+		return ad;
+    }
 	
 	public List<Adherent> getAdherentByNom(String nom){
 		EntityManager em = DatabaseHelper.createEntityManager();
@@ -70,7 +84,7 @@ public class AdherentDAO extends DAO<Adherent> {
 	public List<Adherent> getAdherentsByMedia(Media m){
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
-		TypedQuery<Adherent> query = em.createQuery("select a "+
+		TypedQuery<Adherent> query = em.createQuery("select a"+
 				"from Adherent a "+
 				"inner join emprunt e"+
 				"where a.id =:mediaId",Adherent.class);
