@@ -31,4 +31,44 @@ public class Media {
 	
 	@OneToMany (mappedBy = "media")
 	private List<Emprunt> emprunts;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public MediaType getType() {
+		return type;
+	}
+
+	public void setType(MediaType type) {
+		this.type = type;
+	}
+
+	public String getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+
+	public List<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(List<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}
 }

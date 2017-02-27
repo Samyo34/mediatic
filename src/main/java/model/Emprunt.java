@@ -38,6 +38,54 @@ public class Emprunt {
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateRetourPrevu;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Media getMedia() {
+		return media;
+	}
+
+	public void setMedia(Media media) {
+		this.media = media;
+	}
+
+	public Adherent getAdherent() {
+		return adherent;
+	}
+
+	public void setAdherent(Adherent adherent) {
+		this.adherent = adherent;
+	}
+
+	public Date getDateEmprunt() {
+		return dateEmprunt;
+	}
+
+	public void setDateEmprunt(Date dateEmprunt) {
+		this.dateEmprunt = dateEmprunt;
+	}
+
+	public boolean isReturn() {
+		return isReturn;
+	}
+
+	public void setReturn(boolean isReturn) {
+		this.isReturn = isReturn;
+	}
+
+	public Date getDateRetourPrevu() {
+		return dateRetourPrevu;
+	}
+
+	public void setDateRetourPrevu(Date dateRetourPrevu) {
+		this.dateRetourPrevu = dateRetourPrevu;
+	}
 	
 	
 	
