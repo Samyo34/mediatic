@@ -2,7 +2,6 @@ package model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -31,6 +30,19 @@ public class Media {
 	
 	@OneToMany (mappedBy = "media")
 	private List<Emprunt> emprunts;
+	
+	public Media() {}
+	
+	public Media(String titre, MediaType type, String auteur) {
+		this.titre = titre;
+		this.type = type;
+		this.auteur = auteur;
+	}
+
+	@Override
+	public String toString() {
+		return "Media [id=" + id + ", titre=" + titre + ", type=" + type + ", auteur=" + auteur + "]";
+	}
 
 	public Long getId() {
 		return id;

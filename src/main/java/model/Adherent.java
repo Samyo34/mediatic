@@ -2,12 +2,15 @@ package model;
 
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,21 +32,44 @@ public class Adherent {
 	@NotBlank
 	private String nom;
 	
-	@Column
 	@Temporal(TemporalType.DATE)
 	private Date naissance;
 	
-	@Column
 	private String mail;
 	
-	@Column
 	private String adresse;
 	
-	@Column
 	private String ville;
 	
-	@Column
 	private String postal;
+	
+
+	public Adherent() {}
+
+	public Adherent(String prenom, String nom, Date naissance, String mail) {
+		this.prenom = prenom;
+		this.nom = nom;
+		this.naissance = naissance;
+		this.mail = mail;
+	}
+	
+	public Adherent(String prenom, String nom, Date naissance, String mail, String adresse, String ville, String postal) {
+		this(prenom,nom,naissance,mail);
+		this.adresse = adresse;
+		this.ville = ville;
+		this.postal = postal;
+	}
+	
+	@Override
+	public String toString() {
+		return "Adherent [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", naissance=" + naissance + ", mail="
+				+ mail + ", adresse=" + adresse + ", ville=" + ville + ", postal=" + postal + "]";
+	}
+	@OneToMany(mappedBy="adherent")
+	private List<Emprunt> emprunts;
+	
+	@OneToOne
+	private Cotisation coti;
 
 	public Long getId() {
 		return id;
@@ -108,7 +134,13 @@ public class Adherent {
 	public void setPostal(String postal) {
 		this.postal = postal;
 	}
-	
-	
+
+	public List<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(List<Emprunt> medias) {
+		this.emprunts = medias;
+	}
 	
 }

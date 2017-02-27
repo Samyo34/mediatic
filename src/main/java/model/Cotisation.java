@@ -30,6 +30,20 @@ public class Cotisation {
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateCotisation;
+	
+	public Cotisation() {}
+	
+	public Cotisation(Adherent adherent, Float montant, Date dateCotisation) {
+		this.adherent = adherent;
+		this.montant = montant;
+		this.dateCotisation = dateCotisation;
+	}
+
+	@Override
+	public String toString() {
+		return "Cotisation [id=" + id + ", adherent=" + adherent + ", montant=" + montant + ", dateCotisation="
+				+ dateCotisation + "]";
+	}
 
 	public Long getId() {
 		return id;
