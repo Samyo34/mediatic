@@ -8,8 +8,17 @@
 			controller:'RechercheMediaCtrl'
 		})
 	})
-	.controller('RechercheMediaCtrl',function($scope,$routeParams,$rootScope){
+	.controller('RechercheMediaCtrl',function($scope,$routeParams,$rootScope, ServiceUrl){
 		$rootScope.title = "Recherche Média";
+		
+		$scope.datas = [] ;
+		ServiceUrl.getMediaRecherche().then(function(data){
+			console.log(data);
+			$scope.datas = data;
+		});
+		
+		
+		
 	})
 	
 })();
