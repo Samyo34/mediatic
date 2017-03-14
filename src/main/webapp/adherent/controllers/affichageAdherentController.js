@@ -1,10 +1,10 @@
 (function(){
 	'use strict';
 	
-	angular.module('mediaticApp.adherent',[])
+	angular.module('mediaticApp.adherent')
 	.config(function($routeProvider){
 		$routeProvider.when('/adherent/:id',{
-			templateUrl:'../templates/affichageAdherent.html',
+			templateUrl:'/adherent/templates/affichageAdherent.html',
 			controller:'affichageAdherentCtrl'
 		})
 	})
