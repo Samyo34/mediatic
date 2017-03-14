@@ -6,10 +6,10 @@
 <link rel="stylesheet" type="text/css" href="/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-csp.css">
 <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/libs/css/style.css">
-<title>Mediatic</title>
+<title>Mediatic - {{ title }}</title>
 </head>
 <body>
-	<header>
+	<header ng-controller="navBarCtrl">
 		<nav class="navbar navbar-default navbar-inverse" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -20,37 +20,36 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="rechercheMedia.html"><span
+					<a class="navbar-brand" href="#/medias"><span
 						class="glyphicon glyphicon-home"></span> Mediatic</a>
 				</div>
 
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown"><a href="" class="dropdown-toggle"
 							data-toggle="dropdown"><span class="glyphicon glyphicon-book"></span>
 								Médias <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="rechercheMedia.html"><span
+								<li ng-class="{active:isMedias}"><a href="#/medias"><span
 										class="glyphicon glyphicon-search"></span> Recherche</a></li>
 								<li class="divider"></li>
-								<li><a href="creationMedia.html"><span
+								<li ng-class="{active:isMedia}"><a href="#/media"><span
 										class="glyphicon glyphicon-plus"></span> Création</a></li>
 							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown"><a href="" class="dropdown-toggle"
 							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
 								Adhérents <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="rechercheAdherent.html"><span
+								<li ng-class="{active:isAdherents}"><a href="#/adherents"><span
 										class="glyphicon glyphicon-search"></span> Recherche</a></li>
 								<li class="divider"></li>
-								<li><a href="creationAdherent.html"><span
+								<li ng-class="{active:isAdherent}"><a href="#/adherent"><span
 										class="glyphicon glyphicon-plus"></span> Création</a></li>
 							</ul></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="login.html"><span
-								class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a></li>
+						<li><a href="#/login"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a></li>
 					</ul>
 				</div>
 			</div>
@@ -79,6 +78,7 @@
 		<script src="/bower_components/angular-ui-bootstrap-bower/ui-bootstrap.js"></script>
 		<script src="/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
 		<script src="/app.js"></script>
+		<script src="/global/controllers/navBarController.js"></script>
 		<script src="/adherent/controllers/affichageAdherentController.js"></script>
 	</footer>
 </body>
