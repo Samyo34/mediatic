@@ -2,3 +2,6 @@ target/
 .settings/
 .classpath
 .project
+src/main/webapp/bower_compoments
+src/main/node_modules
+.gitignore
