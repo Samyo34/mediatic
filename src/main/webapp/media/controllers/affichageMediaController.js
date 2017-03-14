@@ -5,10 +5,10 @@
 	.config(function($routeProvider){
 		$routeProvider.when('/media/:id',{
 			templateUrl:'/media/templates/affichageMedia.html',
-			controller:'affichageMediaCtrl'
+			controller:'AffichageMediaCtrl'
 		})
 	})
-	.controller('affichageMediaCtrl',function($scope,$routeParams,$rootScope){
+	.controller('AffichageMediaCtrl',function($scope,$routeParams,$rootScope){
 		$rootScope.titre = 'Affichage Media';
 	})
 	

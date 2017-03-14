@@ -5,10 +5,10 @@
 	.config(function($routeProvider){
 		$routeProvider.when('/adherent/:id',{
 			templateUrl:'/adherent/templates/affichageAdherent.html',
-			controller:'affichageAdherentCtrl'
+			controller:'AffichageAdherentCtrl'
 		})
 	})
-	.controller('affichageAdherentCtrl',function($scope,$routeParams,$rootScope){
+	.controller('AffichageAdherentCtrl',function($scope,$routeParams,$rootScope){
 		$rootScope.titre = 'Affichage Adherent';
 	})
 	
