@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Mediatic - Recherche Media</title>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default navbar-inverse" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="rechercheMedia.html"><span class="glyphicon glyphicon-home"></span> Mediatic</a>
+		    </div>
+		
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="dropdown active">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-book"></span> Médias <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li class="active"><a href="rechercheMedia.html"><span class="glyphicon glyphicon-search"></span> Recherche</a></li>
+		            <li class="divider"></li>
+		            <li><a href="creationMedia.html"><span class="glyphicon glyphicon-plus"></span> Création</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Adhérents <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="rechercheAdherent.html"><span class="glyphicon glyphicon-search"></span> Recherche</a></li>
+		            <li class="divider"></li>
+		            <li><a href="creationAdherent.html"><span class="glyphicon glyphicon-plus"></span> Création</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li>
+		          <a href="login.html"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+	
+	<main class="container">
+		<div class='row form-group'>
+			<form class="form-inline">
+			  <div class="form-group col-xs-7">
+ 			  	<div class="input-group">
+			      <input type="text" class="form-control" placeholder="Rechercher">
+			      <div class="input-group-btn">
+			        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Type <span class="caret"></span></button>
+			        <ul class="dropdown-menu dropdown-menu-right">
+			         	<li><a href="#"><span class="glyphicon glyphicon-book"></span> Livre</a></li>
+				    	<li><a href="#"><span class="glyphicon glyphicon-music"></span> CD</a></li>
+				    	<li><a href="#"><span class="glyphicon glyphicon-film"></span> DVD</a></li>
+			          	<li role="separator" class="divider"></li>
+			          	<li><a href="#">Tout</a></li>
+			        </ul>
+			      </div>
+			      <span class="input-group-btn">
+			        <button class="btn btn-info" type="button"><span class="glyphicon glyphicon-search"></span></button>
+			      </span>
+			    </div>
+			  </div>
+			  <a href='./creationMedia.html' class="btn btn-success col-xs-2 col-xs-offset-3">
+			 	Nouveau
+			  </a>
+			</form>
+		</div>
+		
+		<div class='row form-group'>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
+						<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
+						<th>Disponibilité</th>
+						<th>Détails</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td><span class="glyphicon glyphicon-book"></span> Le petit cheval de manège</td>
+						<td>Just Leblanc</td>
+						<td class="icon-tab"><span class="glyphicon glyphicon-ok icon-success"></span></td>
+						<td>
+							<a href="./affichageMedia.html">
+								<button type="button" class="btn btn-default">
+				    				<span class="glyphicon glyphicon-new-window"></span>
+				    			</button>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><span class="glyphicon glyphicon-film"></span> Le roi lion</td>
+						<td>Disney</td>
+						<td class="icon-tab"><span class="glyphicon glyphicon-ok icon-success"></span></td>
+						<td>
+							<a href="./affichageMedia.html">
+								<button type="button" class="btn btn-default">
+				    				<span class="glyphicon glyphicon-new-window"></span>
+				    			</button>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><span class="glyphicon glyphicon-music"></span> De la musique</td>
+						<td>Un musicien</td>
+						<td class="icon-tab"><span class="glyphicon glyphicon-remove icon-error"></span></td>
+						<td>
+							<a href="./affichageMedia.html">
+								<button type="button" class="btn btn-default">
+				    				<span class="glyphicon glyphicon-new-window"></span>
+				    			</button>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><span class="glyphicon glyphicon-music"></span> Encore de la musique</td>
+						<td>Un autre musicien</td>
+						<td class="icon-tab"><span class="glyphicon glyphicon-ok icon-success"></span></td>
+						<td>
+							<a href="./affichageMedia.html">
+								<button type="button" class="btn btn-default">
+				    				<span class="glyphicon glyphicon-new-window"></span>
+				    			</button>
+							</a>
+						</td>					
+					</tr>
+				</tbody>
+			 </table>
+			<button type="button" class="btn btn-info col-xs-offset-11">voir plus</button>
+		</div>
+	</main>
+
+	<footer>
+	<div class="navbar navbar-default navbar-fixed-bottom navbar-inverse">
+	    <div class="container">
+	      <p class="navbar-text pull-center">© 2017 - Groupe Guillaume - Raphaël - Samuel et Fabien - DTA Ingénierie</p>
+	    </div>
+  	</div>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/underscore.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	</footer>
+</body>
