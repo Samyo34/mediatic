@@ -4,3 +4,5 @@ target/
 .project
 src/main/webapp/bower_components
 src/main/node_modules
+.gitignore
+pom.xml
