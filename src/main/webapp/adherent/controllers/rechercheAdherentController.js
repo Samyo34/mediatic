@@ -9,7 +9,7 @@
 		})
 	})
 	.controller('RechercheAdherentCtrl',function($scope,$routeParams,$rootScope){
-		$rootScope.title = "Recherche Adhérent";
+		$rootScope.title = "Recherche"
 	})
 	
 })();
