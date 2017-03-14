@@ -9,7 +9,7 @@
 		})
 	})
 	.controller('affichageAdherentCtrl',function($scope,$routeParams,$rootScope){
-		
+		$rootScope.titre = 'Affichage Adherent';
 	})
 	
 })();
