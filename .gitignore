@@ -2,7 +2,7 @@ target/
 .settings/
 .classpath
 .project
-src/main/webapp/bower_compoments
+src/main/webapp/bower_components
 src/main/node_modules
 .gitignore
 pom.xml
