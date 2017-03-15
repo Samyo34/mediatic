@@ -44,6 +44,40 @@
 			$http.post(mediaModificationUrl,media);
 		}
 		
+		this.getMediasByParams = function(params){
+			var paramsPresents = [];
+			if(params.page != undefined)
+			{
+				paramsPresents.push({label : "page", param : params.page});
+			}
+			if(params.titre != undefined)
+			{
+				paramsPresents.push({label : "titre", param : params.titre});
+			}
+			if(params.auteur != undefined)
+			{
+				paramsPresents.push({label : "auteur", param : params.auteur});
+			}
+			if(params.type != undefined)
+			{
+				paramsPresents.push({label : "type", param : params.type});
+			}
+			if(paramsPresents.length == 0)
+			{
+				return self.getMedias();
+			}
+			else
+			{
+				var paramsUrl = "?";
+				for(var index in paramsPresents)
+				{
+					paramsUrl += paramsPresents[index].label + "=" + paramsPresents[index].param +"&";
+				}
+				console.log(mediaRechercheUrl+paramsUrl);
+				return self.getPromise(mediaRechercheUrl+paramsUrl);
+			}
+		}
+		
 		this.getAdherents = function(){
 			return self.getPromise(adherentRechercheUrl);
 		}
@@ -60,8 +94,54 @@
 			$http.post(adherentModificationUrl,adherent);
 		}
 		
+		this.getAdherentsByParams = function(params){
+			var paramsPresents = [];
+			if(params.page != undefined)
+			{
+				paramsPresents.push({label : "page", param : params.page});
+			}
+			if(params.id != undefined)
+			{
+				paramsPresents.push({label : "id", param : params.id});
+			}
+			if(params.nom != undefined)
+			{
+				paramsPresents.push({label : "nom", param : params.nom});
+			}
+			if(params.prenom != undefined)
+			{
+				paramsPresents.push({label : "prenom", param : params.prenom});
+			}
+			if(params.email != undefined)
+			{
+				paramsPresents.push({label : "email", param : params.email});
+			}
+			if(params.texte != undefined)
+			{
+				paramsPresents.push({label : "texte", param : params.texte});
+			}
+			if(paramsPresents.length == 0)
+			{
+				return self.getAdherents();
+			}
+			else
+			{
+				var paramsUrl = "?";
+				for(var index in paramsPresents)
+				{
+					paramsUrl += paramsPresents[index].label + "=" + paramsPresents[index].param +"&";
+				}
+				console.log(adherentRechercheUrl+paramsUrl);
+				return self.getPromise(adherentRechercheUrl+paramsUrl);
+			}
+		}
+		
 		this.addEmpruntMedia = function(idAdherent, idMedia, dateDepart){
 			$http.post(ajoutEmrpuntUrl,{id_adherent:idAdherent,id_media:idMedia,depart:dateDepart});
+		}
+		
+		this.getConnection = function(){
+			return rootUrl+'/resource/connexion.rights';
 		}
 			
 	});

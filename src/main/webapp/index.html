@@ -48,18 +48,21 @@
 										class="glyphicon glyphicon-plus"></span> Création</a></li>
 							</ul></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#/login"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a></li>
+					<ul class="nav navbar-nav navbar-right" ng-controller="mainCtrl">
+						<li ><a ng-click="disconnect()" href="#/medias"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
-
-	<main class="container">
-		<div ng-view>
-		
-		
+	
+	<main ng-controller="mainCtrl">
+		<div ng-if="!isConnected()">
+			<div ng-include="'global/templates/login.html'"></div>
+		</div>
+		<div class="container" ng-show="isConnected()">
+		<!-- 	<div ng-if="isConnected()" ng-include="media/templates/rechercheMedia.html"></div> -->
+			<div ng-if="isConnected()" ng-view></div>
 		</div>
 	 </main>
 
@@ -86,6 +89,8 @@
 		<script src="/media/controllers/rechercheMediaController.js"></script>
 		<script src="/media/controllers/affichageMediaController.js"></script>
 		<script src="/global/services/services.js"></script>
+		<script src="/global/services/Auth.js"></script>
+		<script src="/global/controllers/loginController.js"></script>
 	</footer>
 </body>
 </html>

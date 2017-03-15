@@ -20,3 +20,7 @@
 .container .table>thead>tr>td, .container .table>thead>tr>th{
 	vertical-align: middle;
 }
+
+.searchForm .input-group-btn {
+	width: auto;
+}

@@ -15,7 +15,9 @@
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			console.log(data);
 			$scope.datas = data;
-		});
+			$scope.emprunteurs = $scope.datas.emprunteurs;
+		});	
 	})
+	
 	
 })();
