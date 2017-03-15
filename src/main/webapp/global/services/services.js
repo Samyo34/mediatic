@@ -37,7 +37,7 @@
 		}
 		
 		this.addMedia = function(newMedia){
-			$http.post(mediaCreationUrl,newMedia);
+			return $http.post(mediaCreationUrl,newMedia);
 		}
 		
 		this.updateMedia = function(media){
