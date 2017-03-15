@@ -2,11 +2,9 @@
 	<form class="searchForm" ng-submit="startSearch()">
 		<div class="form-group col-xs-9">
 			<div class="input-group">
-				<input type="text" class="form-control" ng-model="search.titre"
-					placeholder="Par titre">
+				<input type="text" class="form-control" ng-model="search.titre" placeholder="Par titre">
 				<div class="input-group-btn">
-					<input type="text" class="form-control" ng-model="search.auteur"
-						placeholder="Par auteur">
+					<input type="text" class="form-control" ng-model="search.auteur" placeholder="Par auteur">
 				</div>
 				<div class="input-group-btn">
 					<select type="text" class="form-control" ng-model="search.type">
@@ -23,8 +21,7 @@
 				</span>
 			</div>
 		</div>
-		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-1">
-			Nouveau </a>
+		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-1">Nouveau</a>
 	</form>
 </div>
 
@@ -32,14 +29,14 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>ID
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
+				</th>
 				<th>Titre
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitre, 'glyphicon-sort-by-alphabet-alt' : sortedTitre}" ng-click="sortTitre()"></button>
 				</th>
 				<th>Auteur
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteur, 'glyphicon-sort-by-alphabet-alt' : sortedAuteur}" ng-click="sortAuteur()"></button>
 				</th>
 				<th>Disponibilité</th>
 				<th>Détails</th>

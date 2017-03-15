@@ -19,6 +19,48 @@
 			$scope.medias = medias;
 		});
 		
+		$scope.sortedId = false;
+		
+		$scope.sortId = function() {
+			$scope.sortedId = !$scope.sortedId;
+			var params = {tri: "id"};
+			if($scope.sortedId)
+			{
+				params.tri = "-id";
+			}
+			ServiceUrl.getMediasByParams(params).then(function(medias){
+				$scope.medias = medias;
+			});
+		}
+		
+		$scope.sortedTitre = false;
+		
+		$scope.sortTitre = function() {
+			$scope.sortedTitre = !$scope.sortedTitre;
+			var params = {tri: "titre"};
+			if($scope.sortedTitre)
+			{
+				params.tri = "-titre";
+			}
+			ServiceUrl.getMediasByParams(params).then(function(medias){
+				$scope.medias = medias;
+			});
+		}
+		
+		$scope.sortedAuteur = false;
+		
+		$scope.sortAuteur = function() {
+			$scope.sortedAuteur = !$scope.sortedAuteur;
+			var params = {tri: "auteur"};
+			if($scope.sortedAuteur)
+			{
+				params.tri = "-auteur";
+			}
+			ServiceUrl.getMediasByParams(params).then(function(medias){
+				$scope.medias = medias;
+			});
+		}
+		
 		$scope.startSearch = function() {
 			var params = {};
 			if($scope.search.titre != undefined)
