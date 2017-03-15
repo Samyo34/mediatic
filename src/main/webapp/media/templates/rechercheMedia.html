@@ -1,99 +1,74 @@
 <div class='row form-group'>
-			<form class="form-inline">
-			  <div class="form-group col-xs-7">
- 			  	<div class="input-group">
-			      <input type="text" class="form-control" placeholder="Rechercher">
-			      <div class="input-group-btn">
-			        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Type <span class="caret"></span></button>
-			        <ul class="dropdown-menu dropdown-menu-right">
-			         	<li><a href="#"><span class="glyphicon glyphicon-book"></span> Livre</a></li>
-				    	<li><a href="#"><span class="glyphicon glyphicon-music"></span> CD</a></li>
-				    	<li><a href="#"><span class="glyphicon glyphicon-film"></span> DVD</a></li>
-			          	<li role="separator" class="divider"></li>
-			          	<li><a href="#">Tout</a></li>
-			        </ul>
-			      </div>
-			      <span class="input-group-btn">
-			        <button class="btn btn-info" type="button"><span class="glyphicon glyphicon-search"></span></button>
-			      </span>
-			    </div>
-			  </div>
-			  <a href='./creationMedia.html' class="btn btn-success col-xs-2 col-xs-offset-3">
-			 	Nouveau
-			  </a>
-			</form>
+	<form class="form-inline">
+		<div class="form-group col-xs-7">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Rechercher">
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-default dropdown-toggle"
+						data-toggle="dropdown">
+						Type <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href=""><span class="glyphicon glyphicon-book"></span>
+								Livre</a></li>
+						<li><a href=""><span class="glyphicon glyphicon-music"></span>
+								CD</a></li>
+						<li><a href=""><span class="glyphicon glyphicon-film"></span>
+								DVD</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="">Tout</a></li>
+					</ul>
+				</div>
+				<span class="input-group-btn">
+					<button class="btn btn-info" type="button">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+			</div>
 		</div>
-		
-		<div class='row form-group'>
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Disponibilité</th>
-						<th>Détails</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="livre in datas">
-						<td ng-bind='livre.id'></td>
-						<td><span ng-class="{'glyphicon glyphicon-film': livre.type === 'DVD',
-						 'glyphicon glyphicon-music':livre.type ==='CD',
-						 'glyphicon glyphicon-book':livre.type ==='Livre'}" >
-						 </span> {{livre.titre}}</td>
-						<td ng-bind='livre.auteur'></td>
-						<td class="icon-tab"><span ng-class="{'glyphicon glyphicon-ok icon-success': (livre.retour === undefined),
-						'glyphicon glyphicon-remove icon-error': (livre.retour != undefined)}">
-						</span></td>
-						<td>
-							<a href="#/media/{{livre.id}}">
-								<button type="button" class="btn btn-default">
-				    				<span class="glyphicon glyphicon-new-window"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<!-- <tr>
-						<td>2</td>
-						<td><span class="glyphicon glyphicon-film"></span> Le roi lion</td>
-						<td>Disney</td>
-						<td class="icon-tab"><span class="glyphicon glyphicon-ok icon-success"></span></td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default">
-				    				<span class="glyphicon glyphicon-new-window"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><span class="glyphicon glyphicon-music"></span> De la musique</td>
-						<td>Un musicien</td>
-						<td class="icon-tab"><span class="glyphicon glyphicon-remove icon-error"></span></td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default">
-				    				<span class="glyphicon glyphicon-new-window"></span>
-				    			</button>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td><span class="glyphicon glyphicon-music"></span> Encore de la musique</td>
-						<td>Un autre musicien</td>
-						<td class="icon-tab"><span class="glyphicon glyphicon-ok icon-success"></span></td>
-						<td>
-							<a href="./affichageMedia.html">
-								<button type="button" class="btn btn-default">
-				    				<span class="glyphicon glyphicon-new-window"></span>
-				    			</button>
-							</a>
-						</td>					
-					</tr> -->
-				</tbody>
-			 </table>
-			<button type="button" class="btn btn-info col-xs-offset-11">voir plus</button>
-		</div>
+		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-3">
+			Nouveau </a>
+	</form>
+</div>
+
+<div class='row form-group'>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Titre
+					<button
+						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+				</th>
+				<th>Auteur
+					<button
+						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+				</th>
+				<th>Disponibilité</th>
+				<th>Détails</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="media in medias">
+				<td ng-bind='media.id'></td>
+				<td><span
+					ng-class="{'glyphicon glyphicon-film': media.type === 'DVD',
+						 'glyphicon glyphicon-music':media.type ==='CD',
+						 'glyphicon glyphicon-book':media.type ==='Livre'}">
+				</span> {{media.titre}}</td>
+				<td ng-bind='media.auteur'></td>
+				<td class="icon-tab"><span
+					ng-class="{'glyphicon glyphicon-ok icon-success': (media.retour === undefined),
+						'glyphicon glyphicon-remove icon-error': (media.retour != undefined)}">
+				</span></td>
+				<td><a href="#/media/{{media.id}}">
+						<button type="button" class="btn btn-default">
+							<span class="glyphicon glyphicon-new-window"></span>
+						</button>
+				</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<button type="button" class="btn btn-info col-xs-offset-11">voir
+		plus</button>
+</div>
