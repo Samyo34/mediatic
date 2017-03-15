@@ -10,6 +10,13 @@
 	})
 	.controller('AffichageAdherentCtrl',function($scope,$routeParams,$rootScope){
 		$rootScope.titre = 'Affichage Adherent';
+		
+		$scope.datas = [] ;
+		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
+			console.log(data);
+			$scope.datas = data;
+			//$scope.emprunteurs = $scope.datas.emprunteurs;
+		});	
 	})
 	
 })();
