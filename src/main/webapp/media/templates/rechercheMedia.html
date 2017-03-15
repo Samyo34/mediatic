@@ -46,17 +46,19 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="media in medias">
+			<tr ng-repeat="media in medias | limitTo:sizeArrayMedia">
 				<td ng-bind='media.id'></td>
 				<td><span
-					ng-class="{'glyphicon glyphicon-film': media.type === 'DVD',
-						 'glyphicon glyphicon-music':media.type ==='CD',
-						 'glyphicon glyphicon-book':media.type ==='Livre'}">
+					class="glyphicon"
+					ng-class="{'glyphicon-film': media.type === 'DVD',
+						 'glyphicon-music':media.type ==='CD',
+						 'glyphicon-book':media.type ==='Livre'}">
 				</span> {{media.titre}}</td>
 				<td ng-bind='media.auteur'></td>
 				<td class="icon-tab"><span
-					ng-class="{'glyphicon glyphicon-ok icon-success': (media.retour === undefined),
-						'glyphicon glyphicon-remove icon-error': (media.retour != undefined)}">
+					class="glyphicon"
+					ng-class="{'glyphicon-ok icon-success': (media.retour === undefined),
+						'glyphicon-remove icon-error': (media.retour != undefined)}">
 				</span></td>
 				<td><a href="#/media/{{media.id}}">
 						<button type="button" class="btn btn-default">
@@ -66,6 +68,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11">voir
+	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()" ng-disabled="sizeMaxMedia">voir
 		plus</button>
 </div>

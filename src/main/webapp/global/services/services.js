@@ -28,6 +28,14 @@
 			});
 		}
 		
+		this.getPromiseWithParams = function(url,params){
+			 return $http.get(url,{ "params" : params}).then(function(response){
+				return response.data;
+			},function(){
+				console.log('Flûte alors... plus d\'internet mondiale :/');
+			});
+		}
+		
 		this.getMedias = function(){
 			return self.getPromise(mediaRechercheUrl);
 		}
@@ -45,37 +53,7 @@
 		}
 		
 		this.getMediasByParams = function(params){
-			var paramsPresents = [];
-			if(params.page != undefined)
-			{
-				paramsPresents.push({label : "page", param : params.page});
-			}
-			if(params.titre != undefined)
-			{
-				paramsPresents.push({label : "titre", param : params.titre});
-			}
-			if(params.auteur != undefined)
-			{
-				paramsPresents.push({label : "auteur", param : params.auteur});
-			}
-			if(params.type != undefined)
-			{
-				paramsPresents.push({label : "type", param : params.type});
-			}
-			if(paramsPresents.length == 0)
-			{
-				return self.getMedias();
-			}
-			else
-			{
-				var paramsUrl = "?";
-				for(var index in paramsPresents)
-				{
-					paramsUrl += paramsPresents[index].label + "=" + paramsPresents[index].param +"&";
-				}
-				console.log(mediaRechercheUrl+paramsUrl);
-				return self.getPromise(mediaRechercheUrl+paramsUrl);
-			}
+			return self.getPromiseWithParams(mediaRechercheUrl,params);
 		}
 		
 		this.getAdherents = function(){
@@ -95,45 +73,8 @@
 		}
 		
 		this.getAdherentsByParams = function(params){
-			var paramsPresents = [];
-			if(params.page != undefined)
-			{
-				paramsPresents.push({label : "page", param : params.page});
-			}
-			if(params.id != undefined)
-			{
-				paramsPresents.push({label : "id", param : params.id});
-			}
-			if(params.nom != undefined)
-			{
-				paramsPresents.push({label : "nom", param : params.nom});
-			}
-			if(params.prenom != undefined)
-			{
-				paramsPresents.push({label : "prenom", param : params.prenom});
-			}
-			if(params.email != undefined)
-			{
-				paramsPresents.push({label : "email", param : params.email});
-			}
-			if(params.texte != undefined)
-			{
-				paramsPresents.push({label : "texte", param : params.texte});
-			}
-			if(paramsPresents.length == 0)
-			{
-				return self.getAdherents();
-			}
-			else
-			{
-				var paramsUrl = "?";
-				for(var index in paramsPresents)
-				{
-					paramsUrl += paramsPresents[index].label + "=" + paramsPresents[index].param +"&";
-				}
-				console.log(adherentRechercheUrl+paramsUrl);
-				return self.getPromise(adherentRechercheUrl+paramsUrl);
-			}
+			console.log(params);
+			return self.getPromiseWithParams(adherentRechercheUrl,params);
 		}
 		
 		this.addEmpruntMedia = function(idAdherent, idMedia, dateDepart){
