@@ -1,39 +1,39 @@
 <div class='row form-group'>
-		<a href="./rechercheAdherent.html" class='btn btn-warning btn-sm col-xs-2 col-xs-offset-10'>
+		<a ng-href="./#/adherents" class='btn btn-warning btn-sm col-xs-2 col-xs-offset-10'>
 			<span class="glyphicon glyphicon-circle-arrow-left"></span>  Retour
 		</a>
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    <h3 class="panel-title">Détails adhérent</h3>
+			    <h3 class="panel-title">DÃ©tails adhÃ©rent</h3>
 			  </div>
 			  <div class ='panel-body'>
 			  	<div class='row form-group'>
 				  	<div class="col-xs-5 col-xs-offset-1">
-				    	<span class='col-xs-3'>Nom : </span><label class='col-xs-offset-1'>Drouard </label> 
+				    	<span class='col-xs-3'>Nom : </span><label class='col-xs-offset-1' ng-bind="datas.nom"> </label> 
 				 	</div>
 				 	<div class="col-xs-5 col-xs-offset-1">
-				 		<span class='col-xs-3'>Prenom : </span><label class='col-xs-offset-1'>Guillaume </label> 
+				 		<span class='col-xs-3'>Prenom : </span><label class='col-xs-offset-1' ng-bind="datas.prenom"></label> 
 				 	</div>
 			  	</div>
 				<div class='row form-group'>
 					<div class="col-xs-5 col-xs-offset-1">
-						<span class='col-xs-3'>Date de naissance : </span><label class='col-xs-offset-1'>13/12/1995 </label> 
+						<span class='col-xs-3'>Date de naissance : </span><label class='col-xs-offset-1'ng-bind="datas.date_naissance | date:'dd-MM-yyyy'"></label> 
 				 	</div>
 				 	<div class="col-xs-5 col-xs-offset-1 ">
-				 		<span class='col-xs-3'>Adresse : </span><label class='col-xs-offset-1'>12 rue du Boulevard, 34000 Montpellier</label> 
+				 		<span class='col-xs-3'>Adresse : </span><label class='col-xs-offset-1'>{{datas.adresse.ligne2}} {{datas.adresse.ligne1}}, {{datas.adresse.codepostal}} {{datas.adresse.ville}}</label> 
 				 	</div>
 				</div>
 				<div class='row form-group'>
 					<div class="col-xs-5 col-xs-offset-1">
-						<span class='col-xs-3'>Date cotisation : </span><label class='col-xs-offset-1'>01/02/2017</label> 
+						<span class='col-xs-3'>Date cotisation : </span><label class='col-xs-offset-1'ng-bind="datas.cotisation.debut"></label> 
 				 	</div>
 					<div class="col-xs-5 col-xs-offset-1">
-						<span class='col-xs-3'>Montant cotisation : </span><label class='col-xs-offset-1'>60,00 &euro;</label>
+						<span class='col-xs-3'>Montant cotisation : </span><label class='col-xs-offset-1' ng-bind="datas.cotisation.montant | currency:'â‚¬'"> </label>
 				 	</div>
 				</div>
 				<div class='row form-group'>
 				 	<div class="col-xs-5 col-xs-offset-1">
-				 		<span class='col-xs-3'>Mail : </span><label class='col-xs-offset-1'>gDrouard@mail.fr</label>
+				 		<span class='col-xs-3'>Mail : </span><label class='col-xs-offset-1' ng-bind="datas.email">gDrouard@mail.fr</label>
 				 	</div>
 				</div>
 			  </div>
@@ -52,28 +52,22 @@
 							<th>ID</th>
 							<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
 							<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-							<th>Détails</th>
+							<th>Date de retour</th>
+							<th>DÃ©tails</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Le petit cheval de manège</td>
-							<td>Just Leblanc</td>
+						<tr ng-repeat="emprunt in medias">
+							<td>{{$index}}</td>
+							<td><span ng-class="{'glyphicon glyphicon-film': emprunt.media.type === 'DVD',
+						 						'glyphicon glyphicon-music':emprunt.media.type ==='CD',
+						 						'glyphicon glyphicon-book':emprunt.media.type ==='Livre'}"> {{emprunt.media.titre}}
+					 			</span>
+						 	</td>
+							<td ng-bind="emprunt.media.auteur"></td>
+							<td ng-bind="emprunt.retour"></td>
 							<td>
-								<a href="./affichageMedia.html">
-									<button type="button" class="btn btn-info col-xs-12">
-					    				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-					    			</button>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Batman Lego</td>
-							<td>Lego</td>
-							<td>
-								<a href="./affichageMedia.html">
+								<a ng-href="./#/media/{{emprunt.media.id}}">
 									<button type="button" class="btn btn-info col-xs-12">
 					    				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 					    			</button>
