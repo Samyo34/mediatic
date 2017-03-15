@@ -53,7 +53,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="adherent in adherents | limitTo:sizeArray">
+			<tr ng-repeat="adherent in adherents | limitTo:sizeArrayAd">
 				<td ng-bind="adherent.id"></td>
 				<td ng-bind="adherent.nom"></td>
 				<td ng-bind="adherent.prenom"></td>
@@ -72,6 +72,5 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()">Voir
-		plus</button>
+	<input type="submit" class="btn btn-info col-xs-offset-11" ng-click="addSize()" ng-disabled="sizeMaxAd" value="Voir plus"/>
 </div>

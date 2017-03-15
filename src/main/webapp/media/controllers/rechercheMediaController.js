@@ -11,7 +11,8 @@
 	.controller('RechercheMediaCtrl',function($scope, $routeParams, $rootScope, ServiceUrl){
 		$rootScope.title = "Recherche Médias";
 		
-		$scope.sizeArray = 5;
+		$scope.sizeArrayMedia = 10;
+		$scope.sizeMaxMedia = false;
 		
 		$scope.medias = [];
 		ServiceUrl.getMedias().then(function(medias){
@@ -32,14 +33,16 @@
 			{
 				params.type = $scope.search.type;
 			}
-			console.log(params);
 			ServiceUrl.getMediasByParams(params).then(function(medias){
 				$scope.medias = medias;
 			});
 		}
 		
 		$scope.addSize = function(){
-			$scope.sizeArray += 5;
+			$scope.sizeArrayMedia += 5;
+			if($scope.sizeArrayMedia >= $scope.medias.length){
+				$scope.sizeMaxMedia = true;
+			}
 		}
 		
 	})

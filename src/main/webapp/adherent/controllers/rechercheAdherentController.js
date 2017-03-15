@@ -13,16 +13,19 @@
 
 		$scope.currentDate = new Date();
 		
-		$scope.sizeArray = 5;
+		$scope.sizeArrayAd = 10;
+		$scope.sizeMaxAd = false;
 		
 		$scope.adherents = [];
 		ServiceUrl.getAdherents().then(function(adherents){
-			console.log(adherents);
 			$scope.adherents = adherents;
 		});
 		
 		$scope.addSize = function(){
-			$scope.sizeArray += 5;
+			$scope.sizeArrayAd += 20;
+			if($scope.sizeArrayAd >= $scope.adherents.length){
+				$scope.sizeMaxAd = true;
+			}
 		}
 		
 		
