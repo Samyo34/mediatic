@@ -73,7 +73,6 @@
 		}
 		
 		this.getAdherentsByParams = function(params){
-			console.log(params);
 			return self.getPromiseWithParams(adherentRechercheUrl,params);
 		}
 		

@@ -76,6 +76,33 @@
 			$scope.adherents = adherents;
 		});
 		
+		$scope.startSearch = function() {
+			var params = {};
+			if($scope.search.id != undefined)
+			{
+				params.id = $scope.search.id;
+			}
+			if($scope.search.nom != undefined)
+			{
+				params.nom = $scope.search.nom;
+			}
+			if($scope.search.prenom != undefined)
+			{
+				params.prenom = $scope.search.prenom;
+			}
+			if($scope.search.email != undefined)
+			{
+				params.email = $scope.search.email;
+			}
+			if($scope.search.nomOuPrenom != undefined)
+			{
+				params.nomOuPrenom = $scope.search.nomOuPrenom;
+			}
+			ServiceUrl.getAdherentsByParams(params).then(function(adherents){
+				$scope.adherents = adherents;
+			});
+		}
+		
 		$scope.addSize = function(){
 			$scope.sizeArrayAd += 20;
 			if($scope.sizeArrayAd >= $scope.adherents.length){
