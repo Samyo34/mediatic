@@ -12,11 +12,29 @@
 		$rootScope.titre = 'Affichage Media';
 		
 		$scope.datas = [] ;
+		$scope.updateMedia ={};
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			console.log(data);
 			$scope.datas = data;
 			$scope.emprunteurs = $scope.datas.emprunteurs;
-		});	
+		})
+		$scope.buttonUpdate = false;
+		
+		
+		
+		$scope.newUpdateMedia = function(){
+			$scope.updateMedia.id = $routeParams.id;
+			ServiceUrl.updateMedia($scope.updateMedia);
+			console.log($scope.updateMedia);
+			ServiceUrl.getMediaById($routeParams.id).then(function(data){
+				console.log(data);
+				$scope.datas = data;
+				$scope.emprunteurs = $scope.datas.emprunteurs;
+			})
+			$scope.buttonUpdate = !$scope.buttonUpdate;
+		}
+		
+		
 	})
 	
 	

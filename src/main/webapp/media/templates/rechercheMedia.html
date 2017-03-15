@@ -46,7 +46,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="media in medias">
+			<tr ng-repeat="media in medias | limitTo:sizeArrayMedia">
 				<td ng-bind='media.id'></td>
 				<td><span
 					class="glyphicon"
@@ -68,6 +68,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11">voir
+	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()" ng-disabled="sizeMaxMedia">voir
 		plus</button>
 </div>

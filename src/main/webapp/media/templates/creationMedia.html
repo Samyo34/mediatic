@@ -1,8 +1,8 @@
 
-		<form>
+		<form ng-submit="createMedia()">
 			<div class="panel panel-default">
 			 <div class="panel-heading">
-			    <h3 class="panel-title">Création média</h3>
+			    <h3 class="panel-title">CrÃ©ation mÃ©dia</h3>
 			 </div>
 		  
 	
@@ -12,39 +12,41 @@
 				<span class="text-left col-xs-4">
 				<label for="titre" class="control-label" style="white-space:nowrap">Titre :</label>
 				</span>
-				  <div class="col-xs-4"><input type="text" class="form-control col-xs-4 col-xs-offset-1" id="titre" name="titre" placeholder="Titre"></div>
+				  <div class="col-xs-4"><input ng-model="media.titre" type="text" class="form-control col-xs-4 col-xs-offset-1" id="titre" name="titre" placeholder="Titre"></div>
 				  
-			</div>	
-			
+			</div>
 			<div class="row form-group">
 				<div class="form-group row col-xs-4 col-xs-offset-2 form-inline " >
 					<span class="text-left col-xs-4"><label for="titre" class="control-label">Type :</label></span>
 						<div class="dropdown form-group">
-				  			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				   				 Type
-				  				  <span class="caret"></span>
-							  </button>
-				 				 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							  
+						<select ng-model="media.type" class="form-control" id="type" >
+							<option value="Livre"><span class="glyphicon glyphicon-book"></span> Livre</option>
+							<option value="CD"><span class="glyphicon glyphicon-music"></span> CD</option>
+							<option value="DVD"><span class="glyphicon glyphicon-film"></span> DVD</option>
+						</select>
+
+						<!--  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 								    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Livre</a></li>
 								    <li><a href="#"><span class="glyphicon glyphicon-music"></span> CD</a></li>
 								    <li><a href="#"><span class="glyphicon glyphicon-film"></span> DVD</a></li>
-				  				</ul>
+				  		</ul> -->
+				  		
 						</div>
 					</div>
 				</div>
-			
 			
 			<div class="form-group row col-xs-4 col-xs-offset-1 form-inline"> 
 				<span class="text-left col-xs-4">
 				<label for="titre" class="control-label ">Auteur :</label>
 				</span>
-				 <div class="col-xs-4"><input type="text" class="form-control col-xs-offset-1 " id="autre" name="autre" placeholder="Auteur"></div>
+				 <div class="col-xs-4"><input ng-model="media.auteur" type="text" class="form-control col-xs-offset-1 " id="autre" name="autre" placeholder="Auteur"></div>
 			</div>		
 				
 			</div>
-		
+	
 			<div class="panel-footer">
-			  	<a href="./creationMedia_erreur.html"><button type="button" class="btn btn-success text-center">Enregister</button></a>
+			  	<a href="./creationMedia_erreur.html"><input type="submit" class="btn btn-success text-center" value="Enregistrer"></input></a>
 			  	<button type="button" class="btn btn-warning text-center">Annuler</button>
 		  	</div>
 	</div>
