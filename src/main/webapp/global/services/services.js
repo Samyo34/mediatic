@@ -45,7 +45,7 @@
 		}
 		
 		this.addMedia = function(newMedia){
-			$http.post(mediaCreationUrl,newMedia);
+			return $http.post(mediaCreationUrl,newMedia);
 		}
 		
 		this.updateMedia = function(media){
@@ -77,6 +77,7 @@
 		}
 		
 		this.addEmpruntMedia = function(idAdherent, idMedia, dateDepart){
+			console.log(idAdherent);
 			$http.post(ajoutEmrpuntUrl,{id_adherent:idAdherent,id_media:idMedia,depart:dateDepart});
 		}
 		

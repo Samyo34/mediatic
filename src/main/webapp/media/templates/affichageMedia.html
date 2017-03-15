@@ -35,11 +35,8 @@
 				<button type="button" class="btn btn-info" ng-click="buttonUpdate = !buttonUpdate">Modifier</button>
 			</div>
 		</div>
-		
-		
 		<!--			 UPDATE 				-->
-		
-		
+
 		<div class="panel panel-default" ng-show="buttonUpdate">
 			<div class="panel-heading">
 				<h1 class="panel-title">Details du Média</h1>
@@ -75,8 +72,13 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	<!--  TABLEAU DES EMPRUNTS -->
 	<div class="row form-group">
-		<button class="btn btn-success" type="button">Nouvel emprunt</button>
+		<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()">Nouvel emprunt</button>
 		<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -88,6 +90,16 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr class="has-error" ng-show="isAddingEmprunt()">
+						<td></td>
+						<td><input type="text" class="form-control" placeholder="Nom" ng-model="emprunt.nom"></td>
+						<td><input type="text" class="form-control" placeholder="Prénom" ng-model="emprunt.prenom"></td>
+						<td><input type="text" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date"></td>
+						<td></td>
+						<td>
+							<button type="button" class="btn btn-success form-group col-xs-12" ng-click="addEmprunt()">Ajouter</button>
+						</td>
+					</tr>
 					<tr ng-repeat="adherent in emprunteurs">
 						<td >{{$index}}</td>
 						<td ng-bind='adherent.adherent.nom'></td>
@@ -97,5 +109,5 @@
 					</tr>				
 				</tbody>
 		</table>
-		<button class="btn btn-info form-group col-xs-offset-11 btn-sm" type="button">Voir plus</button>
+		<button class="btn btn-info form-group col-xs-offset-11 btn-sm" type="button" ng-click="">Voir plus</button>
 </div>

@@ -13,6 +13,7 @@
 		
 		$scope.datas = [] ;
 		$scope.updateAdherent ={};
+		$scope.adresse={};
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			console.log(data);
 			$scope.datas = data;
@@ -22,6 +23,7 @@
 		
 		$scope.newUpdateAdherent = function(){
 			$scope.updateAdherent.id = $routeParams.id;
+			$scope.updateAdherent.adresse =$scope.adresse;
 			ServiceUrl.updateAdherent($scope.updateAdherent);
 			console.log($scope.updateAdherent);
 			ServiceUrl.getAdherentById($routeParams.id).then(function(data){
