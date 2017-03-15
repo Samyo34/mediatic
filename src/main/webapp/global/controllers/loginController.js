@@ -2,10 +2,14 @@
 	'use strict';
 	
 	angular.module('mediaticApp.service')
-	.controller('loginCtrl',function($scope, AuthentificationService){
+	.controller('mainCtrl',function($scope, AuthentificationService){
 		
 		$scope.tryConnection = function(login,psw){
 			AuthentificationService.connect(login,psw);
+		}
+		
+		$scope.disconnect = function(){
+			AuthentificationService.disconnect();
 		}
 		
 		$scope.isConnected = function(){

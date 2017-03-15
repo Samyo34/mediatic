@@ -7,7 +7,6 @@
 		var self = this;
 		
 		var rootUrl = "http://192.168.10.17:8090";
-		var rootUrlLogin = "http://192.168.10.17:1977";
 		
 		var mediaRechercheUrl = rootUrl+"/resource/media.recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
 		var mediaCreationUrl = rootUrl+"/resource/media.creation";// POST

@@ -48,15 +48,15 @@
 										class="glyphicon glyphicon-plus"></span> Création</a></li>
 							</ul></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#/login"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a></li>
+					<ul class="nav navbar-nav navbar-right" ng-controller="mainCtrl">
+						<li ><a ng-click="disconnect()" href="#/medias"><span class="glyphicon glyphicon-log-out"></span> <b>Déconnexion</b></a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
 	
-	<main ng-controller="loginCtrl">
+	<main ng-controller="mainCtrl">
 		<div ng-if="!isConnected()">
 			<div ng-include="'global/templates/login.html'"></div>
 		</div>
