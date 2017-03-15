@@ -36,7 +36,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="adherent in adherents">
+			<tr ng-repeat="adherent in adherents | limitTo:sizeArray">
 				<td ng-bind="adherent.id"></td>
 				<td ng-bind="adherent.nom"></td>
 				<td ng-bind="adherent.prenom"></td>
@@ -100,6 +100,6 @@
 			</tr>-->
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11">Voir
+	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()">Voir
 		plus</button>
 </div>

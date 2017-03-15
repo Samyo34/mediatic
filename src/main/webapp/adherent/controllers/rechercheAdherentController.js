@@ -13,11 +13,17 @@
 
 		$scope.currentDate = new Date();
 		
+		$scope.sizeArray = 5;
+		
 		$scope.adherents = [];
 		ServiceUrl.getAdherents().then(function(adherents){
 			console.log(adherents);
 			$scope.adherents = adherents;
 		});
+		
+		$scope.addSize = function(){
+			$scope.sizeArray += 5;
+		}
 		
 		
 		
