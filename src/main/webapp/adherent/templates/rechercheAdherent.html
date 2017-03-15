@@ -36,19 +36,21 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>ID
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
+				</th>
 				<th>Nom
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedNom, 'glyphicon-sort-by-alphabet-alt' : sortedNom}" ng-click="sortNom()"></button>
 				</th>
 				<th>Prénom
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedPrenom, 'glyphicon-sort-by-alphabet-alt' : sortedPrenom}" ng-click="sortPrenom()"></button>
 				</th>
 				<th>Date de naissance</th>
 				<th>Cotisation</th>
 				<th>Possessions</th>
-				<th>Mail</th>
+				<th>Email
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedEmail, 'glyphicon-sort-by-alphabet-alt' : sortedEmail}" ng-click="sortEmail()"></button>
+				</th>
 				<th>Détails</th>
 			</tr>
 		</thead>
@@ -59,8 +61,9 @@
 				<td ng-bind="adherent.prenom"></td>
 				<td ng-bind="adherent.date_naissance | date:'dd-MM-yyyy'"></td>
 				<td class="icon-tab"><span
-					ng-class="{ 'glyphicon glyphicon-ok icon-success':adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'),
-					'glyphicon glyphicon-remove icon-error':!(adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'))}">
+					class="glyphicon"
+					ng-class="{ 'glyphicon-ok icon-success':adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'),
+					'glyphicon-remove icon-error':!(adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'))}">
 				</span></td>
 				<td ng-bind="adherent.nombre_media"></td>
 				<td ng-bind="adherent.email"></td>

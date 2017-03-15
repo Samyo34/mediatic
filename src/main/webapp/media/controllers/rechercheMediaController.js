@@ -30,7 +30,6 @@
 			{
 				params.type = $scope.search.type;
 			}
-			console.log(params);
 			ServiceUrl.getMediasByParams(params).then(function(medias){
 				$scope.medias = medias;
 			});
