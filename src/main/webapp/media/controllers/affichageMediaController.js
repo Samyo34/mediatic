@@ -20,8 +20,6 @@
 		})
 		$scope.buttonUpdate = false;
 		
-		
-		
 		$scope.newUpdateMedia = function(){
 			$scope.updateMedia.id = $routeParams.id;
 			ServiceUrl.updateMedia($scope.updateMedia);
@@ -32,9 +30,7 @@
 				$scope.emprunteurs = $scope.datas.emprunteurs;
 			})
 			$scope.buttonUpdate = !$scope.buttonUpdate;
-		}
-		
-		
+		}		
 	})
 	
 	

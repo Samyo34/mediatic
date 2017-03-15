@@ -2,7 +2,7 @@
 		<a ng-href="./#/adherents" class='btn btn-warning btn-sm col-xs-2 col-xs-offset-10'>
 			<span class="glyphicon glyphicon-circle-arrow-left"></span>  Retour
 		</a>
-			<div class="panel panel-default">
+			<div class="panel panel-default" ng-hide="buttonUpdate">
 			  <div class="panel-heading">
 			    <h3 class="panel-title">Détails adhérent</h3>
 			  </div>
@@ -38,12 +38,56 @@
 				</div>
 			  </div>
 				
-			  
 			  <div class="panel-footer">
-			  	<a href='./affichageAdherent_erreur.html' class='btn btn-info'>Modifier</a>
+			  <button type="button" class="btn btn-info" ng-click="buttonUpdate = !buttonUpdate">Modifier</button>
 			  </div>
-			</div>	
+			</div>
+				
+				
+				<!-- 		UPDATE			 -->
+				
+				
+			<div class="panel panel-default" ng-show="buttonUpdate">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Détails adhérent</h3>
+		  </div>
+		  <div class ='panel-body'>
+		  	<div class='row form-group'>
+			  	<div class="col-xs-5 col-xs-offset-1 form-inline">
+			    	<span class="col-xs-3">Nom : </span> <input type='text' ng-model="updateAdherent.nom" class="form-control col-xs-offset-1" placeholder='Drouard'></input>
+			 	</div>
+			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
+			 		<span class="col-xs-3">Prenom : </span> <input type='text' ng-model="updateAdherent.prenom" class="form-control col-xs-offset-1" placeholder='Guyguy'></input>
+			 	</div>
+		  	</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Date de naissance : </span> <input type='date' ng-model="updateAdherent.date_naissance" class="form-control col-xs-offset-1"></input>
+			 	</div>
+			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
+			 		<span class="col-xs-3">Adresse : </span> <input type='text' class="form-control col-xs-offset-1" placeholder='12 rue du Boulevard, 34000 Montpellier'></input>
+			 	</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Date cotisation : </span> <input type='date' ng-model="updateAdherent.cotisation.debut" class="form-control col-xs-offset-1"></input>
+			 	</div>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Montant cotisation : </span> <input type='number' ng-model="updateAdherent.cotisation.montant" class="form-control col-xs-offset-1" placeholder='60'></input>&euro;	
+			 	</div>
+			</div>
+			<div class='row form-group'>
+			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
+			 		<span class="col-xs-3">Mail : </span> <input type='mail' ng-model="updateAdherent.email" class="form-control col-xs-offset-1" placeholder='gDroudard@mail.fr'></input>
+			 	</div>
+			</div>
+		  </div>
+		  <div class="panel-footer">
+		  	<button class="btn btn-success" type="submit" ng-click="newUpdateAdherent()">Enregistrer</button>
+		  	<button type="button" class="btn btn-warning">Annuler</button>
+		  </div>
 		</div>
+</div>
 		<div class='row form-group'>
 			<a href='./affichageAdherent_erreur.html' class='btn btn-success'>Nouvel emprunt</a>
 			<table class="table table-bordered">
