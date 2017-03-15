@@ -30,13 +30,13 @@
 		<thead>
 			<tr>
 				<th>ID
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
 				</th>
 				<th>Titre
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitre, 'glyphicon-sort-by-alphabet-alt' : sortedTitre}" ng-click="sortTitre()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitre, 'glyphicon-sort-by-alphabet-alt' : sortedTitre}" ng-click="sortTitre()"></button>
 				</th>
 				<th>Auteur
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteur, 'glyphicon-sort-by-alphabet-alt' : sortedAuteur}" ng-click="sortAuteur()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteur, 'glyphicon-sort-by-alphabet-alt' : sortedAuteur}" ng-click="sortAuteur()"></button>
 				</th>
 				<th>Disponibilité</th>
 				<th>Détails</th>
@@ -57,8 +57,8 @@
 					ng-class="{'glyphicon-ok icon-success': (media.retour === undefined),
 						'glyphicon-remove icon-error': (media.retour != undefined)}">
 				</span></td>
-				<td><a href="#/media/{{media.id}}">
-						<button type="button" class="btn btn-default">
+				<td class="btn-detail"><a href="#/media/{{media.id}}">
+						<button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-new-window"></span>
 						</button>
 				</a></td>

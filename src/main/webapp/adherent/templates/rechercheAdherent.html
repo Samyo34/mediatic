@@ -31,19 +31,19 @@
 		<thead>
 			<tr>
 				<th>ID
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
 				</th>
 				<th>Nom
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedNom, 'glyphicon-sort-by-alphabet-alt' : sortedNom}" ng-click="sortNom()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedNom, 'glyphicon-sort-by-alphabet-alt' : sortedNom}" ng-click="sortNom()"></button>
 				</th>
 				<th>Prénom
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedPrenom, 'glyphicon-sort-by-alphabet-alt' : sortedPrenom}" ng-click="sortPrenom()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedPrenom, 'glyphicon-sort-by-alphabet-alt' : sortedPrenom}" ng-click="sortPrenom()"></button>
 				</th>
 				<th>Date de naissance</th>
 				<th>Cotisation</th>
 				<th>Possessions</th>
 				<th>Email
-					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedEmail, 'glyphicon-sort-by-alphabet-alt' : sortedEmail}" ng-click="sortEmail()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedEmail, 'glyphicon-sort-by-alphabet-alt' : sortedEmail}" ng-click="sortEmail()"></button>
 				</th>
 				<th>Détails</th>
 			</tr>
@@ -61,8 +61,8 @@
 				</span></td>
 				<td ng-bind="adherent.nombre_media"></td>
 				<td ng-bind="adherent.email"></td>
-				<td><a href="#/adherent/{{adherent.id}}">
-						<button type="button" class="btn btn-default">
+				<td class="btn-detail"><a href="#/adherent/{{adherent.id}}">
+						<button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 						</button>
 				</a></td>
