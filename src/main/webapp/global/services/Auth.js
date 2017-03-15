@@ -5,11 +5,11 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 	var connected = false;
 	var defaut = 'Basic';
 
-//	if(false){
-//		console.warn('Connexion automatique !!')
-//		connected = true;
-//		defaut = 'Basic YXplOmF6ZQ==';
-//	}
+	if(false){
+		console.warn('Connexion automatique !!')
+		connected = true;
+		defaut = 'Basic YXplOmF6ZQ==';
+	}
 
 	$http.defaults.headers.common['Authorization'] = defaut;
 

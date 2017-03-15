@@ -1,32 +1,29 @@
 <div class='row form-group'>
-	<form class="form-inline">
-		<div class="form-group col-xs-7">
+	<form class="searchForm" ng-submit="startSearch()">
+		<div class="form-group col-xs-9">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Rechercher">
+				<input type="text" class="form-control" ng-model="search.titre"
+					placeholder="Par titre">
 				<div class="input-group-btn">
-					<button type="button" class="btn btn-default dropdown-toggle"
-						data-toggle="dropdown">
-						Type <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href=""><span class="glyphicon glyphicon-book"></span>
-								Livre</a></li>
-						<li><a href=""><span class="glyphicon glyphicon-music"></span>
-								CD</a></li>
-						<li><a href=""><span class="glyphicon glyphicon-film"></span>
-								DVD</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="">Tout</a></li>
-					</ul>
+					<input type="text" class="form-control" ng-model="search.auteur"
+						placeholder="Par auteur">
+				</div>
+				<div class="input-group-btn">
+					<select type="text" class="form-control" ng-model="search.type">
+						<option value="">TOUT TYPE</option>
+						<option value="Livre">Livre</option>
+						<option value="CD">CD</option>
+						<option value="DVD">DVD</option>
+					</select>
 				</div>
 				<span class="input-group-btn">
-					<button class="btn btn-info" type="button">
+					<button class="btn btn-info" type="submit">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
 			</div>
 		</div>
-		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-3">
+		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-1">
 			Nouveau </a>
 	</form>
 </div>
