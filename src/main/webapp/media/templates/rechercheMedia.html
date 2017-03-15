@@ -2,11 +2,9 @@
 	<form class="searchForm" ng-submit="startSearch()">
 		<div class="form-group col-xs-9">
 			<div class="input-group">
-				<input type="text" class="form-control" ng-model="search.titre"
-					placeholder="Par titre">
+				<input type="text" class="form-control" ng-model="search.titre" placeholder="Par titre">
 				<div class="input-group-btn">
-					<input type="text" class="form-control" ng-model="search.auteur"
-						placeholder="Par auteur">
+					<input type="text" class="form-control" ng-model="search.auteur" placeholder="Par auteur">
 				</div>
 				<div class="input-group-btn">
 					<select type="text" class="form-control" ng-model="search.type">
@@ -23,8 +21,7 @@
 				</span>
 			</div>
 		</div>
-		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-1">
-			Nouveau </a>
+		<a href='#/media' class="btn btn-success col-xs-2 col-xs-offset-1">Nouveau</a>
 	</form>
 </div>
 
@@ -32,31 +29,33 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>ID
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
+				</th>
 				<th>Titre
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitre, 'glyphicon-sort-by-alphabet-alt' : sortedTitre}" ng-click="sortTitre()"></button>
 				</th>
 				<th>Auteur
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteur, 'glyphicon-sort-by-alphabet-alt' : sortedAuteur}" ng-click="sortAuteur()"></button>
 				</th>
 				<th>Disponibilité</th>
 				<th>Détails</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="media in medias">
+			<tr ng-repeat="media in medias | limitTo:sizeArrayMedia">
 				<td ng-bind='media.id'></td>
 				<td><span
-					ng-class="{'glyphicon glyphicon-film': media.type === 'DVD',
-						 'glyphicon glyphicon-music':media.type ==='CD',
-						 'glyphicon glyphicon-book':media.type ==='Livre'}">
+					class="glyphicon"
+					ng-class="{'glyphicon-film': media.type === 'DVD',
+						 'glyphicon-music':media.type ==='CD',
+						 'glyphicon-book':media.type ==='Livre'}">
 				</span> {{media.titre}}</td>
 				<td ng-bind='media.auteur'></td>
 				<td class="icon-tab"><span
-					ng-class="{'glyphicon glyphicon-ok icon-success': (media.retour === undefined),
-						'glyphicon glyphicon-remove icon-error': (media.retour != undefined)}">
+					class="glyphicon"
+					ng-class="{'glyphicon-ok icon-success': (media.retour === undefined),
+						'glyphicon-remove icon-error': (media.retour != undefined)}">
 				</span></td>
 				<td><a href="#/media/{{media.id}}">
 						<button type="button" class="btn btn-default">
@@ -66,6 +65,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11">voir
+	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()" ng-disabled="sizeMaxMedia">voir
 		plus</button>
 </div>
