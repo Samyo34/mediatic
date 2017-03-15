@@ -8,13 +8,12 @@
 			controller:'RechercheMediaCtrl'
 		})
 	})
-	.controller('RechercheMediaCtrl',function($scope,$routeParams,$rootScope, ServiceUrl){
-		$rootScope.title = "Recherche Média";
+	.controller('RechercheMediaCtrl',function($scope, $routeParams, $rootScope, ServiceUrl){
+		$rootScope.title = "Recherche Médias";
 		
-		$scope.datas = [] ;
-		ServiceUrl.getMedias().then(function(data){
-			console.log(data);
-			$scope.datas = data;
+		$scope.medias = [];
+		ServiceUrl.getMedias().then(function(medias){
+			$scope.medias = medias;
 		});
 		
 		
