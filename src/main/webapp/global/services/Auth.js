@@ -30,7 +30,12 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 			return false;
 		});
 	};
-
+	
+	AuthentificationService.disconnect = function(){
+		connected = false;
+		$http.defaults.headers.common['Authorization'] = 'Basic';
+	}
+	
 	AuthentificationService.isConnected = function(){
 		return connected;
 	};
