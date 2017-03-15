@@ -11,6 +11,8 @@
 	.controller('RechercheMediaCtrl',function($scope, $routeParams, $rootScope, ServiceUrl){
 		$rootScope.title = "Recherche Médias";
 		
+		$scope.sizeArray = 5;
+		
 		$scope.medias = [];
 		ServiceUrl.getMedias().then(function(medias){
 			$scope.medias = medias;
@@ -34,6 +36,10 @@
 			ServiceUrl.getMediasByParams(params).then(function(medias){
 				$scope.medias = medias;
 			});
+		}
+		
+		$scope.addSize = function(){
+			$scope.sizeArray += 5;
 		}
 		
 	})

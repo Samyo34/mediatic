@@ -46,7 +46,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="media in medias">
+			<tr ng-repeat="media in medias | limitTo:sizeArray">
 				<td ng-bind='media.id'></td>
 				<td><span
 					ng-class="{'glyphicon glyphicon-film': media.type === 'DVD',
@@ -66,6 +66,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11">voir
+	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()">voir
 		plus</button>
 </div>
