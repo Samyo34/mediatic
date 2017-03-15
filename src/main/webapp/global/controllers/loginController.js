@@ -6,7 +6,11 @@
 		
 		$scope.tryConnection = function(login,psw){
 			AuthentificationService.connect(login,psw);
-		}		
+		}
+		
+		$scope.isConnected = function(){
+			return AuthentificationService.isConnected();
+		}
 	})
 })();
 
