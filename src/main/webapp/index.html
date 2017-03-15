@@ -55,11 +55,14 @@
 			</div>
 		</nav>
 	</header>
-
-	<main class="container">
-		<div ng-view>
-		
-		
+	
+	<main ng-controller="loginCtrl">
+		<div ng-if="!isConnected()">
+			<div ng-include="'global/templates/login.html'"></div>
+		</div>
+		<div class="container" ng-show="isConnected()">
+		<!-- 	<div ng-if="isConnected()" ng-include="media/templates/rechercheMedia.html"></div> -->
+			<div ng-if="isConnected()" ng-view></div>
 		</div>
 	 </main>
 
@@ -86,6 +89,8 @@
 		<script src="/media/controllers/rechercheMediaController.js"></script>
 		<script src="/media/controllers/affichageMediaController.js"></script>
 		<script src="/global/services/services.js"></script>
+		<script src="/global/services/Auth.js"></script>
+		<script src="/global/controllers/loginController.js"></script>
 	</footer>
 </body>
 </html>
