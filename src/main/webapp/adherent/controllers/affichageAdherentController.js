@@ -8,14 +8,14 @@
 			controller:'AffichageAdherentCtrl'
 		})
 	})
-	.controller('AffichageAdherentCtrl',function($scope,$routeParams,$rootScope){
+	.controller('AffichageAdherentCtrl',function($scope,$routeParams,$rootScope,ServiceUrl){
 		$rootScope.titre = 'Affichage Adherent';
 		
 		$scope.datas = [] ;
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			console.log(data);
 			$scope.datas = data;
-			//$scope.emprunteurs = $scope.datas.emprunteurs;
+			$scope.medias = $scope.datas.emprunt;
 		});	
 	})
 	
