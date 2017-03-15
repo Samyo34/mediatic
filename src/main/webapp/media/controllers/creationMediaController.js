@@ -23,9 +23,7 @@
 			else{
 			ServiceUrl.addMedia($scope.media).then(function(data){
 				var id =data.data.id;
-				console.log(id);
 				var url = "/media/"+id;
-				console.log(url);
 				$location.path(url);
 			})
 			$scope.media = {};
