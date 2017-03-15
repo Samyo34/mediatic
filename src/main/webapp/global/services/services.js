@@ -7,6 +7,7 @@
 		var self = this;
 		
 		var rootUrl = "http://192.168.10.17:8090";
+		
 		var mediaRechercheUrl = rootUrl+"/resource/media.recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
 		var mediaCreationUrl = rootUrl+"/resource/media.creation";// POST
 		var mediaModificationUrl = rootUrl+"/resource/media.modification";// GET
@@ -17,23 +18,52 @@
 		var adherentModificationUrl = rootUrl+"/resource/adherent.modification";// GET
 		var adherentAccessionUrl = rootUrl+"/resource/adherent.accession";// GET
 		
-		var ajoutEmrpuntUrl = rootUrl+"/resource/emprunt.ajout";// POST id_adherent,id_media,depart	
+		var ajoutEmrpuntUrl = rootUrl+"/resource/emprunt.ajout";// POST id_adherent,id_media, depart	
 		
 		this.getPromise = function(url){
-			var data;
 			 return $http.get(url).then(function(response){
 				return response.data;
 			},function(){
 				console.log('Flûte alors... plus d\'internet mondiale :/');
 			});
-			 return data;
 		}
 		
-		this.getMediaRecherche = function(){
+		this.getMedias = function(){
 			return self.getPromise(mediaRechercheUrl);
 		}
 		
+		this.getMediaById = function(id){
+			return self.getPromise(mediaAccessionUrl+"?id="+id);
+		}
 		
+		this.addMedia = function(newMedia){
+			$http.post(mediaCreationUrl,newMedia);
+		}
+		
+		this.updateMedia = function(media){
+			$http.post(mediaModificationUrl,media);
+		}
+		
+		this.getAdherents = function(){
+			return self.getPromise(adherentRechercheUrl);
+		}
+		
+		this.getAdherentById = function(id){
+			return self.getPromise(adherentAccessionUrl+"?id="+id);
+		}
+		
+		this.addAdherent = function(newAdherent){
+			$http.post(adherentCreationUrl,newAdherent);
+		}
+		
+		this.updateAdherent = function(adherent){
+			$http.post(adherentModificationUrl,adherent);
+		}
+		
+		this.addEmpruntMedia = function(idAdherent, idMedia, dateDepart){
+			$http.post(ajoutEmrpuntUrl,{id_adherent:idAdherent,id_media:idMedia,depart:dateDepart});
+		}
+			
 	});
 	
 })();

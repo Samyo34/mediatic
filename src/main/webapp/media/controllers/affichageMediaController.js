@@ -8,8 +8,14 @@
 			controller:'AffichageMediaCtrl'
 		})
 	})
-	.controller('AffichageMediaCtrl',function($scope,$routeParams,$rootScope){
+	.controller('AffichageMediaCtrl',function($scope,$routeParams,$rootScope, ServiceUrl){
 		$rootScope.titre = 'Affichage Media';
+		
+		$scope.datas = [] ;
+		ServiceUrl.getMediaById($routeParams.id).then(function(data){
+			console.log(data);
+			$scope.datas = data;
+		});
 	})
 	
 })();

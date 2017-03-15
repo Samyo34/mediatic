@@ -12,7 +12,7 @@
 		$rootScope.title = "Recherche Média";
 		
 		$scope.datas = [] ;
-		ServiceUrl.getMediaRecherche().then(function(data){
+		ServiceUrl.getMedias().then(function(data){
 			console.log(data);
 			$scope.datas = data;
 		});
