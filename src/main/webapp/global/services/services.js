@@ -73,11 +73,11 @@
 		}
 		
 		this.getAdherentsByParams = function(params){
-			console.log(params);
 			return self.getPromiseWithParams(adherentRechercheUrl,params);
 		}
 		
 		this.addEmpruntMedia = function(idAdherent, idMedia, dateDepart){
+			console.log(idAdherent);
 			$http.post(ajoutEmrpuntUrl,{id_adherent:idAdherent,id_media:idMedia,depart:dateDepart});
 		}
 		
