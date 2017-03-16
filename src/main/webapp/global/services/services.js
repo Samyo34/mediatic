@@ -65,7 +65,7 @@
 		}
 		
 		this.addAdherent = function(newAdherent){
-			$http.post(adherentCreationUrl,newAdherent);
+			return $http.post(adherentCreationUrl,newAdherent);
 		}
 		
 		this.updateAdherent = function(adherent){
