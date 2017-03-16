@@ -23,7 +23,7 @@
     "postupdate-deps": "bower update",
 
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8080 -c-1 ./webapp",
+    "start": "http-server -p 8080 ./webapp",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
