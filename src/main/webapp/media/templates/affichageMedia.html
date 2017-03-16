@@ -98,14 +98,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="has-error" ng-show="isAddingEmprunt()">
+					<!-- ajouter un emprunt -->
+					<tr ng-show="isAddingEmprunt()" ng-form="formEmprunt" novalidate>
 						<td></td>
-						<td><input type="text" class="form-control" placeholder="Nom" ng-model="emprunt.nom"></td>
-						<td><input type="text" class="form-control" placeholder="Prénom" ng-model="emprunt.prenom"></td>
-						<td><input type="text" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date"></td>
-						<td></td>
+						<td><input type="text" class="form-control" placeholder="Nom" ng-model="emprunt.nom" required></td>
+						<td><input type="text" class="form-control" placeholder="Prénom" ng-model="emprunt.prenom" required></td>
+						<td><input type="text" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date" required></td>
+						<td><span ng-show="hasError">Adherent inexistante</span></td>
 						<td>
-							<button type="button" class="btn btn-success form-group col-sm-12" ng-click="addEmprunt()">Ajouter</button>
+							<button type="button" class="btn btn-success form-group col-sm-12" ng-disabled="formEmprunt.$invalid" ng-click="addEmprunt()">Ajouter</button>
 						</td>
 					</tr>
 					<tr ng-repeat="adherent in emprunteurs">

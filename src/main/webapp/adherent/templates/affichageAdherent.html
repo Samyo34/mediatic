@@ -121,9 +121,7 @@
 							<td></td>
 							<td><input name="titre" type='text' placeholder="Titre de l'oeuvre" class="form-control" ng-model="emprunt.titre" required></input></td>
 							<td><input name="auteur" type='text' placeholder="Auteur de l'oeuvre" class="form-control" ng-model="emprunt.auteur" required></input></td>
-							<td>
-								<input name="date" type="date" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date" required>
-							</td>
+							<td><input name="date" type="date" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date" required></td>
 							<td><span ng-show="hasError">Oeuvre inexistante</span></td>
 							<td>
 								<button class="btn btn-success form-group col-xs-12" type="button" ng-disabled="formEmprunt.$invalid"  ng-click="addEmprunt()">Ajouter</button>
