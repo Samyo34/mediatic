@@ -1,155 +1,208 @@
 <div class='row form-group'>
-		<a ng-href="./#/adherents" class='btn btn-warning btn-sm col-xs-2 col-xs-offset-10'>
-			<span class="glyphicon glyphicon-circle-arrow-left"></span>  Retour
-		</a>
-			<div class="panel panel-default" ng-hide="buttonUpdate">
-			  <div class="panel-heading">
-			    <h3 class="panel-title">Détails adhérent</h3>
-			  </div>
-			  <div class ='panel-body'>
-			  	<div class='row form-group'>
-				  	<div class="col-xs-5 col-xs-offset-1">
-				    	<span class='col-xs-3'>Nom : </span><label class='col-xs-offset-1' ng-bind="datas.nom"> </label> 
-				 	</div>
-				 	<div class="col-xs-5 col-xs-offset-1">
-				 		<span class='col-xs-3'>Prenom : </span><label class='col-xs-offset-1' ng-bind="datas.prenom"></label> 
-				 	</div>
-			  	</div>
-				<div class='row form-group'>
-					<div class="col-xs-5 col-xs-offset-1">
-						<span class='col-xs-3'>Date de naissance : </span><label class='col-xs-offset-1'ng-bind="datas.date_naissance | date:'dd-MM-yyyy'"></label> 
-				 	</div>
-				 	<div class="col-xs-5 col-xs-offset-1 ">
-				 		<span class='col-xs-3'>Adresse : </span><label class='col-xs-offset-1'>{{datas.adresse.ligne2}} {{datas.adresse.ligne1}}, {{datas.adresse.codepostal}} {{datas.adresse.ville}}</label> 
-				 	</div>
-				</div>
-				<div class='row form-group'>
-					<div class="col-xs-5 col-xs-offset-1">
-						<span class='col-xs-3'>Date cotisation : </span><label class='col-xs-offset-1'ng-bind="datas.cotisation.debut"></label> 
-				 	</div>
-					<div class="col-xs-5 col-xs-offset-1">
-						<span class='col-xs-3'>Montant cotisation : </span><label class='col-xs-offset-1' ng-bind="datas.cotisation.montant | currency:'€'"> </label>
-				 	</div>
-				</div>
-				<div class='row form-group'>
-				 	<div class="col-xs-5 col-xs-offset-1">
-				 		<span class='col-xs-3'>Mail : </span><label class='col-xs-offset-1' ng-bind="datas.email">gDrouard@mail.fr</label>
-				 	</div>
-				</div>
-			  </div>
-				
-			  <div class="panel-footer">
-			  <button type="button" class="btn btn-info" ng-click="buttonUpdate = !buttonUpdate">Modifier</button>
-			  </div>
-			</div>
-				
-				
-				<!-- 		UPDATE			 -->
-				
-				
-			<div class="panel panel-default" ng-show="buttonUpdate">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Détails adhérent</h3>
-		  </div>
-		  <div class ='panel-body'>
-		  	<div class='row form-group'>
-			  	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			    	<span class="col-xs-3">Nom : </span> <input type='text' ng-model="updateAdherent.nom" class="form-control col-xs-offset-1" placeholder='{{datas.nom}}'></input>
-			 	</div>
-			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			 		<span class="col-xs-3">Prenom : </span> <input type='text' ng-model="updateAdherent.prenom" class="form-control col-xs-offset-1" placeholder='{{datas.prenom}}'></input>
-			 	</div>
-		  	</div>
-			<div class='row form-group'>
-				<div class="col-xs-5 col-xs-offset-1 form-inline">
-					<span class="col-xs-3">Date de naissance : </span> <input type='date' ng-model="updateAdherent.date_naissance" class="form-control col-xs-offset-1" placeholder='{{datas.data_naissance}}'></input>
-			 	</div>
-			 	
-			</div>
-			<div class='row form-group'>
-				<div class="col-xs-5 col-xs-offset-1 form-inline">
-			 		<span class="col-xs-3">numéro de rue : </span> <input type='text' class="form-control col-xs-offset-1" ng-model="adresse.ligne1 "placeholder='{{datas.adresse.ligne1}}'></input>
-			 	</div>
-			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			 		<span class="col-xs-3">libéllé de rue : </span> <input type='text' class="form-control col-xs-offset-1" ng-model="adresse.ligne2 "placeholder='{{datas.adresse.ligne2}}'></input>
-			 	</div>	
-			</div>
-			<div class='row form-group'>
-				<div class="col-xs-5 col-xs-offset-1 form-inline">
-			 		<span class="col-xs-3">code postal : </span> <input type='text' class="form-control col-xs-offset-1" ng-model="adresse.codepostal "placeholder='{{datas.adresse.codepostal}}'></input>
-			 	</div>
-			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			 		<span class="col-xs-3">ville : </span> <input type='text' class="form-control col-xs-offset-1" ng-model="adresse.ville"placeholder='{{datas.adresse.ville}}'></input>
-			 	</div>
-			</div>
-			<div class='row form-group'>
-				<div class="col-xs-5 col-xs-offset-1 form-inline">
-					<span class="col-xs-3">Date cotisation : </span> <input type='date' ng-model="updateAdherent.cotisation.debut" class="form-control col-xs-offset-1" placeholder='{{datas.cotisation.debut}}'></input>
-			 	</div>
-				<div class="col-xs-5 col-xs-offset-1 form-inline">
-					<span class="col-xs-3">Montant cotisation : </span> <input type='number' ng-model="updateAdherent.cotisation.montant" class="form-control col-xs-offset-1" placeholder='{{datas.cotisation.montant}}'></input>&euro;	
-			 	</div>
-			</div>
-			<div class='row form-group'>
-			 	<div class="col-xs-5 col-xs-offset-1 form-inline">
-			 		<span class="col-xs-3">Mail : </span> <input type='mail' ng-model="updateAdherent.email" class="form-control col-xs-offset-1" placeholder='{{datas.email}}'></input>
-			 	</div>
-			</div>
-		  </div>
-		  <div class="panel-footer">
-		  	<button class="btn btn-success" type="submit" ng-click="newUpdateAdherent()">Enregistrer</button>
-		  	<button type="button" class="btn btn-warning">Annuler</button>
-		  </div>
+	<a ng-href="./#/adherents"
+		class='btn btn-warning btn-sm col-xs-2 col-xs-offset-10'> <span
+		class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+	</a>
+	<div class="panel panel-default" ng-hide="buttonUpdate">
+		<div class="panel-heading">
+			<h3 class="panel-title">Détails adhérent</h3>
 		</div>
+		<div class='panel-body'>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1">
+					<span class='col-xs-3'>Nom : </span><label class='col-xs-offset-1'
+						ng-bind="datas.nom"> </label>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1">
+					<span class='col-xs-3'>Prenom : </span><label
+						class='col-xs-offset-1' ng-bind="datas.prenom"></label>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1">
+					<span class='col-xs-3'>Date de naissance : </span><label
+						class='col-xs-offset-1'
+						ng-bind="datas.date_naissance | date:'dd-MM-yyyy'"></label>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1 ">
+					<span class='col-xs-3'>Adresse : </span><label
+						class='col-xs-offset-1'>{{datas.adresse.ligne2}}
+						{{datas.adresse.ligne1}}, {{datas.adresse.codepostal}}
+						{{datas.adresse.ville}}</label>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1">
+					<span class='col-xs-3'>Date cotisation : </span><label
+						class='col-xs-offset-1' ng-bind="datas.cotisation.debut  | date:'dd-MM-yyyy'"></label>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1">
+					<span class='col-xs-3'>Montant cotisation : </span><label
+						class='col-xs-offset-1'
+						ng-bind="datas.cotisation.montant | currency:'€'"> </label>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1">
+					<span class='col-xs-3'>Mail : </span><label class='col-xs-offset-1'
+						ng-bind="datas.email">gDrouard@mail.fr</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-footer">
+			<button type="button" class="btn btn-info"
+				ng-click="buttonUpdate = !buttonUpdate">Modifier</button>
+		</div>
+	</div>
+
+
+	<!-- 		UPDATE			 -->
+
+
+	<div class="panel panel-default" ng-show="buttonUpdate">
+		<div class="panel-heading">
+			<h3 class="panel-title">Détails adhérent</h3>
+		</div>
+		<div class='panel-body'>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Nom : </span> <input type='text'
+						ng-model="updateAdherent.nom" class="form-control col-xs-offset-1"
+						placeholder='{{datas.nom}}'></input>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Prenom : </span> <input type='text'
+						ng-model="updateAdherent.prenom"
+						class="form-control col-xs-offset-1"
+						placeholder='{{datas.prenom}}'></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Date de naissance : </span> <input
+						type='date' ng-model="updateAdherent.date_naissance"
+						class="form-control col-xs-offset-1"
+						placeholder='{{datas.data_naissance}}'></input>
+				</div>
+
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">numéro de rue : </span> <input type='text'
+						class="form-control col-xs-offset-1" ng-model="adresse.ligne1 "
+						placeholder='{{datas.adresse.ligne1}}'></input>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">libéllé de rue : </span> <input type='text'
+						class="form-control col-xs-offset-1" ng-model="adresse.ligne2 "
+						placeholder='{{datas.adresse.ligne2}}'></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">code postal : </span> <input type='text'
+						class="form-control col-xs-offset-1"
+						ng-model="adresse.codepostal "
+						placeholder='{{datas.adresse.codepostal}}'></input>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">ville : </span> <input type='text'
+						class="form-control col-xs-offset-1" ng-model="adresse.ville"
+						placeholder='{{datas.adresse.ville}}'></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Date cotisation : </span> <input type='date'
+						ng-model="updateAdherent.cotisation.debut"
+						class="form-control col-xs-offset-1"
+						placeholder='{{datas.cotisation.debut}}'></input>
+				</div>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Montant cotisation : </span> <input
+						type='number' ng-model="updateAdherent.cotisation.montant"
+						class="form-control col-xs-offset-1"
+						placeholder='{{datas.cotisation.montant}}'></input>&euro;
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="col-xs-5 col-xs-offset-1 form-inline">
+					<span class="col-xs-3">Mail : </span> <input type='mail'
+						ng-model="updateAdherent.email"
+						class="form-control col-xs-offset-1" placeholder='{{datas.email}}'></input>
+				</div>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<button class="btn btn-success" type="submit"
+				ng-click="newUpdateAdherent()">Enregistrer</button>
+			<button type="button" class="btn btn-warning">Annuler</button>
+		</div>
+	</div>
 </div>
-		<div class='row form-group'>
-			<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()">Nouvel emprunt</button>
-			<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Titre <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-							<th>Auteur <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-							<th>Date d'emprunt</th>
-							<th>Date de retour</th>
-							<th>Détails</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- ajouter un emprunt -->
-						<tr ng-show="isAddingEmprunt()" ng-form="formEmprunt" novalidate>
-							<td></td>
-							<td><input name="titre" type='text' placeholder="Titre de l'oeuvre" class="form-control" ng-model="emprunt.titre" required></input></td>
-							<td><input name="auteur" type='text' placeholder="Auteur de l'oeuvre" class="form-control" ng-model="emprunt.auteur" required></input></td>
-							<td>
-								<input name="date" type="date" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date" required>
-							</td>
-							<td><span ng-show="hasError">Oeuvre inexistante</span></td>
-							<td>
-								<button class="btn btn-success form-group col-xs-12" type="button" ng-disabled="formEmprunt.$invalid"  ng-click="addEmprunt()">Ajouter</button>
-							</td>
-						</tr>
-						<!-- Liste des emprunts -->
-						<tr ng-repeat="emprunt in medias">
-							<td>{{$index}}</td>
-							<td><span ng-class="{'glyphicon glyphicon-film': emprunt.media.type === 'DVD',
+<div class='row form-group'>
+	<div ng-hide="isAddingEmprunt()">
+		<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()">Nouvel emprunt</button>
+	</div>
+	<div ng-show="isAddingEmprunt()">
+		<button class="btn btn-warning" type="button" ng-click="addingEmprunt = !addingEmprunt">Annuler</button>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Titre
+					<button
+						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+				</th>
+				<th>Auteur
+					<button
+						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+				</th>
+				<th>Date d'emprunt</th>
+				<th>Date de retour</th>
+				<th>Détails</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- ajouter un emprunt -->
+			<tr ng-show="isAddingEmprunt()" ng-form="formEmprunt" novalidate>
+				<td></td>
+				<td><input name="titre" type='text'
+					placeholder="Titre de l'oeuvre" class="form-control"
+					ng-model="emprunt.titre" required></input></td>
+				<td><input name="auteur" type='text'
+					placeholder="Auteur de l'oeuvre" class="form-control"
+					ng-model="emprunt.auteur" required></input></td>
+				<td><input name="date" type="date" class="form-control"
+					placeholder="Date de l'emprunt" ng-model="emprunt.date" required>
+				</td>
+				<td><span ng-show="hasError">Oeuvre inexistante</span></td>
+				<td>
+					<button class="btn btn-success form-group col-xs-12" type="button"
+						ng-disabled="formEmprunt.$invalid" ng-click="addEmprunt()">Ajouter</button>
+				</td>
+			</tr>
+			<!-- Liste des emprunts -->
+			<tr ng-repeat="emprunt in medias">
+				<td>{{$index}}</td>
+				<td><span
+					ng-class="{'glyphicon glyphicon-film': emprunt.media.type === 'DVD',
 						 						'glyphicon glyphicon-music':emprunt.media.type ==='CD',
 						 						'glyphicon glyphicon-book':emprunt.media.type ==='Livre'}">
-					 			</span>
-					 			 {{emprunt.media.titre}}
-						 	</td>
-							<td ng-bind="emprunt.media.auteur"></td>
-							<td ng-bind="emprunt.depart | date:'dd-MM-yyyy'"></td>
-							<td ng-bind="emprunt.retour | date:'dd-MM-yyyy'"></td>
-							<td>
-								<a ng-href="./#/media/{{emprunt.media.id}}">
-									<button type="button" class="btn btn-info col-xs-12">
-					    				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-					    			</button>
-								</a>
-							</td>
-						</tr>
-					</tbody>
-			</table>
-			<button type="button" class="btn btn-info col-xs-offset-11">Voir plus</button>
-		</div>
+				</span> {{emprunt.media.titre}}</td>
+				<td ng-bind="emprunt.media.auteur"></td>
+				<td ng-bind="emprunt.depart | date:'dd-MM-yyyy'"></td>
+				<td ng-bind="emprunt.retour | date:'dd-MM-yyyy'"></td>
+				<td><a ng-href="./#/media/{{emprunt.media.id}}">
+						<button type="button" class="btn btn-info col-xs-12">
+							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+						</button>
+				</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<button type="button" class="btn btn-info col-xs-offset-11">Voir
+		plus</button>
+</div>
