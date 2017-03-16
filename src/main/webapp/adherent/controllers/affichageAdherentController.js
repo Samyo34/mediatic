@@ -14,26 +14,53 @@
 		$scope.datas = [] ;
 		$scope.updateAdherent ={};
 		$scope.adresse={};
+		$scope.buttonUpdate = false;
+		
+		
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
-			console.log(data);
 			$scope.datas = data;
 			$scope.medias = $scope.datas.emprunt;
 		});	
-		$scope.buttonUpdate = false;
+		
 		
 		$scope.newUpdateAdherent = function(){
 			$scope.updateAdherent.id = $routeParams.id;
 			$scope.updateAdherent.adresse =$scope.adresse;
 			ServiceUrl.updateAdherent($scope.updateAdherent);
-			console.log($scope.updateAdherent);
 			ServiceUrl.getAdherentById($routeParams.id).then(function(data){
-				console.log(data);
 				$scope.datas = data;
 				$scope.emprunteurs = $scope.datas.emprunteurs;
 			})
 			$scope.buttonUpdate = !$scope.buttonUpdate;
 		}
 		
-	})
-	
+		$scope.addingEmprunt = false;
+		$scope.emprunt = {};
+		$scope.hasError = false;
+		
+		$scope.setAddingEmprunt =function(){
+			$scope.addingEmprunt = !$scope.addingEmprunt;
+		}
+		
+		$scope.isAddingEmprunt = function(){
+			return $scope.addingEmprunt;
+		}
+		
+		$scope.addEmprunt = function(){
+			ServiceUrl.getMediasByParams({titre:$scope.emprunt.titre,auteur:$scope.emprunt.auteur}).then(function(data){
+				if(data[0] != undefined){
+					ServiceUrl.addEmpruntMedia(data[0].id,$routeParams.id,$scope.emprunt.date);
+					$scope.addingEmprunt = false;
+					ServiceUrl.getAdherentById($routeParams.id).then(function(data){
+						$scope.datas = data;
+						$scope.medias = $scope.datas.emprunt;
+						$scope.hasError = false;
+				});
+				}
+				else{
+					$scope.hasError = true;
+				}	
+			});
+		};		
+	});
 })();
