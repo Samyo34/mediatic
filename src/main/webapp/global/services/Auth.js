@@ -1,17 +1,18 @@
-angular.module('mediaticApp.service').factory('AuthentificationService', function($http, ServiceUrl){
+angular.module('mediaticApp.service').factory('AuthentificationService', function($http, ServiceUrl, $cookies){
 	
 	var AuthentificationService = {};
 
 	var connected = false;
 	var defaut = 'Basic';
 
-	if(false){
-		console.warn('Connexion automatique !!')
+	if($cookies.get('myFavorite') !== undefined){
 		connected = true;
-		defaut = 'Basic YXplOmF6ZQ==';
+		$http.defaults.headers.common['Authorization'] = $cookies.get('myFavorite');
+	} else {
+		connected = false;
+		$http.defaults.headers.common['Authorization'] = defaut;
 	}
-
-	$http.defaults.headers.common['Authorization'] = defaut;
+	
 
 	AuthentificationService.connect = function(login, password){
 		var auth = 'Basic ' + btoa(login+':'+password);
@@ -23,16 +24,17 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 		return $http.get(ServiceUrl.getConnection(), config).then(function(){
 			connected = true;
 			$http.defaults.headers.common['Authorization'] = auth;
+			$cookies.put('myFavorite', auth);
 			return true;
 		}, function(){
-			connected = false;
-			$http.defaults.headers.common['Authorization'] = 'Basic';
+			AuthentificationService.disconnect();
 			return false;
 		});
 	};
 	
 	AuthentificationService.disconnect = function(){
 		connected = false;
+		$cookies.remove('myFavorite');
 		$http.defaults.headers.common['Authorization'] = 'Basic';
 	}
 	
