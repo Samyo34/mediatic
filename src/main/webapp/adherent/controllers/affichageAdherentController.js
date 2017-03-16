@@ -46,7 +46,6 @@
 			return $scope.addingEmprunt;
 		}
 		
-		
 		$scope.addEmprunt = function(){
 			ServiceUrl.getMediasByParams({titre:$scope.emprunt.titre,auteur:$scope.emprunt.auteur}).then(function(data){
 				if(data[0] != undefined){
@@ -56,12 +55,12 @@
 						$scope.datas = data;
 						$scope.medias = $scope.datas.emprunt;
 						$scope.hasError = false;
-					});	
+				});
 				}
 				else{
 					$scope.hasError = true;
-				}					
+				}	
 			});
 		};		
-	});	
+	});
 })();
