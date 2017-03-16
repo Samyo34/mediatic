@@ -23,9 +23,16 @@
 	float: right;
 }
 
-.container .table>tbody>tr>td, .container .table>tbody>tr>th,
-.container .table>tfoot>tr>td, .container .table>tfoot>tr>th,
-.container .table>thead>tr>td, .container .table>thead>tr>th{
+.label-search {
+	height: 34px;
+	line-height: 34px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.container .table>tbody>tr>td, .container .table>tbody>tr>th, .container .table>tfoot>tr>td,
+	.container .table>tfoot>tr>th, .container .table>thead>tr>td,
+	.container .table>thead>tr>th {
 	vertical-align: middle;
 }
 
@@ -33,6 +40,6 @@
 	width: auto;
 }
 
-main{
-	padding-bottom : 50px;
+main {
+	padding-bottom: 50px;
 }

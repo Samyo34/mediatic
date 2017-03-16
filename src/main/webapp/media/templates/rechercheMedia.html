@@ -1,10 +1,15 @@
 <div class='row form-group'>
 	<form class="searchForm" ng-submit="startSearch()">
-		<div class="form-group col-xs-9">
-			<div class="input-group">
-				<input type="text" class="form-control" ng-model="search.titre" placeholder="Par titre">
+		<div class="form-group col-xs-9 row">
+			<div class="col-xs-4 col-md-2 label-search">
+				<label>Rechercher par</label>
+			</div>
+			<div class="input-group col-xs-8 col-md-10">
+				<input type="text" class="form-control" ng-model="search.titre"
+					placeholder="Titre">
 				<div class="input-group-btn">
-					<input type="text" class="form-control" ng-model="search.auteur" placeholder="Par auteur">
+					<input type="text" class="form-control" ng-model="search.auteur"
+						placeholder="Auteur">
 				</div>
 				<div class="input-group-btn">
 					<select type="text" class="form-control" ng-model="search.type">
@@ -30,30 +35,47 @@
 		<thead>
 			<tr>
 				<th>ID
-					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-order' : !sortedId, 'glyphicon-sort-by-order-alt' : sortedId}" ng-click="sortId()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon"
+						ng-class="{'glyphicon-sort-by-order' : !sortedIdAsc, 'glyphicon-sort-by-order-alt' : sortedIdAsc}"
+						ng-click="sortId()"></button>
 				</th>
 				<th>Titre
-					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitre, 'glyphicon-sort-by-alphabet-alt' : sortedTitre}" ng-click="sortTitre()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon"
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitreAsc, 'glyphicon-sort-by-alphabet-alt' : sortedTitreAsc}"
+						ng-click="sortTitre()"></button>
 				</th>
 				<th>Auteur
-					<button class="btn btn-sort btn-xs btn-info glyphicon" ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteur, 'glyphicon-sort-by-alphabet-alt' : sortedAuteur}" ng-click="sortAuteur()"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon"
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteurAsc, 'glyphicon-sort-by-alphabet-alt' : sortedAuteurAsc}"
+						ng-click="sortAuteur()"></button>
 				</th>
-				<th>Disponibilité</th>
+				<th>Disponibilité
+					<button
+						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+						ng-click="sortDisponibilite()"></button>
+				</th>
 				<th>Détails</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="media in medias | limitTo:sizeArrayMedia">
+			<tr ng-repeat="media in medias
+			| orderBy: sortedIdAsc && 'id' 
+			| orderBy: sortedIdDesc && '-id' 
+			| orderBy: sortedTitreAsc && 'titre' 
+			| orderBy: sortedTitreDesc && '-titre' 
+			| orderBy: sortedAuteurAsc && 'auteur' 
+			| orderBy: sortedAuteurDesc && '-auteur' 
+			| orderBy: sortedDisponibiliteAsc && 'retour' 
+			| orderBy: sortedDisponibiliteDesc && '-retour' 
+			| limitTo:sizeArrayMedia">
 				<td ng-bind='media.id'></td>
-				<td><span
-					class="glyphicon"
+				<td><span class="glyphicon"
 					ng-class="{'glyphicon-film': media.type === 'DVD',
 						 'glyphicon-music':media.type ==='CD',
 						 'glyphicon-book':media.type ==='Livre'}">
 				</span> {{media.titre}}</td>
 				<td ng-bind='media.auteur'></td>
-				<td class="icon-tab"><span
-					class="glyphicon"
+				<td class="icon-tab"><span class="glyphicon"
 					ng-class="{'glyphicon-ok icon-success': (media.retour === undefined),
 						'glyphicon-remove icon-error': (media.retour != undefined)}">
 				</span></td>
@@ -65,6 +87,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" class="btn btn-info col-xs-offset-11" ng-click="addSize()" ng-disabled="sizeMaxMedia">voir
-		plus</button>
+	<button type="button" class="btn btn-info col-xs-offset-11"
+		ng-click="addSize()" ng-disabled="sizeMaxMedia">voir plus</button>
 </div>
