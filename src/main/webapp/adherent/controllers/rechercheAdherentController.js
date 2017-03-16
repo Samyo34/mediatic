@@ -13,6 +13,12 @@
 
 				$scope.currentDate = new Date();
 
+				$scope.accurate = false;
+				
+				$scope.accurateSearch = function(){
+					$scope.accurate = !$scope.accurate;
+				}
+				
 				$scope.resetSort = function(sortValue) {
 					if (sortValue != $scope.sortedIdAsc)
 						$scope.sortedIdAsc = false;
@@ -153,7 +159,7 @@
 						params.email = $scope.search.email;
 					}
 					if ($scope.search.nomOuPrenom != undefined) {
-						params.nomOuPrenom = $scope.search.nomOuPrenom;
+						params.texte = $scope.search.nomOuPrenom;
 					}
 					ServiceUrl.getAdherentsByParams(params).then(
 							function(adherents) {
