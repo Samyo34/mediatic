@@ -16,6 +16,7 @@
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.emprunteurs = $scope.datas.emprunteurs;
+			console.log($scope.datas);
 		})
 		$scope.buttonUpdate = false;
 		
@@ -31,6 +32,7 @@
 		
 		$scope.addingEmprunt = false;
 		$scope.emprunt = {};
+		$scope.hasError = false;
 		
 		$scope.setAddingEmprunt =function(){
 			$scope.addingEmprunt = !$scope.addingEmprunt;
@@ -42,12 +44,18 @@
 		
 		$scope.addEmprunt = function(){
 			ServiceUrl.getAdherentsByParams({nom:$scope.emprunt.nom,prenom:$scope.emprunt.prenom}).then(function(data){
-				ServiceUrl.addEmpruntMedia(data[0].id,$routeParams.id,$scope.emprunt.date);
-				$scope.addingEmprunt = false;
-				ServiceUrl.getMediaById($routeParams.id).then(function(data){
-					$scope.datas = data;
-					$scope.emprunteurs = $scope.datas.emprunteurs;
-				})
+				if(data[0] != undefined){
+					ServiceUrl.addEmpruntMedia(data[0].id,$routeParams.id,$scope.emprunt.date);
+					$scope.addingEmprunt = false;
+					ServiceUrl.getMediaById($routeParams.id).then(function(data){
+						$scope.datas = data;
+						$scope.emprunteurs = $scope.datas.emprunteurs;
+						$scope.hasError = false;
+					})
+				}
+				else{
+					$scope.hasError = true;
+				}	
 			});
 		}		
 	})
