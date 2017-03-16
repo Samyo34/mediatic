@@ -15,6 +15,14 @@
 	color: #c9302c;
 }
 
+.btn-detail {
+	text-align: center;
+}
+
+.btn-sort {
+	float: right;
+}
+
 .container .table>tbody>tr>td, .container .table>tbody>tr>th,
 .container .table>tfoot>tr>td, .container .table>tfoot>tr>th,
 .container .table>thead>tr>td, .container .table>thead>tr>th{
