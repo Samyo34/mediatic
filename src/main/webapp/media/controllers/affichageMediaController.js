@@ -15,16 +15,23 @@
 		$scope.updateMedia ={};
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
+			$scope.updateMedia = angular.copy(data);
 			$scope.emprunteurs = $scope.datas.emprunteurs;
 			console.log($scope.datas);
 		})
 		$scope.buttonUpdate = false;
+		
+		$scope.switchEditView = function(){
+			$scope.updateMedia = angular.copy($scope.datas);
+			$scope.buttonUpdate = !$scope.buttonUpdate;
+		}
 		
 		$scope.newUpdateMedia = function(){
 			$scope.updateMedia.id = $routeParams.id;
 			ServiceUrl.updateMedia($scope.updateMedia);
 			ServiceUrl.getMediaById($routeParams.id).then(function(data){
 				$scope.datas = data;
+				$scope.updateMedia = angular.copy(data);
 				$scope.emprunteurs = $scope.datas.emprunteurs;
 			})
 			$scope.buttonUpdate = !$scope.buttonUpdate;

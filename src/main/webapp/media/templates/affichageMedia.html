@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="panel-footer">
-				<button type="button" class="btn btn-info" ng-click="buttonUpdate = !buttonUpdate">Modifier</button>
+				<button type="button" class="btn btn-info" ng-click="switchEditView()">Modifier</button>
 			</div>
 		</div>
 		<!--			 UPDATE 				-->
@@ -46,20 +46,19 @@
 				<div class="form-group row">
 					<div class="row col-sm-5 col-xs-12 col-sm-offset-1  form-inline">
 						<span class="text-left col-sm-4 col-xs-12">Titre :</span>
-						<input type="text" ng-model="updateMedia.titre" class="form-control col-sm-offset-1 col-xs-12" ng-value='datas.titre'>
+						<input type="text" ng-model="updateMedia.titre" class="form-control col-sm-offset-1 col-xs-12"></input>
 					</div>
 				
 					<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
 						<span class="text-left col-sm-4 col-xs-12">Auteur :</span>
-						<input type="text" ng-model="updateMedia.auteur" class="form-control col-sm-offset-1 col-xs-12" ng-value='datas.auteur'>
+						<input type="text" ng-model="updateMedia.auteur" class="form-control col-sm-offset-1 col-xs-12">
 					</div>
 				</div>
 			
 				<div class="row form-group">
-					<div class="row col-sm-5 col-xs-5 col-sm-offset-1 form-inline" >
-					<span class="col-sm-5 col-xs-6">Type :</span>
-				   <select name="singleSelect" id="singleSelect" ng-model="updateMedia.type" class="btn btn-default dropdown-toggle col-sm-3">
-      					<option ng-value='datas.type'>{{datas.type}}</option> <!-- not selected / blank option -->
+					<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" >
+					<span class="col-sm-5 col-xs-12">Type :</span>
+				   <select name="singleSelect" id="singleSelect" ng-model="updateMedia.type" class="btn btn-default dropdown-toggle form-control col-xs-12">
      					<option value="Livre"><span ng-class="glyphicon glyphicon-book"></span> Livre</option>
       					<option value="CD"><span ng-class="glyphicon glyphicon-music"></span> CD</option>
       					<option value="DVD"><span ng-class="glyphicon glyphicon-film"></span> DVD</option>
@@ -70,7 +69,7 @@
 			
 			<div class="panel-footer">
 				<button class="btn btn-success" type="submit" ng-click="newUpdateMedia()">Enregistrer</button>	
-				<button class="btn btn-warning" type="submit" ng-click="buttonUpdate = !buttonUpdate">Annuler</button>	
+				<button class="btn btn-warning" type="submit" ng-click="switchEditView()">Annuler</button>	
 			</div>
 		</div>
 	</div>
