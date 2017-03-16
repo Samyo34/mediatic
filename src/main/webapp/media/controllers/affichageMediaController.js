@@ -16,6 +16,7 @@
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.emprunteurs = $scope.datas.emprunteurs;
+			console.log($scope.datas);
 		})
 		$scope.buttonUpdate = false;
 		
@@ -42,7 +43,7 @@
 		
 		$scope.addEmprunt = function(){
 			ServiceUrl.getAdherentsByParams({nom:$scope.emprunt.nom,prenom:$scope.emprunt.prenom}).then(function(data){
-				ServiceUrl.addEmpruntMedia(data[0].id,$routeParams.id,$scope.emprunt.date);
+				ServiceUrl.addEmpruntMedia($scope.adherent.id,$routeParams.id,$scope.emprunt.date);
 				$scope.addingEmprunt = false;
 				ServiceUrl.getMediaById($routeParams.id).then(function(data){
 					$scope.datas = data;

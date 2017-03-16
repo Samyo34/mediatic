@@ -51,6 +51,7 @@
 				$scope.addingEmprunt = false;
 				ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 					$scope.datas = data;
+					console.log(data);
 					$scope.medias = $scope.datas.emprunt;
 					
 				});	
