@@ -36,6 +36,7 @@
 		
 		$scope.addingEmprunt = false;
 		$scope.emprunt = {};
+		$scope.hasError = false;
 		
 		$scope.setAddingEmprunt =function(){
 			$scope.addingEmprunt = !$scope.addingEmprunt;
@@ -47,16 +48,19 @@
 		
 		$scope.addEmprunt = function(){
 			ServiceUrl.getMediasByParams({titre:$scope.emprunt.titre,auteur:$scope.emprunt.auteur}).then(function(data){
-				ServiceUrl.addEmpruntMedia(data[0].id,$routeParams.id,$scope.emprunt.date);
-				$scope.addingEmprunt = false;
-				ServiceUrl.getAdherentById($routeParams.id).then(function(data){
-					$scope.datas = data;
-					console.log(data);
-					$scope.medias = $scope.datas.emprunt;
-					
-				});	
+				if(data[0] != undefined){
+					ServiceUrl.addEmpruntMedia(data[0].id,$routeParams.id,$scope.emprunt.date);
+					$scope.addingEmprunt = false;
+					ServiceUrl.getAdherentById($routeParams.id).then(function(data){
+						$scope.datas = data;
+						$scope.medias = $scope.datas.emprunt;
+						$scope.hasError = false;
+				});
+				}
+				else{
+					$scope.hasError = true;
+				}	
 			});
-		}		
-	})
-	
+		};		
+	});
 })();
