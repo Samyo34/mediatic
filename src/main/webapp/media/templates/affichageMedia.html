@@ -80,7 +80,12 @@
 	
 	<!--  TABLEAU DES EMPRUNTS -->
 	<div class="row form-group">
-		<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()">Nouvel emprunt</button>
+		<div ng-hide="isAddingEmprunt()">
+		<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()" >Nouvel emprunt</button>
+		</div>
+		<div  ng-show="isAddingEmprunt()">
+		<button class="btn btn-warning" type="button" ng-click="addingEmprunt = !addingEmprunt">Annuler</button>
+		</div>
 		<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -89,6 +94,7 @@
 						<th>Prénom <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
 						<th>Date de l'emprunt</th>
 						<th>Date de retour prévu</th>
+						<th>Détails</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -108,6 +114,13 @@
 						<td ng-bind='adherent.adherent.prenom'></td>
 						<td ng-bind='adherent.depart'></td>
 						<td ng-bind='adherent.retour'></td>
+						<td>
+								<a ng-href="./#/adherent/{{adherent.adherent.id}}">
+									<button type="button" class="btn btn-info col-xs-12">
+					    				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+					    			</button>
+								</a>
+						</td>
 					</tr>				
 				</tbody>
 		</table>

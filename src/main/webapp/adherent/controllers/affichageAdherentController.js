@@ -14,12 +14,14 @@
 		$scope.datas = [] ;
 		$scope.updateAdherent ={};
 		$scope.adresse={};
+		$scope.buttonUpdate = false;
+		
 		
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.medias = $scope.datas.emprunt;
 		});	
-		$scope.buttonUpdate = false;
+		
 		
 		$scope.newUpdateAdherent = function(){
 			$scope.updateAdherent.id = $routeParams.id;
@@ -50,6 +52,7 @@
 				ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 					$scope.datas = data;
 					$scope.medias = $scope.datas.emprunt;
+					
 				});	
 			});
 		}		
