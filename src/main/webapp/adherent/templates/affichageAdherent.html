@@ -148,17 +148,19 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th><button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
 				<th>Titre
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
 				</th>
 				<th>Auteur
-					<button
-						class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
 				</th>
-				<th>Date d'emprunt</th>
-				<th>Date de retour</th>
+				<th>Date d'emprunt
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
+				</th>
+				<th>Date de retour
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
+				</th>
 				<th>Détails</th>
 			</tr>
 		</thead>
@@ -183,7 +185,7 @@
 			</tr>
 			<!-- Liste des emprunts -->
 			<tr ng-repeat="emprunt in medias">
-				<td>{{$index}}</td>
+				<td>#{{$index}}</td>
 				<td><span
 					ng-class="{'glyphicon glyphicon-film': emprunt.media.type === 'DVD',
 						 						'glyphicon glyphicon-music':emprunt.media.type ==='CD',
@@ -192,8 +194,8 @@
 				<td ng-bind="emprunt.media.auteur"></td>
 				<td ng-bind="emprunt.depart | date:'dd-MM-yyyy'"></td>
 				<td ng-bind="emprunt.retour | date:'dd-MM-yyyy'"></td>
-				<td><a ng-href="./#/media/{{emprunt.media.id}}">
-						<button type="button" class="btn btn-info col-xs-12">
+				<td class="btn-detail"><a ng-href="./#/media/{{emprunt.media.id}}">
+						<button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 						</button>
 				</a></td>

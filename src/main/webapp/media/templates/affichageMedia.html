@@ -88,11 +88,15 @@
 		<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>ID</th>
-						<th>Nom <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Prénom <button class="btn btn-default glyphicon glyphicon-sort-by-alphabet"></button></th>
-						<th>Date de l'emprunt</th>
-						<th>Date de retour prévu</th>
+						<th><button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
+						<th>Nom
+						<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
+						<th>Prénom
+						<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
+						<th>Date de l'emprunt
+						<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
+						<th>Date de retour prévu
+						<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
 						<th>Détails</th>
 					</tr>
 				</thead>
@@ -109,14 +113,14 @@
 						</td>
 					</tr>
 					<tr ng-repeat="adherent in emprunteurs">
-						<td >{{$index}}</td>
+						<td>#{{$index}}</td>
 						<td ng-bind='adherent.adherent.nom'></td>
 						<td ng-bind='adherent.adherent.prenom'></td>
 						<td ng-bind='adherent.depart'></td>
 						<td ng-bind='adherent.retour'></td>
-						<td>
+						<td class="btn-detail">
 								<a ng-href="./#/adherent/{{adherent.adherent.id}}">
-									<button type="button" class="btn btn-info col-xs-12">
+									<button type="button" class="btn btn-info">
 					    				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 					    			</button>
 								</a>
