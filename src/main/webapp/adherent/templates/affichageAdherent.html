@@ -117,18 +117,16 @@
 					</thead>
 					<tbody>
 						<!-- ajouter un emprunt -->
-						<tr ng-show="isAddingEmprunt()">
+						<tr ng-show="isAddingEmprunt()" ng-form="formEmprunt" novalidate>
 							<td></td>
-							<td> <input type='text' placeholder="Titre de l'oeuvre" class="form-control" ng-model="emprunt.titre"></input></td>
-							<td><input type='text' placeholder="Auteur de l'oeuvre" class="form-control" ng-model="emprunt.auteur"></input></td>
+							<td><input name="titre" type='text' placeholder="Titre de l'oeuvre" class="form-control" ng-model="emprunt.titre" required></input></td>
+							<td><input name="auteur" type='text' placeholder="Auteur de l'oeuvre" class="form-control" ng-model="emprunt.auteur" required></input></td>
 							<td>
-								<input type="date" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date">
+								<input name="date" type="date" class="form-control" placeholder="Date de l'emprunt" ng-model="emprunt.date" required>
 							</td>
-							<td></td>
+							<td><span ng-show="hasError">Oeuvre inexistante</span></td>
 							<td>
-								<button class="btn btn-success form-group col-xs-12" type="button"  ng-click="addEmprunt()">
-									Ajouter
-								</button>
+								<button class="btn btn-success form-group col-xs-12" type="button" ng-disabled="formEmprunt.$invalid"  ng-click="addEmprunt()">Ajouter</button>
 							</td>
 						</tr>
 						<!-- Liste des emprunts -->
