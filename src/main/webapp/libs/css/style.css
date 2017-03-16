@@ -30,6 +30,10 @@
 	padding-right: 5px;
 }
 
+.searchForm .input-group-btn.span-accurate-search{
+	width: 40px;
+}
+
 .container .table>tbody>tr>td, .container .table>tbody>tr>th, .container .table>tfoot>tr>td,
 	.container .table>tfoot>tr>th, .container .table>thead>tr>td,
 	.container .table>thead>tr>th {

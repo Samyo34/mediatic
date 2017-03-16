@@ -1,10 +1,10 @@
 <div class='row form-group'>
 	<form class="searchForm" ng-submit="startSearch()">
 		<div class="form-group col-xs-9 row">
-			<div class="col-xs-4 col-md-2 label-search">
-				<label>Rechercher par</label>
+			<div class="col-xs-3 col-md-2 label-search">
+				<label>Recherche</label>
 			</div>
-			<div class="input-group col-xs-8 col-md-10">
+			<div class="input-group col-xs-9 col-md-10">
 				<input type="text" class="form-control" ng-model="search.titre"
 					placeholder="Titre">
 				<div class="input-group-btn">
@@ -13,14 +13,14 @@
 				</div>
 				<div class="input-group-btn">
 					<select type="text" class="form-control" ng-model="search.type">
-						<option value="">TOUT TYPE</option>
+						<option value="">Tous</option>
 						<option value="Livre">Livre</option>
 						<option value="CD">CD</option>
 						<option value="DVD">DVD</option>
 					</select>
 				</div>
 				<span class="input-group-btn">
-					<button class="btn btn-info" type="submit">
+					<button class="btn btn-primary" type="submit">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
@@ -34,7 +34,7 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>ID
+				<th>
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
 						ng-class="{'glyphicon-sort-by-order' : !sortedIdAsc, 'glyphicon-sort-by-order-alt' : sortedIdAsc}"
 						ng-click="sortId()"></button>
@@ -49,7 +49,7 @@
 						ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteurAsc, 'glyphicon-sort-by-alphabet-alt' : sortedAuteurAsc}"
 						ng-click="sortAuteur()"></button>
 				</th>
-				<th>Disponibilité
+				<th>Libre
 					<button
 						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-click="sortDisponibilite()"></button>
@@ -68,7 +68,7 @@
 			| orderBy: sortedDisponibiliteAsc && 'retour' 
 			| orderBy: sortedDisponibiliteDesc && '-retour' 
 			| limitTo:sizeArrayMedia">
-				<td ng-bind='media.id'></td>
+				<td>#{{ media.id }}</td>
 				<td><span class="glyphicon"
 					ng-class="{'glyphicon-film': media.type === 'DVD',
 						 'glyphicon-music':media.type ==='CD',

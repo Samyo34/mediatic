@@ -1,12 +1,20 @@
 <div class='row form-group'>
 	<form class="searchForm" ng-submit="startSearch()">
 		<div class="form-group col-xs-9 row">
-			<div class="col-xs-4 col-md-2 label-search">
-				<label>Rechercher par</label>
+			<div class="col-xs-3 col-md-2 label-search">
+				<label>Recherche</label>
 			</div>
-			<div class="input-group col-xs-8 col-md-10">
-				<input type="text" class="form-control" ng-model="search.id"
-					placeholder="Id">
+			<div class="input-group col-xs-9 col-md-10">
+				<span class="span-accurate-search input-group-btn">
+					<a ng-href="" class="btn btn-info" ng-click="accurateSearch()">
+						<span class="glyphicon" ng-class="{'glyphicon-minus' : accurate , 'glyphicon-plus' : !accurate}"></span>
+					</a>
+				</span>
+				<div ng-show="accurate">
+				<div class="input-group-btn">
+					<input type="text" class="form-control" ng-model="search.id"
+						placeholder="Id">
+				</div>
 				<div class="input-group-btn">
 					<input type="text" class="form-control" ng-model="search.nom"
 						placeholder="Nom">
@@ -19,12 +27,13 @@
 					<input type="text" class="form-control" ng-model="search.email"
 						placeholder="Email">
 				</div>
-				<div class="input-group-btn">
-					<input type="text" class="form-control"
-						ng-model="search.nomOuPrenom" placeholder="Nom/Prénom">
+				</div>
+				<div ng-show="!accurate" class="input-group-btn">
+					<input type="text" class="form-control" ng-model="search.nomOuPrenom"
+						placeholder="Nom/Prénom">
 				</div>
 				<span class="input-group-btn">
-					<button class="btn btn-info" type="submit">
+					<button class="btn btn-primary" type="submit">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
 				</span>
@@ -38,7 +47,7 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>ID
+				<th>
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
 						ng-class="{'glyphicon-sort-by-order' : !sortedIdAsc, 'glyphicon-sort-by-order-alt' : sortedIdAsc}"
 						ng-click="sortId()"></button>
@@ -53,7 +62,7 @@
 						ng-class="{'glyphicon-sort-by-alphabet' : !sortedPrenom, 'glyphicon-sort-by-alphabet-alt' : sortedPrenom}"
 						ng-click="sortPrenom()"></button>
 				</th>
-				<th>Date de naissance
+				<th class="hidden-xs">Naissance
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
 						ng-class="{'glyphicon-sort-by-order' : !sortedNaissanceAsc, 'glyphicon-sort-by-order-alt' : sortedNaissanceAsc}"
 						ng-click="sortNaissance()"></button>
@@ -63,7 +72,7 @@
 						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-click="sortCotisation()"></button>
 				</th>
-				<th>Possessions
+				<th class="hidden-xs">Médias
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
 						ng-class="{'glyphicon-sort-by-order' : !sortedPossessionsAsc, 'glyphicon-sort-by-order-alt' : sortedPossessionsAsc}"
 						ng-click="sortPossessions()"></button>
@@ -94,15 +103,15 @@
 				| orderBy: sortedEmailAsc && 'email' 
 				| orderBy: sortedEmailDesc && '-email' 
 				| limitTo:sizeArrayAd">
-				<td ng-bind="adherent.id"></td>
+				<td>#{{ adherent.id }}</td>
 				<td ng-bind="adherent.nom"></td>
 				<td ng-bind="adherent.prenom"></td>
-				<td ng-bind="adherent.date_naissance | date:'dd-MM-yyyy'"></td>
+				<td class="hidden-xs" ng-bind="adherent.date_naissance | date:'dd-MM-yyyy'"></td>
 				<td class="icon-tab"><span class="glyphicon"
 					ng-class="{ 'glyphicon-ok icon-success':adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'),
 					'glyphicon-remove icon-error':!(adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'))}">
 				</span></td>
-				<td ng-bind="adherent.nombre_media"></td>
+				<td class="hidden-xs" ng-bind="adherent.nombre_media"></td>
 				<td ng-bind="adherent.email"></td>
 				<td class="btn-detail"><a href="#/adherent/{{adherent.id}}">
 						<button type="button" class="btn btn-info">
