@@ -3,7 +3,7 @@
 
 	angular.module('mediaticApp.adherent').config(function($routeProvider) {
 		$routeProvider.when('/adherents', {
-			templateUrl : '/adherent/templates/rechercheAdherent.html',
+			templateUrl : './adherent/templates/rechercheAdherent.html',
 			controller : 'RechercheAdherentCtrl'
 		})
 	}).controller(

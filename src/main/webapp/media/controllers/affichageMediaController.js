@@ -4,7 +4,7 @@
 	angular.module('mediaticApp.media')
 	.config(function($routeProvider){
 		$routeProvider.when('/media/:id',{
-			templateUrl:'/media/templates/affichageMedia.html',
+			templateUrl:'./media/templates/affichageMedia.html',
 			controller:'AffichageMediaCtrl'
 		})
 	})

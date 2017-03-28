@@ -4,7 +4,7 @@
 	angular.module('mediaticApp.adherent')
 	.config(function($routeProvider){
 		$routeProvider.when('/adherent',{
-			templateUrl:'/adherent/templates/creationAdherent.html',
+			templateUrl:'./adherent/templates/creationAdherent.html',
 			controller:'creationAdherentCtrl'
 		})
 	})

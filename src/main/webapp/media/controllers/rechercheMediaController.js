@@ -3,7 +3,7 @@
 
 	angular.module('mediaticApp.media').config(function($routeProvider) {
 		$routeProvider.when('/medias', {
-			templateUrl : '/media/templates/rechercheMedia.html',
+			templateUrl : './media/templates/rechercheMedia.html',
 			controller : 'RechercheMediaCtrl'
 		})
 	}).controller('RechercheMediaCtrl',
