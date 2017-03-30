@@ -6,7 +6,7 @@
 		
 		var self = this;
 		
-		var rootUrl = "http://192.168.1.86:8090";
+		var rootUrl = "http://localhost:8080";
 		
 		var mediaRechercheUrl = rootUrl+"/resource/media.recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
 		var mediaCreationUrl = rootUrl+"/resource/media.creation";// POST
