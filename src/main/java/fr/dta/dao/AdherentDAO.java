@@ -4,24 +4,21 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.dta.globale.DatabaseHelper;
 import fr.dta.model.Adherent;
 import fr.dta.model.Media;
 
+@Service
+@Transactional
 public class AdherentDAO extends DAO<Adherent> {
-	
-    private static AdherentDAO dao;
 
-    private AdherentDAO() {
+    public AdherentDAO() {
         super(Adherent.class);
-    }
-
-    public static AdherentDAO instance() {
-        if (dao == null) {
-            dao = new AdherentDAO();
-        }
-        return dao;
     }
     
     public List<Adherent> getAllAdherent(){
@@ -82,6 +79,47 @@ public class AdherentDAO extends DAO<Adherent> {
 		List<Adherent> ad = query.getResultList();
 		DatabaseHelper.commitTxAndClose(em);
 		return ad;
+	}
+	
+	public List<Adherent> getAdherentByParams(Integer id,String nom, String prenom,String email){
+		StringBuilder sb = new StringBuilder("");
+		if(id != null){
+			sb.append("id LIKE '%:id%' AND ");
+		}
+		
+		if(nom != null){
+			sb.append("nom LIKE '%:nom%' AND ");
+		}
+		
+		if(prenom != null){
+			sb.append("prenom LIKE '%:prenom%' AND ");
+		}
+		
+		if(email != null){
+			sb.append("mail LIKE '%:email%' AND ");
+		}
+		
+		sb.delete(sb.length()-5, sb.length());		
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		TypedQuery<Adherent> query = em.createQuery("select * "+
+				"from Adherent "+
+				"where "+sb.toString(),Adherent.class);
+		query.setParameter("id", id);
+		query.setParameter("nom", nom);
+		query.setParameter("prenom", prenom);
+		query.setParameter("mail", email);
+		List<Adherent> ad = query.getResultList();
+		DatabaseHelper.commitTxAndClose(em);
+		return ad;
+	}
+	
+	public Adherent updateAdherent(Adherent adherent){
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		Adherent a = em.merge(adherent);
+		DatabaseHelper.commitTxAndClose(em);
+		return a;
 	}
 	
 	/**

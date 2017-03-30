@@ -38,11 +38,11 @@ public class DataTest {
 	
 	public void addAdherents(int number)
 	{
-		AdherentDAO aDAO = AdherentDAO.instance();
+		//AdherentDAO aDAO = AdherentDAO.instance();
 		for(int i = 1; i < number+1; i++) {
 			adherents.add(new Adherent("Prenom " + i,"Nom " + i, new Date(),"Mail " + i));
 		}
-		aDAO.create(adherents);
+		//aDAO.create(adherents);
 	}
 	
 	public void addEmprunts()
