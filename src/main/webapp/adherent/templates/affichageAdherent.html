@@ -49,9 +49,9 @@
 			</div>
 		</div>
 		</div>
-		<div class="panel-footer">
-			<button type="button" class="btn btn-info" ng-click="switchEditView()">Modifier</button>
-		</div>
+			<div class="panel-footer">
+				<button type="button" class="btn btn-info" ng-click="switchEditView()">Modifier</button>
+			</div>
 		</div>
 
 
@@ -65,70 +65,62 @@
 		<div class='panel-body'>
 			<div class='row form-group'>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1  form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Nom : </span> <input type='text'
-						ng-model="updateAdherent.nom" class="form-control col-sm-offset-1 col-xs-12"
-						placeholder='{{datas.nom}}'></input>
+					<span class="text-left col-sm-4 col-xs-12">Nom : </span> 
+					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.nom"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Prenom : </span> <input type='text'
-						ng-model="updateAdherent.prenom"
-						class="form-control col-sm-offset-1 col-xs-12"
-						placeholder='{{datas.prenom}}'></input>
-				</div>
-			</div>
-			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Date de naissance : </span> <input
-						type='date' ng-model="updateAdherent.date_naissance"
-						class="form-control col-sm-offset-1 col-xs-12"
-						placeholder='{{datas.data_naissance}}'></input>
-				</div>
-
-			</div>
-			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">n° : </span> <input type='text'
-						class="form-control col-sm-offset-1 col-xs-12" ng-model="adresse.ligne1 "
-						placeholder='{{datas.adresse.ligne1}}'></input>
-				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">libéllé de rue : </span> <input type='text'
-						class="form-control col-sm-offset-1 col-xs-12" ng-model="adresse.ligne2 "
-						placeholder='{{datas.adresse.ligne2}}'></input>
+					<span class="text-left col-sm-4 col-xs-12">Prenom : </span>
+					 <input type='text' class="form-control col-sm-offset-1 col-xs-12"
+					 ng-model="updateAdherent.prenom"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">code postal : </span> <input type='text'
-						class="form-control col-sm-offset-1 col-xs-12"
-						ng-model="adresse.codepostal "
-						placeholder='{{datas.adresse.codepostal}}'></input>
+					<span class="text-left col-sm-4 col-xs-12">Date de naissance : </span>
+					<input type='date' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.date_naissance"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">ville : </span> <input type='text'
-						class="form-control col-sm-offset-1 col-xs-12" ng-model="adresse.ville"
-						placeholder='{{datas.adresse.ville}}'></input>
-				</div>
-			</div>
-			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Date cotisation : </span> <input type='date'
-						ng-model="updateAdherent.cotisation.debut"
-						class="form-control col-sm-offset-1 col-xs-12"
-						placeholder='{{datas.cotisation.debut}}'></input>
-				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Montant cotisation : </span> <input
-						type='number' ng-model="updateAdherent.cotisation.montant"
-						class="form-control col-sm-offset-1 col-xs-12"
-						placeholder='{{datas.cotisation.montant}}'></input>&euro;
+					<span class="text-left col-sm-4 col-xs-12">Mail : </span>
+					<input type='mail' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.email"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Mail : </span> <input type='mail'
-						ng-model="updateAdherent.email"
-						class="form-control col-sm-offset-1 col-xs-12" placeholder='{{datas.email}}'></input>
+					<span class="text-left col-sm-4 col-xs-12">n° : </span>
+					<input type='text' class="form-control col-sm-offset-1 col-xs-12" 
+					ng-model="adresse.ligne1"></input>
+				</div>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">libéllé de rue : </span>
+					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="adresse.ligne2 "></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">code postal : </span>
+					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="adresse.codepostal "></input>
+				</div>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">ville : </span>
+					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="adresse.ville"></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">Date cotisation : </span>
+					<input type='date' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.cotisation.debut"></input>
+				</div>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">Montant cotisation : </span>
+					<input type='number' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.cotisation.montant"></input>&euro;
 				</div>
 			</div>
 		</div>
@@ -136,10 +128,11 @@
 			<button class="btn btn-success" type="submit" ng-click="newUpdateAdherent()">Enregistrer</button>
 			<button type="button" class="btn btn-warning" ng-click="switchEditView()">Annuler</button>
 		</div>
-	</div>
-	
-	<!-- 		Tableaux d'emprunt		 -->
+	</div>	
 </div>
+
+<!-- 		TABLEAU DES EMPRUNTS		 -->
+
 <div class='row form-group'>
 	<div ng-hide="isAddingEmprunt()">
 		<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()">Nouvel emprunt</button>

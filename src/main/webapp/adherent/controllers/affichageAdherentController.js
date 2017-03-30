@@ -16,7 +16,6 @@
 		$scope.adresse={};
 		$scope.buttonUpdate = false;
 		
-		
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.updateMedia = angular.copy(data);
@@ -27,7 +26,6 @@
 			$scope.updateMedia = angular.copy($scope.datas);
 			$scope.buttonUpdate = !$scope.buttonUpdate;
 		}
-		
 		
 		$scope.newUpdateAdherent = function(){
 			$scope.updateAdherent.id = $routeParams.id;
@@ -63,8 +61,7 @@
 						$scope.medias = $scope.datas.emprunt;
 						$scope.hasError = false;
 				});
-				}
-				else{
+				}else{
 					$scope.hasError = true;
 				}	
 			});

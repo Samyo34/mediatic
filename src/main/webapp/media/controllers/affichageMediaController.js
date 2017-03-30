@@ -13,13 +13,14 @@
 		
 		$scope.datas = [] ;
 		$scope.updateMedia ={};
+		$scope.buttonUpdate = false;
+		
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.updateMedia = angular.copy(data);
 			$scope.emprunteurs = $scope.datas.emprunteurs;
 			console.log($scope.datas);
 		})
-		$scope.buttonUpdate = false;
 		
 		$scope.switchEditView = function(){
 			$scope.updateMedia = angular.copy($scope.datas);
@@ -59,8 +60,7 @@
 						$scope.emprunteurs = $scope.datas.emprunteurs;
 						$scope.hasError = false;
 					})
-				}
-				else{
+				}else{
 					$scope.hasError = true;
 				}	
 			});
