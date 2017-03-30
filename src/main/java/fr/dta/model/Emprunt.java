@@ -87,7 +87,7 @@ public class Emprunt {
 		this.dateEmprunt = dateEmprunt;
 	}
 
-	public boolean estRetourne() {
+	public boolean isRetourne() {
 		return estRetourne;
 	}
 
