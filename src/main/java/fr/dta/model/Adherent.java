@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name="adherent",uniqueConstraints=@UniqueConstraint(columnNames = {"mail"}))
+@Table(name="adherent")
 public class Adherent {
 	
 	@Id
