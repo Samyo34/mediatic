@@ -1,13 +1,14 @@
-package dao;
+package fr.dta.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import globale.DatabaseHelper;
-import model.Adherent;
-import model.Media;
+import fr.dta.globale.DatabaseHelper;
+import fr.dta.model.Adherent;
+import fr.dta.model.Cotisation;
+import fr.dta.model.Media;
 
 public class MediaDAO extends DAO<Media> {
 

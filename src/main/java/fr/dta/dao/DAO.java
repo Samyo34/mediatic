@@ -1,10 +1,10 @@
-package dao;
+package fr.dta.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import globale.DatabaseHelper;
+import fr.dta.globale.DatabaseHelper;
 
 public class DAO<T> {
 	
