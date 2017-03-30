@@ -25,6 +25,15 @@ public class MediaDAO extends DAO<Media> {
 		return dao;
 	}
 
+	public List<Media> getAllMedias(){
+		EntityManager em = DatabaseHelper.createEntityManager();
+		DatabaseHelper.beginTx(em);
+		TypedQuery<Media> query = em.createQuery("from Media",Media.class);
+		List<Media> med = query.getResultList();
+		DatabaseHelper.commitTxAndClose(em);
+		return med;
+	}
+	
 	public Media findOneWithAdherentByID(Long id) {
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
