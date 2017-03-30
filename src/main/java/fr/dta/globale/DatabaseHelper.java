@@ -1,4 +1,4 @@
-package globale;
+package fr.dta.globale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

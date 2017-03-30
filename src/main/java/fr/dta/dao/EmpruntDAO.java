@@ -1,14 +1,14 @@
-package dao;
+package fr.dta.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import globale.DatabaseHelper;
-import model.Adherent;
-import model.Emprunt;
-import model.Media;
+import fr.dta.globale.DatabaseHelper;
+import fr.dta.model.Adherent;
+import fr.dta.model.Emprunt;
+import fr.dta.model.Media;
 
 public class EmpruntDAO extends DAO<Emprunt>{
 	

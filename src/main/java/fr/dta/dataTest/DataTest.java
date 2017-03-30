@@ -1,17 +1,17 @@
-package dataTest;
+package fr.dta.dataTest;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import dao.AdherentDAO;
-import dao.EmpruntDAO;
-import dao.MediaDAO;
-import model.Adherent;
-import model.Cotisation;
-import model.Emprunt;
-import model.Media;
-import model.MediaType;
+import fr.dta.dao.AdherentDAO;
+import fr.dta.dao.EmpruntDAO;
+import fr.dta.dao.MediaDAO;
+import fr.dta.model.Adherent;
+import fr.dta.model.Cotisation;
+import fr.dta.model.Emprunt;
+import fr.dta.model.Media;
+import fr.dta.model.MediaType;
 
 public class DataTest {
 	
