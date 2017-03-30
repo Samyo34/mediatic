@@ -2,16 +2,16 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 	
 	var AuthentificationService = {};
 
-	var connected = false;
+	var connected = true;
 	var defaut = 'Basic';
 
-	if($cookies.get('myFavorite') !== undefined){
-		connected = true;
-		$http.defaults.headers.common['Authorization'] = $cookies.get('myFavorite');
-	} else {
-		connected = false;
-		$http.defaults.headers.common['Authorization'] = defaut;
-	}
+//	if($cookies.get('myFavorite') !== undefined){
+//		connected = true;
+//		$http.defaults.headers.common['Authorization'] = $cookies.get('myFavorite');
+//	} else {
+//		connected = false;
+//		$http.defaults.headers.common['Authorization'] = defaut;
+//	}
 	
 
 	AuthentificationService.connect = function(login, password){
@@ -23,13 +23,11 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 		};
 		
 		return $http.get(ServiceUrl.getConnection(), config).then(function(){
-			
 			connected = true;
 			$http.defaults.headers.common['Authorization'] = auth;
 			$cookies.put('myFavorite', auth);
 			return true;
 		}, function(){
-			
 			AuthentificationService.disconnect();
 			return false;
 		});
@@ -41,7 +39,7 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 		$http.defaults.headers.common['Authorization'] = 'Basic';
 	}
 	
-	AuthentificationService.isConnected = function(){
+	AuthentificationService.isConnected = function(){ 
 		return connected;
 	};
 

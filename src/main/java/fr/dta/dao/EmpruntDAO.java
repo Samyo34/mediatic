@@ -48,4 +48,14 @@ public class EmpruntDAO extends DAO<Emprunt>{
 		DatabaseHelper.commitTxAndClose(em);
 		return emprunts;
     }
+
+	public List<Emprunt> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void remove(long id) {
+		// TODO Auto-generated method stub
+		
+	}
 }
