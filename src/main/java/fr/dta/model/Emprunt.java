@@ -1,4 +1,4 @@
-package model;
+package fr.dta.model;
 
 import java.util.Date;
 

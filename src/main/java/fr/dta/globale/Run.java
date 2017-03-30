@@ -1,9 +1,9 @@
-package globale;
+package fr.dta.globale;
 
-import dao.MediaDAO;
-import dataTest.DataTest;
-import model.Emprunt;
-import model.Media;
+import fr.dta.dao.MediaDAO;
+import fr.dta.dataTest.DataTest;
+import fr.dta.model.Emprunt;
+import fr.dta.model.Media;
 
 public class Run {
 
