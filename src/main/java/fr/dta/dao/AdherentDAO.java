@@ -3,9 +3,12 @@ package fr.dta.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,18 +19,18 @@ import fr.dta.model.Media;
 @Service
 @Transactional
 public class AdherentDAO extends DAO<Adherent> {
+	
+//	@PersistenceContext
+//	EntityManager em;
 
     public AdherentDAO() {
         super(Adherent.class);
     }
+
     
     public List<Adherent> getAllAdherent(){
-    	EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		TypedQuery<Adherent> query = em.createQuery(" from Adherent", Adherent.class);
-		List<Adherent> ads = query.getResultList();
-		DatabaseHelper.commitTxAndClose(em);
-		return ads;
+    	Query query = getSession().createQuery("from " + Adherent.class.getSimpleName());
+		return query.list();
     }
     
     public Adherent getAdherentWithEmpruntById(Long idAdherent){
@@ -45,26 +48,20 @@ public class AdherentDAO extends DAO<Adherent> {
     }
 	
 	public List<Adherent> getAdherentByNom(String nom){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
 				"from Adherent a "+
 				"where a.nom =:nom",Adherent.class);
 		query.setParameter("nom", nom);
 		List<Adherent> ad = query.getResultList();
-		DatabaseHelper.commitTxAndClose(em);
 		return ad;
 	}
 	
 	public List<Adherent> getAdherentByPrenom(String prenom){
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
 		TypedQuery<Adherent> query = em.createQuery("select a "+
 				"from Adherent a "+
 				"where a.prenom =:prenom",Adherent.class);
 		query.setParameter("prenom", prenom);
 		List<Adherent> ad = query.getResultList();
-		DatabaseHelper.commitTxAndClose(em);
 		return ad;
 	}
 	

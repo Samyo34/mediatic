@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+
 @Entity
 @Table(name="emprunt")
 public class Emprunt {
@@ -87,7 +88,7 @@ public class Emprunt {
 		this.dateEmprunt = dateEmprunt;
 	}
 
-	public boolean isRetourne() {
+	public boolean estRetourne() {
 		return estRetourne;
 	}
 

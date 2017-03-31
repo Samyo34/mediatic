@@ -30,8 +30,8 @@ public class Media {
 	@NotNull
 	private String auteur;
 	
-	@OneToMany (mappedBy = "media")
-	private List<Emprunt> emprunts;
+//	@OneToMany (mappedBy = "media")
+//	private List<Emprunt> emprunts;
 	
 	public Media() {}
 	
@@ -78,11 +78,11 @@ public class Media {
 		this.auteur = auteur;
 	}
 
-	public List<Emprunt> getEmprunts() {
-		return emprunts;
-	}
-
-	public void setEmprunts(List<Emprunt> emprunts) {
-		this.emprunts = emprunts;
-	}
+//	public List<Emprunt> getEmprunts() {
+//		return emprunts;
+//	}
+//
+//	public void setEmprunts(List<Emprunt> emprunts) {
+//		this.emprunts = emprunts;
+//	}
 }
