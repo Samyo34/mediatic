@@ -26,26 +26,20 @@ public class EmpruntDAO extends DAO<Emprunt>{
     }
     
     public List<Emprunt> getEmpruntsByAdherent(Adherent a){
-    	EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
 		TypedQuery<Emprunt> query = em.createQuery("select e "+
 				"from emprunt e "+
 				"where e.adherent =:id",Emprunt.class);
 		query.setParameter("id", a.getId());
 		List<Emprunt> emprunts = query.getResultList();
-		DatabaseHelper.commitTxAndClose(em);
 		return emprunts;
     }
     
     public List<Emprunt> getEmpruntsByMedia(Media m){
-    	EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
 		TypedQuery<Emprunt> query = em.createQuery("select e "+
 				"from emprunt e "+
 				"where e.media =:id",Emprunt.class);
 		query.setParameter("id", m.getId());
-		List<Emprunt> emprunts = query.getResultList();
-		DatabaseHelper.commitTxAndClose(em);
+		List<Emprunt> emprunts = query.getResultList();;
 		return emprunts;
     }
 }

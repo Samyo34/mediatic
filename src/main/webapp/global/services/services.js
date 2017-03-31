@@ -6,19 +6,19 @@
 		
 		var self = this;
 		
-		var rootUrl = "http://localhost:8080";
+		var rootUrl = "http://localhost:8080/mediatic";
 		
-		var mediaRechercheUrl = rootUrl+"/resource/media.recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
-		var mediaCreationUrl = rootUrl+"/resource/media.creation";// POST
-		var mediaModificationUrl = rootUrl+"/resource/media.modification";// GET
-		var mediaAccessionUrl = rootUrl+"/resource/media.accession";// GET
+		var mediaRechercheUrl = rootUrl+"/ws/resource/media.recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
+		var mediaCreationUrl = rootUrl+"/ws/resource/media.creation";// POST
+		var mediaModificationUrl = rootUrl+"/ws/resource/media.modification";// GET
+		var mediaAccessionUrl = rootUrl+"/ws/resource/media.accession";// GET
 		
-		var adherentRechercheUrl = rootUrl+"/resource/adherent.recherche";// GET page,id,nom,prenom,email,texte nom prenom,tri : (id,nom,prenom,email,-id,-nom,-prenom,-email)
-		var adherentCreationUrl = rootUrl+"/resource/adherent.creation";// POST
-		var adherentModificationUrl = rootUrl+"/resource/adherent.modification";// GET
-		var adherentAccessionUrl = rootUrl+"/resource/adherent.accession";// GET
+		var adherentRechercheUrl = rootUrl+"/ws/resource/adherent/recherche";// GET page,id,nom,prenom,email,texte nom prenom,tri : (id,nom,prenom,email,-id,-nom,-prenom,-email)
+		var adherentCreationUrl = rootUrl+"/ws/resource/adherent.creation";// POST
+		var adherentModificationUrl = rootUrl+"/ws/resource/adherent.modification";// GET
+		var adherentAccessionUrl = rootUrl+"/ws/resource/adherent.accession";// GET
 		
-		var ajoutEmrpuntUrl = rootUrl+"/resource/emprunt.ajout";// POST id_adherent,id_media, depart	
+		var ajoutEmrpuntUrl = rootUrl+"/ws/resource/emprunt.ajout";// POST id_adherent,id_media, depart	
 		
 		this.getPromise = function(url){
 			 return $http.get(url).then(function(response){
@@ -57,6 +57,7 @@
 		}
 		
 		this.getAdherents = function(){
+			console.log(adherentRechercheUrl);
 			return self.getPromise(adherentRechercheUrl);
 		}
 		
