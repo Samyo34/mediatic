@@ -48,11 +48,10 @@
 				</div>
 			</div>
 		</div>
+		<div class="panel-footer">
+			<button type="button" class="btn btn-info" ng-click="switchEditView()">Modifier</button>
 		</div>
-			<div class="panel-footer">
-				<button type="button" class="btn btn-info" ng-click="switchEditView()">Modifier</button>
-			</div>
-		</div>
+	</div>
 
 	<!-- 		UPDATE			 -->
 
@@ -87,12 +86,24 @@
 			</div>
 			<div class='row form-group'>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">n° : </span>
+					<span class="text-left col-sm-4 col-xs-12">Date cotisation : </span>
+					<input type='date' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.cotisation.debut"></input>
+				</div>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">Montant cotisation : </span>
+					<input type='number' class="form-control col-sm-offset-1 col-xs-12"
+					ng-model="updateAdherent.cotisation.montant"></input>&euro;
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-4 col-xs-12">Numéro de voie : </span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12" 
 					ng-model="adresse.ligne1"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">libéllé de rue : </span>
+					<span class="text-left col-sm-4 col-xs-12">Complément : </span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="adresse.ligne2 "></input>
 				</div>
@@ -107,18 +118,6 @@
 					<span class="text-left col-sm-4 col-xs-12">ville : </span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="adresse.ville"></input>
-				</div>
-			</div>
-			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Date cotisation : </span>
-					<input type='date' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="updateAdherent.cotisation.debut"></input>
-				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Montant cotisation : </span>
-					<input type='number' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="updateAdherent.cotisation.montant"></input>&euro;
 				</div>
 			</div>
 		</div>
