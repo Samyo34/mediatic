@@ -23,13 +23,11 @@ angular.module('mediaticApp.service').factory('AuthentificationService', functio
 		};
 		
 		return $http.get(ServiceUrl.getConnection(), config).then(function(){
-			
 			connected = true;
 			$http.defaults.headers.common['Authorization'] = auth;
 			$cookies.put('myFavorite', auth);
 			return true;
 		}, function(){
-			
 			AuthentificationService.disconnect();
 			return false;
 		});
