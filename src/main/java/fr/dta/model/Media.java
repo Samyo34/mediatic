@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -31,8 +30,8 @@ public class Media {
 	@NotNull
 	private String auteur;
 	
-	@OneToMany (mappedBy = "media")
-	private List<Emprunt> emprunts;
+//	@OneToMany (mappedBy = "media")
+//	private List<Emprunt> emprunts;
 	
 	public Media() {}
 	
@@ -79,11 +78,11 @@ public class Media {
 		this.auteur = auteur;
 	}
 
-	public List<Emprunt> getEmprunts() {
-		return emprunts;
-	}
-
-	public void setEmprunts(List<Emprunt> emprunts) {
-		this.emprunts = emprunts;
-	}
+//	public List<Emprunt> getEmprunts() {
+//		return emprunts;
+//	}
+//
+//	public void setEmprunts(List<Emprunt> emprunts) {
+//		this.emprunts = emprunts;
+//	}
 }
