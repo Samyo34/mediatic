@@ -2,33 +2,26 @@ package fr.dta.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
-import fr.dta.globale.DatabaseHelper;
+import org.hibernate.Query;
+import org.springframework.stereotype.Service;
+
 import fr.dta.model.Adherent;
-import fr.dta.model.Cotisation;
 import fr.dta.model.Media;
 
+@Service
+@Transactional
 public class MediaDAO extends DAO<Media> {
 
-	private static MediaDAO dao;
-
-	private MediaDAO() {
+	public MediaDAO() {
 		super(Media.class);
 	}
 
-	public static MediaDAO instance() {
-		if (dao == null) {
-			dao = new MediaDAO();
-		}
-		return dao;
-	}
-
 	public List<Media> getAllMedias(){
-		TypedQuery<Media> query = em.createQuery("from Media",Media.class);
-		List<Media> med = query.getResultList();
-		return med;
+		Query query = getSession().createQuery("from " + Media.class.getSimpleName());
+		return query.list();
 	}
 	
 	public Media findOneWithAdherentByID(Long id) {
@@ -50,7 +43,7 @@ public class MediaDAO extends DAO<Media> {
 	 * @param a
 	 * @return List<Media>
 	 */
-	private List<Media> getMediasByAdherent(Adherent a){
+	public List<Media> getMediasByAdherent(Adherent a){
 		TypedQuery<Media> query = em.createQuery("select m "+
 				"from Media m "+
 				"inner join emprunt e"+

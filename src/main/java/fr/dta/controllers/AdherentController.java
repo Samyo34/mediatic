@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.dta.dao.AdherentDAO;
@@ -28,7 +27,7 @@ public class AdherentController {
 //	
 	@RequestMapping(path="/recherche", method=RequestMethod.GET)
 	public List<Adherent> getAllAdherent(){
-		System.out.println("la");
+		System.out.println(adherentService.getAllAdherent());
 		return adherentService.getAllAdherent();
 	}
 	
