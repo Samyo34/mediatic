@@ -1,14 +1,19 @@
 package fr.dta.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
+
 
 @Entity
 @Table(name="media")
@@ -20,8 +25,8 @@ public class Media {
 	@NotBlank private String auteur;
 	
 	
-//	@OneToMany (mappedBy = "media")
-//	private List<Emprunt> emprunts;
+	@OneToMany(mappedBy="media")
+	private List<Emprunt> emprunts;
 	
 	public Media() {}
 	
@@ -42,11 +47,11 @@ public class Media {
 	public String getAuteur() { return auteur; }
 	public void setAuteur(String auteur) { this.auteur = auteur; }
 
-//	public List<Emprunt> getEmprunts() {
-//		return emprunts;
-//	}
-//
-//	public void setEmprunts(List<Emprunt> emprunts) {
-//		this.emprunts = emprunts;
-//	}
+	public List<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(List<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}
 }

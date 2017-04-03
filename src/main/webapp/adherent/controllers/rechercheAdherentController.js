@@ -87,7 +87,7 @@
 						type.desc = false;
 					}
 				}
-
+				
 				$scope.initSort();
 
 				$scope.startSearch = function() {

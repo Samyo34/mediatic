@@ -111,7 +111,7 @@
 					ng-class="{ 'glyphicon-ok icon-success':adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'),
 					'glyphicon-remove icon-error':!(adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'))}">
 				</span></td>
-				<td class="hidden-xs" ng-bind="adherent.nombre_media"></td>
+				<td class="hidden-xs" ng-bind="adherent.emprunts.length"></td>
 				<td ng-bind="adherent.mail"></td>
 				<td class="btn-detail"><a href="#/adherent/{{adherent.id}}">
 						<button type="button" class="btn btn-info">
