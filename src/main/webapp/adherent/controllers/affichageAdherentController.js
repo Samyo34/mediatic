@@ -22,6 +22,61 @@
 			$scope.medias = $scope.datas.emprunt;
 		});	
 		
+		$scope.sortedTab = [];
+		
+		$scope.initSort = function() {
+			$scope.sortedTab['Id'] = {
+					'asc' : false,
+					'desc' : false
+			};
+			$scope.sortedTab['Titre'] = {
+					'asc' : false,
+					'desc' : false
+			};
+			$scope.sortedTab['Auteur'] = {
+					'asc' : false,
+					'desc' : false
+			};
+			$scope.sortedTab['Date emprunt'] = {
+					'asc' : false,
+					'desc' : false
+			};
+			$scope.sortedTab['Date retour'] = {
+					'asc' : false,
+					'desc' : false
+			};
+		}
+		
+		$scope.resetSort = function(id) {
+			for (var i in $scope.sortedTab) {
+					if($scope.sortedTab[i] == $scope.sortedTab[id])
+					{
+						$scope.sortedTab[i].asc = !$scope.sortedTab[i].asc;
+						$scope.sortedTab[i].desc = !$scope.sortedTab[i].desc;
+					}
+					else
+					{
+						$scope.sortedTab[i].asc = false;
+						$scope.sortedTab[i].desc = false;
+					}
+				}
+		}
+		
+		$scope.sort = function(id) {
+			var type = $scope.sortedTab[id];
+			if(type.asc) {
+				$scope.resetSort(id);
+				type.asc = false;
+				type.desc = true;
+			} else {
+				$scope.resetSort(id);
+				type.asc = true;
+				type.desc = false;
+			}
+		}
+
+		$scope.initSort();
+		
 		$scope.switchEditView = function(){
 			$scope.updateAdherent = angular.copy($scope.datas);
 			$scope.buttonUpdate = !$scope.buttonUpdate;
