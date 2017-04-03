@@ -9,42 +9,42 @@
 		</div>
 		<div class='panel-body'>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Nom : </span>
-					<label class='col-sm-4  col-xs-5' ng-bind="datas.nom"> </label>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Nom : </span>
+					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.nom"> </label>
 				</div>
-				<div class="col-xs-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Prenom : </span>
-					<label class='col-sm-4  col-xs-5' ng-bind="datas.prenom"></label>
+				<div class="row col-sm-5 col-sm-offset-1 col-xs-12 form-inline">
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Prenom : </span>
+					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.prenom"></label>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Naissance : </span>
-					<label class='col-sm-4  col-xs-5' ng-bind="datas.date_naissance | date:'dd-MM-yyyy'"></label>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Naissance : </span>
+					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.date_naissance | date:'dd-MM-yyyy'"></label>
 				</div>
-				<div class="row col-sm-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Mail : </span>
-					<label class='col-sm-4  col-xs-5' ng-bind="datas.email"></label>
+				<div class="row col-sm-5 col-sm-offset-1 col-xs-12 form-inline">
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1 '>Mail : </span>
+					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.email"></label>
 				</div>
 				
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Date cotisation : </span>
-					<label class='col-sm-4  col-xs-5' ng-bind="datas.cotisation.debut  | date:'dd-MM-yyyy'"></label>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class='col-sm-5  col-xs-12 col-sm-offset-1'>Cotisation : </span>
+					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.cotisation.debut  | date:'dd-MM-yyyy'"></label>
 				</div>
-				<div class="row col-sm-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Montant : </span>
-					<label class='col-sm-4  col-xs-5' ng-bind="datas.cotisation.montant | currency:'€'"> </label>
+				<div class="row col-sm-5 col-sm-offset-1 col-xs-12 form-inline">
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Montant : </span>
+					<label class=' col-sm-offset-1 col-xs-12' ng-bind="datas.cotisation.montant | currency:'€'"> </label>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class=" col-sm-5 col-sm-offset-1">
-					<span class='col-sm-3  col-xs-6 col-sm-offset-1 col-xs-offset-1'>Adresse : </span>
-					<label class='col-sm-4  col-xs-5'>
-					<p>{{datas.adresse.ligne2}} {{datas.adresse.ligne1}},</p>
-					<p>{{datas.adresse.codepostal}} {{datas.adresse.ville}}<p></label>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Adresse : </span>
+					<label class='col-sm-offset-1 col-xs-12'>
+					<p>{{datas.adresse.ligne2}} {{datas.adresse.ligne1}},
+					{{datas.adresse.codepostal}} {{datas.adresse.ville}}</p></label>
 				</div>
 			</div>
 		</div>
@@ -61,61 +61,61 @@
 		</div>
 		<div class='panel-body'>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1  form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Nom : </span> 
-					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Nom :</span> 
+					<input type='text' class="form-control col-xs-12"
 					ng-model="updateAdherent.nom"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Prenom : </span>
+					<span class="text-left col-sm-5 col-xs-12">Prenom :</span>
 					 <input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					 ng-model="updateAdherent.prenom"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Date de naissance : </span>
-					<input type='date' class="form-control col-sm-offset-1 col-xs-12"
+				<div class="row col-sm-6 col-xs-12 form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Naissance :</span>
+					<input type='date' class="form-control col-xs-12"
 					ng-model="updateAdherent.date_naissance"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Mail : </span>
+					<span class="text-left col-sm-5 col-xs-12">Mail :</span>
 					<input type='mail' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="updateAdherent.email"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Date cotisation : </span>
-					<input type='date' class="form-control col-sm-offset-1 col-xs-12"
+				<div class="row col-sm-6 col-xs-12 form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Cotisation :</span>
+					<input type='date' class="form-control col-xs-12"
 					ng-model="updateAdherent.cotisation.debut"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Montant cotisation : </span>
+					<span class="text-left col-sm-5 col-xs-12">Montant (&euro;) :</span>
 					<input type='number' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="updateAdherent.cotisation.montant"></input>&euro;
+					ng-model="updateAdherent.cotisation.montant"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Numéro de voie : </span>
-					<input type='text' class="form-control col-sm-offset-1 col-xs-12" 
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Voie :</span>
+					<input type='text' class="form-control col-xs-12" 
 					ng-model="adresse.ligne1"></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">Complément : </span>
+					<span class="text-left col-sm-5 col-xs-12">Annexe :</span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="adresse.ligne2 "></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">code postal : </span>
-					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Code postal :</span>
+					<input type='text' class="form-control col-xs-12"
 					ng-model="adresse.codepostal "></input>
 				</div>
 				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
-					<span class="text-left col-sm-4 col-xs-12">ville : </span>
+					<span class="text-left col-sm-5 col-xs-12">Ville : </span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="adresse.ville"></input>
 				</div>

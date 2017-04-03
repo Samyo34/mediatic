@@ -18,12 +18,12 @@
 		
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			$scope.datas = data;
-			$scope.updateMedia = angular.copy(data);
+			$scope.updateAdherent = angular.copy(data);
 			$scope.medias = $scope.datas.emprunt;
 		});	
 		
 		$scope.switchEditView = function(){
-			$scope.updateMedia = angular.copy($scope.datas);
+			$scope.updateAdherent = angular.copy($scope.datas);
 			$scope.buttonUpdate = !$scope.buttonUpdate;
 		}
 		
@@ -33,7 +33,7 @@
 			ServiceUrl.updateAdherent($scope.updateAdherent);
 			ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 				$scope.datas = data;
-				$scope.updateMedia = angular.copy(data);
+				$scope.updateAdherent = angular.copy(data);
 				$scope.emprunteurs = $scope.datas.emprunteurs;
 			})
 			$scope.buttonUpdate = !$scope.buttonUpdate;
