@@ -8,7 +8,7 @@
 		
 		var rootUrl = "http://localhost:8080/mediatic";
 		
-		var mediaRechercheUrl = rootUrl+"/ws/resource/media.recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
+		var mediaRechercheUrl = rootUrl+"/ws/resource/media/recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
 		var mediaCreationUrl = rootUrl+"/ws/resource/media/creation";// POST
 		var mediaModificationUrl = rootUrl+"/ws/resource/media/modification";// GET
 		var mediaAccessionUrl = rootUrl+"/ws/resource/media/accession";// GET
@@ -37,6 +37,7 @@
 		}
 		
 		this.getMedias = function(){
+			console.log(mediaRechercheUrl);
 			return self.getPromise(mediaRechercheUrl);
 		}
 		

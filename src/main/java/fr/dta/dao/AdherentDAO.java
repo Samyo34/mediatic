@@ -3,14 +3,11 @@ package fr.dta.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.dta.globale.DatabaseHelper;
 import fr.dta.model.Adherent;
@@ -19,14 +16,10 @@ import fr.dta.model.Media;
 @Service
 @Transactional
 public class AdherentDAO extends DAO<Adherent> {
-	
-//	@PersistenceContext
-//	EntityManager em;
 
     public AdherentDAO() {
         super(Adherent.class);
     }
-
     
     public List<Adherent> getAllAdherent(){
     	Query query = getSession().createQuery("from " + Adherent.class.getSimpleName());

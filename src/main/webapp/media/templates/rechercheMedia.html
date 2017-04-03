@@ -14,7 +14,7 @@
 				<div class="input-group-btn">
 					<select type="text" class="form-control" ng-model="search.type">
 						<option value="">Tous</option>
-						<option value="Livre">Livre</option>
+						<option value="LIVRE">Livre</option>
 						<option value="CD">CD</option>
 						<option value="DVD">DVD</option>
 					</select>
@@ -72,7 +72,7 @@
 				<td><span class="glyphicon"
 					ng-class="{'glyphicon-film': media.type === 'DVD',
 						 'glyphicon-music':media.type ==='CD',
-						 'glyphicon-book':media.type ==='Livre'}">
+						 'glyphicon-book':media.type ==='LIVRE'}">
 				</span> {{media.titre}}</td>
 				<td ng-bind='media.auteur'></td>
 				<td class="icon-tab"><span class="glyphicon"
