@@ -20,8 +20,8 @@ public class MediaDAO extends DAO<Media> {
 	}
 
 	public List<Media> getAllMedias(){
-		Query query = getSession().createQuery("from " + Media.class.getSimpleName());
-		return query.list();
+		TypedQuery<Media> query = em.createQuery(" from Media",Media.class);
+		return query.getResultList();
 	}
 	
 	public Media findOneWithAdherentByID(Long id) {

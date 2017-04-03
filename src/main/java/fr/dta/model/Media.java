@@ -25,7 +25,7 @@ public class Media {
 	@NotBlank private String auteur;
 	
 	
-	@OneToMany(mappedBy="media")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="media")
 	private List<Emprunt> emprunts;
 	
 	public Media() {}
