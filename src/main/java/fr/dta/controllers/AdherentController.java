@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.dta.dao.AdherentDAO;
 import fr.dta.model.Adherent;
 
+import fr.dta.dao.EmpruntDAO;
+import fr.dta.model.Emprunt;
+
 @RestController
 @Repository
 @RequestMapping("/resource/adherent")
 public class AdherentController {
 	
 	@Autowired private AdherentDAO adherentService;
+	@Autowired private EmpruntDAO empruntService;
 	
 //	@RequestMapping(path="/recherche/", method=RequestMethod.GET)
 //	public List<Adherent> getAllAdherent(@RequestParam("id") Integer id,@RequestParam("nom") String nom, @RequestParam("prenom") String prenom, @RequestParam("email") String email){
@@ -28,7 +32,8 @@ public class AdherentController {
 	@RequestMapping(path="/recherche", method=RequestMethod.GET)
 	public List<Adherent> getAllAdherent(){
 		System.out.println(adherentService.getAllAdherent());
-		return adherentService.getAllAdherent();
+		List<Adherent> ads =  adherentService.getAllAdherent();
+		return ads;
 	}
 	
 	@RequestMapping(path=".creation",method=RequestMethod.POST)

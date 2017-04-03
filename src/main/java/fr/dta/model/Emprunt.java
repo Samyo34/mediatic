@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -25,11 +25,13 @@ public class Emprunt {
 	private Long id;
 
 	@NotNull
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonIgnoreProperties("emprunts")
 	private Media media;
 	
 	@NotNull
 	@ManyToOne
+	@JsonIgnoreProperties("emprunts")
 	private Adherent adherent;
 	
 	@NotNull
@@ -67,11 +69,11 @@ public class Emprunt {
 		this.id = id;
 	}
 
-	public Media getMedia_id() {
+	public Media getMedia() {
 		return media;
 	}
 
-	public void setMedia_id(Media media) {
+	public void setMedia(Media media) {
 		this.media = media;
 	}
 

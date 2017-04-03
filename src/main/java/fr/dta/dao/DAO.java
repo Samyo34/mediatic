@@ -14,7 +14,7 @@ public class DAO<T> {
 	private Class<T> klass;
 	
 	@PersistenceContext
-	EntityManager em;
+	protected EntityManager em;
 
 	protected Session getSession() {
 		return em.unwrap(Session.class);
