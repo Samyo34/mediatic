@@ -140,18 +140,28 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th><button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button></th>
+				<th><button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Id'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Id'].asc}"
+						ng-click="sort('Id')"></button></th>
 				<th>Titre
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Titre'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Titre'].asc}"
+						ng-click="sort('Titre')"></button>
 				</th>
 				<th>Auteur
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Auteur'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Auteur'].asc}"
+						ng-click="sort('Auteur')"></button>
 				</th>
 				<th>Date d'emprunt
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Date emprunt'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Date emprunt'].asc}"
+						ng-click="sort('Date emprunt')"></button>
 				</th>
 				<th>Date de retour
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"></button>
+					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Date retour'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Date retour'].asc}"
+						ng-click="sort('Date retour')"></button>
 				</th>
 				<th>Détails</th>
 			</tr>
@@ -176,8 +186,18 @@
 				</td>
 			</tr>
 			<!-- Liste des emprunts -->
-			<tr ng-repeat="emprunt in medias">
-				<td>#{{$index}}</td>
+			<tr ng-repeat="emprunt in medias
+				| orderBy: sortedTab['Id'].asc && 'media.id' 
+				| orderBy: sortedTab['Id'].desc && '-media.id' 
+				| orderBy: sortedTab['Titre'].asc && 'media.titre' 
+				| orderBy: sortedTab['Titre'].desc && '-media.titre' 
+				| orderBy: sortedTab['Auteur'].asc && 'media.auteur' 
+				| orderBy: sortedTab['Auteur'].desc && '-media.auteur' 
+				| orderBy: sortedTab['Date emprunt'].asc && 'depart' 
+				| orderBy: sortedTab['Date emprunt'].desc && '-depart' 
+				| orderBy: sortedTab['Date retour'].asc && 'retour' 
+				| orderBy: sortedTab['Date retour'].desc && '-retour'">
+				<td>#{{emprunt.media.id}}</td>
 				<td><span
 					ng-class="{'glyphicon glyphicon-film': emprunt.media.type === 'DVD',
 						 						'glyphicon glyphicon-music':emprunt.media.type ==='CD',

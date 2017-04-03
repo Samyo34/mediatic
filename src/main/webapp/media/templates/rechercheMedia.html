@@ -36,37 +36,37 @@
 			<tr>
 				<th>
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-order' : !sortedIdAsc, 'glyphicon-sort-by-order-alt' : sortedIdAsc}"
-						ng-click="sortId()"></button>
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Id'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Id'].asc}"
+						ng-click="sort('Id')"></button>
 				</th>
 				<th>Titre
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTitreAsc, 'glyphicon-sort-by-alphabet-alt' : sortedTitreAsc}"
-						ng-click="sortTitre()"></button>
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTab['Titre'].asc, 'glyphicon-sort-by-alphabet-alt' : sortedTab['Titre'].asc}"
+						ng-click="sort('Titre')"></button>
 				</th>
 				<th>Auteur
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-alphabet' : !sortedAuteurAsc, 'glyphicon-sort-by-alphabet-alt' : sortedAuteurAsc}"
-						ng-click="sortAuteur()"></button>
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTab['Auteur'].asc, 'glyphicon-sort-by-alphabet-alt' : sortedTab['Auteur'].asc}"
+						ng-click="sort('Auteur')"></button>
 				</th>
 				<th>Libre
 					<button
 						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
-						ng-click="sortDisponibilite()"></button>
+						ng-click="sort('Disponibilite')"></button>
 				</th>
 				<th>Détails</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="media in medias
-			| orderBy: sortedIdAsc && 'id' 
-			| orderBy: sortedIdDesc && '-id' 
-			| orderBy: sortedTitreAsc && 'titre' 
-			| orderBy: sortedTitreDesc && '-titre' 
-			| orderBy: sortedAuteurAsc && 'auteur' 
-			| orderBy: sortedAuteurDesc && '-auteur' 
-			| orderBy: sortedDisponibiliteAsc && 'retour' 
-			| orderBy: sortedDisponibiliteDesc && '-retour' 
+			| orderBy: sortedTab['Id'].asc && 'id' 
+			| orderBy: sortedTab['Id'].desc && '-id' 
+			| orderBy: sortedTab['Titre'].asc && 'titre' 
+			| orderBy: sortedTab['Titre'].desc && '-titre' 
+			| orderBy: sortedTab['Auteur'].asc && 'auteur' 
+			| orderBy: sortedTab['Auteur'].desc && '-auteur' 
+			| orderBy: sortedTab['Disponibilite'].asc && 'retour'
+			| orderBy: sortedTab['Disponibilite'].desc && '-retour'
 			| limitTo:sizeArrayMedia">
 				<td>#{{ media.id }}</td>
 				<td><span class="glyphicon"

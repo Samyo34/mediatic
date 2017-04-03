@@ -19,123 +19,6 @@
 					$scope.accurate = !$scope.accurate;
 				}
 				
-				$scope.resetSort = function(sortValue) {
-					if (sortValue != $scope.sortedIdAsc)
-						$scope.sortedIdAsc = false;
-					if (sortValue != $scope.sortedIdDesc)
-						$scope.sortedIdDesc = false;
-					if (sortValue != $scope.sortedPrenomAsc)
-						$scope.sortedPrenomAsc = false;
-					if (sortValue != $scope.sortedPrenomDesc)
-						$scope.sortedPrenomDesc = false;
-					if (sortValue != $scope.sortedNomAsc)
-						$scope.sortedNomAsc = false;
-					if (sortValue != $scope.sortedNomDesc)
-						$scope.sortedNomDesc = false;
-					if (sortValue != $scope.sortedMailAsc)
-						$scope.sortedMailAsc = false;
-					if (sortValue != $scope.sortedMailDesc)
-						$scope.sortedMailDesc = false;
-					if (sortValue != $scope.sortedNaissanceAsc)
-						$scope.sortedNaissanceAsc = false;
-					if (sortValue != $scope.sortedNaissanceDesc)
-						$scope.sortedNaissanceDesc = false;
-					if (sortValue != $scope.sortedCotisationAsc)
-						$scope.sortedCotisationAsc = false;
-					if (sortValue != $scope.sortedCotisationDesc)
-						$scope.sortedCotisationDesc = false;
-					if (sortValue != $scope.sortedPossessionsAsc)
-						$scope.sortedPossessionsAsc = false;
-					if (sortValue != $scope.sortedPossessionsDesc)
-						$scope.sortedPossessionsDesc = false;
-				}
-
-				$scope.resetSort();
-
-				$scope.sortId = function() {
-					if ($scope.sortedIdAsc) {
-						$scope.resetSort($scope.sortedIdAsc);
-						$scope.sortedIdAsc = false;
-						$scope.sortedIdDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedIdDesc);
-						$scope.sortedIdDesc = false;
-						$scope.sortedIdAsc = true;
-					}
-				}
-
-				$scope.sortPrenom = function() {
-					if ($scope.sortedPrenomAsc) {
-						$scope.resetSort($scope.sortedPrenomAsc);
-						$scope.sortedPrenomAsc = false;
-						$scope.sortedPrenomDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedPrenomDesc);
-						$scope.sortedPrenomDesc = false;
-						$scope.sortedPrenomAsc = true;
-					}
-				}
-
-				$scope.sortNom = function() {
-					if ($scope.sortedNomAsc) {
-						$scope.resetSort($scope.sortedNomAsc);
-						$scope.sortedNomAsc = false;
-						$scope.sortedNomDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedNomDesc);
-						$scope.sortedNomDesc = false;
-						$scope.sortedNomAsc = true;
-					}
-				}
-
-				$scope.sortMail = function() {
-					if ($scope.sortedMailAsc) {
-						$scope.resetSort($scope.sortedMailAsc);
-						$scope.sortedMailAsc = false;
-						$scope.sortedMailDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedMailDesc);
-						$scope.sortedMailDesc = false;
-						$scope.sortedMailAsc = true;
-					}
-				}
-
-				$scope.sortNaissance = function() {
-					if ($scope.sortedNaissanceAsc) {
-						$scope.resetSort($scope.sortedNaissanceAsc);
-						$scope.sortedNaissanceAsc = false;
-						$scope.sortedNaissanceDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedNaissanceDesc);
-						$scope.sortedNaissanceDesc = false;
-						$scope.sortedNaissanceAsc = true;
-					}
-				}
-				
-				$scope.sortCotisation = function() {
-					if ($scope.sortedCotisationAsc) {
-						$scope.resetSort($scope.sortedCotisationAsc);
-						$scope.sortedCotisationAsc = false;
-						$scope.sortedCotisationDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedCotisationDesc);
-						$scope.sortedCotisationDesc = false;
-						$scope.sortedCotisationAsc = true;
-					}
-				}
-				
-				$scope.sortPossessions = function() {
-					if ($scope.sortedPossessionsAsc) {
-						$scope.resetSort($scope.sortedPossessionsAsc);
-						$scope.sortedPossessionsAsc = false;
-						$scope.sortedPossessionsDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedPossessionsDesc);
-						$scope.sortedPossessionsDesc = false;
-						$scope.sortedPossessionsAsc = true;
-					}
-				}
-
 				$scope.sizeArrayAd = 10;
 				$scope.sizeMaxAd = false;
 
@@ -143,6 +26,69 @@
 				ServiceUrl.getAdherents().then(function(adherents) {
 					$scope.adherents = adherents;
 				});
+				
+				$scope.sortedTab = [];
+				
+				$scope.initSort = function() {
+					$scope.sortedTab['Id'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Nom'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Prenom'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Mail'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Naissance'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Cotisation'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Possessions'] = {
+							'asc' : false,
+							'desc' : false
+					};
+				}
+				
+				$scope.resetSort = function(id) {
+					for (var i in $scope.sortedTab) {
+							if($scope.sortedTab[i] == $scope.sortedTab[id])
+							{
+								$scope.sortedTab[i].asc = !$scope.sortedTab[i].asc;
+								$scope.sortedTab[i].desc = !$scope.sortedTab[i].desc;
+							}
+							else
+							{
+								$scope.sortedTab[i].asc = false;
+								$scope.sortedTab[i].desc = false;
+							}
+						}
+				}
+				
+				$scope.sort = function(id) {
+					var type = $scope.sortedTab[id];
+					if(type.asc) {
+						$scope.resetSort(id);
+						type.asc = false;
+						type.desc = true;
+					} else {
+						$scope.resetSort(id);
+						type.asc = true;
+						type.desc = false;
+					}
+				}
+
+				$scope.initSort();
 
 				$scope.startSearch = function() {
 					var params = {};

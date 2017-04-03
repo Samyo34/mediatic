@@ -26,7 +26,7 @@
 					 <label class="col-sm-4 col-md-5 col-xs-5"> 
 					 <span ng-class="{'glyphicon glyphicon-film': datas.type === 'DVD',
 						 	'glyphicon glyphicon-music':datas.type ==='CD',
-						 	'glyphicon glyphicon-book':datas.type ==='Livre'}">
+						 	'glyphicon glyphicon-book':datas.type ==='LIVRE'}">
 					 </span> {{datas.type}}</label>
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 					<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" >
 					<span class="col-sm-5 col-xs-12">Type :</span>
 				   <select name="singleSelect" id="singleSelect" ng-model="updateMedia.type" class="btn btn-default dropdown-toggle form-control col-xs-12">
-     					<option value="Livre"><span ng-class="glyphicon glyphicon-book"></span> Livre</option>
+     					<option value="LIVRE"><span ng-class="glyphicon glyphicon-book"></span> Livre</option>
       					<option value="CD"><span ng-class="glyphicon glyphicon-music"></span> CD</option>
       					<option value="DVD"><span ng-class="glyphicon glyphicon-film"></span> DVD</option>
    					 </select>
