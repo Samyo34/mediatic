@@ -141,6 +141,7 @@
 
 				$scope.adherents = [];
 				ServiceUrl.getAdherents().then(function(adherents) {
+					console.log(adherents);
 					$scope.adherents = adherents;
 				});
 

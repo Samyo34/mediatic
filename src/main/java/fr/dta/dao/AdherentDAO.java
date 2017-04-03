@@ -29,8 +29,8 @@ public class AdherentDAO extends DAO<Adherent> {
 
     
     public List<Adherent> getAllAdherent(){
-    	Query query = getSession().createQuery("from " + Adherent.class.getSimpleName());
-		return query.list();
+    	TypedQuery<Adherent> query = em.createQuery(" from Adherent",Adherent.class);
+		return query.getResultList();
     }
     
     public Adherent getAdherentWithEmpruntById(Long idAdherent){

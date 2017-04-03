@@ -3,6 +3,7 @@ package fr.dta.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -64,11 +67,11 @@ public class Emprunt {
 		this.id = id;
 	}
 
-	public Media getMedia() {
+	public Media getMedia_id() {
 		return media;
 	}
 
-	public void setMedia(Media media) {
+	public void setMedia_id(Media media) {
 		this.media = media;
 	}
 
