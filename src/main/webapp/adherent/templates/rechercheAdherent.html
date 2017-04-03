@@ -24,7 +24,7 @@
 						placeholder="Prénom">
 				</div>
 				<div class="input-group-btn">
-					<input type="text" class="form-control" ng-model="search.email"
+					<input type="text" class="form-control" ng-model="search.mail"
 						placeholder="Email">
 				</div>
 				</div>
@@ -79,8 +79,8 @@
 				</th>
 				<th>Email
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-alphabet' : !sortedEmailAsc, 'glyphicon-sort-by-alphabet-alt' : sortedEmailAsc}"
-						ng-click="sortEmail()"></button>
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedMailAsc, 'glyphicon-sort-by-alphabet-alt' : sortedMailAsc}"
+						ng-click="sortMail()"></button>
 				</th>
 				<th>Détails</th>
 			</tr>
@@ -94,25 +94,25 @@
 				| orderBy: sortedNomDesc && '-nom' 
 				| orderBy: sortedPrenomAsc && 'prenom' 
 				| orderBy: sortedPrenomDesc && '-prenom' 
-				| orderBy: sortedNaissanceAsc && 'date_naissance' 
-				| orderBy: sortedNaissanceDesc && '-date_naissance' 
+				| orderBy: sortedNaissanceAsc && 'naissance' 
+				| orderBy: sortedNaissanceDesc && '-naissance' 
 				| orderBy: sortedCotisationAsc && 'cotisation.fin' 
 				| orderBy: sortedCotisationDesc && '-cotisation.fin' 
 				| orderBy: sortedPossessionsAsc && 'nombre_media' 
 				| orderBy: sortedPossessionsDesc && '-nombre_media' 
-				| orderBy: sortedEmailAsc && 'email' 
-				| orderBy: sortedEmailDesc && '-email' 
+				| orderBy: sortedMailAsc && 'mail' 
+				| orderBy: sortedMailDesc && '-mail' 
 				| limitTo:sizeArrayAd">
 				<td>#{{ adherent.id }}</td>
 				<td ng-bind="adherent.nom"></td>
 				<td ng-bind="adherent.prenom"></td>
-				<td class="hidden-xs" ng-bind="adherent.date_naissance | date:'dd-MM-yyyy'"></td>
+				<td class="hidden-xs" ng-bind="adherent.naissance | date:'dd-MM-yyyy'"></td>
 				<td class="icon-tab"><span class="glyphicon"
 					ng-class="{ 'glyphicon-ok icon-success':adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'),
 					'glyphicon-remove icon-error':!(adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'))}">
 				</span></td>
 				<td class="hidden-xs" ng-bind="adherent.nombre_media"></td>
-				<td ng-bind="adherent.email"></td>
+				<td ng-bind="adherent.mail"></td>
 				<td class="btn-detail"><a href="#/adherent/{{adherent.id}}">
 						<button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>

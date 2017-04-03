@@ -28,7 +28,7 @@ public class AdherentController {
 //	
 	@RequestMapping(path="/recherche", method=RequestMethod.GET)
 	public List<Adherent> getAllAdherent(){
-		System.out.println("la");
+		System.out.println(adherentService.getAllAdherent());
 		return adherentService.getAllAdherent();
 	}
 	

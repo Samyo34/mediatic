@@ -32,10 +32,10 @@
 						$scope.sortedNomAsc = false;
 					if (sortValue != $scope.sortedNomDesc)
 						$scope.sortedNomDesc = false;
-					if (sortValue != $scope.sortedEmailAsc)
-						$scope.sortedEmailAsc = false;
-					if (sortValue != $scope.sortedEmailDesc)
-						$scope.sortedEmailDesc = false;
+					if (sortValue != $scope.sortedMailAsc)
+						$scope.sortedMailAsc = false;
+					if (sortValue != $scope.sortedMailDesc)
+						$scope.sortedMailDesc = false;
 					if (sortValue != $scope.sortedNaissanceAsc)
 						$scope.sortedNaissanceAsc = false;
 					if (sortValue != $scope.sortedNaissanceDesc)
@@ -88,15 +88,15 @@
 					}
 				}
 
-				$scope.sortEmail = function() {
-					if ($scope.sortedEmailAsc) {
-						$scope.resetSort($scope.sortedEmailAsc);
-						$scope.sortedEmailAsc = false;
-						$scope.sortedEmailDesc = true;
+				$scope.sortMail = function() {
+					if ($scope.sortedMailAsc) {
+						$scope.resetSort($scope.sortedMailAsc);
+						$scope.sortedMailAsc = false;
+						$scope.sortedMailDesc = true;
 					} else {
-						$scope.resetSort($scope.sortedEmailDesc);
-						$scope.sortedEmailDesc = false;
-						$scope.sortedEmailAsc = true;
+						$scope.resetSort($scope.sortedMailDesc);
+						$scope.sortedMailDesc = false;
+						$scope.sortedMailAsc = true;
 					}
 				}
 
@@ -155,8 +155,8 @@
 					if ($scope.search.prenom != undefined) {
 						params.prenom = $scope.search.prenom;
 					}
-					if ($scope.search.email != undefined) {
-						params.email = $scope.search.email;
+					if ($scope.search.mail != undefined) {
+						params.mail = $scope.search.mail;
 					}
 					if ($scope.search.nomOuPrenom != undefined) {
 						params.texte = $scope.search.nomOuPrenom;
