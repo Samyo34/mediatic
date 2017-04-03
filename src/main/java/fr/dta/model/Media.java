@@ -30,6 +30,7 @@ public class Media {
 	@NotNull
 	private String auteur;
 	
+	
 //	@OneToMany (mappedBy = "media")
 //	private List<Emprunt> emprunts;
 	
