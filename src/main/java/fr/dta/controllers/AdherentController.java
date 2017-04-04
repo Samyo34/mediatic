@@ -27,13 +27,19 @@ public class AdherentController {
 	@Autowired private AdherentDAO adherentService;
 	@Autowired private EmpruntDAO empruntService;
 	
-	@RequestMapping(value={"/recherche","/recherche/{id}","/recherche/{nom}","/recherche/{prenom}","/recherche/{mail}"}	, method=RequestMethod.GET)
+	@RequestMapping(value="/recherche"	, method=RequestMethod.GET)
 	public List<Adherent> getAllAdherent(@RequestParam(value="id",required=false) Optional<Integer> id,
 										@RequestParam(value="nom",required=false) Optional<String> nom,
 										@RequestParam(value="prenom",required=false) Optional<String> prenom,
 										@RequestParam(value="mail",required=false) Optional<String> email){
 		System.out.println("la "+id+" "+nom+" "+prenom+" "+email);
+		System.out.println();
 		return adherentService.getAdherentByParams(id, nom, prenom, email);	
+	}
+	
+	@RequestMapping(value={"/recherche/{id}"}	, method=RequestMethod.GET)
+	public Adherent getAdherent(@PathVariable(value="id") Long id){
+		return adherentService.getByID(id);	
 	}
 	
 //	@RequestMapping(path="/recherche", method=RequestMethod.GET)
