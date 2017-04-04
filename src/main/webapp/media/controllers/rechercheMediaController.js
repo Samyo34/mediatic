@@ -9,6 +9,7 @@
 	}).controller('RechercheMediaCtrl',
 			function($scope, $routeParams, $rootScope, ServiceUrl) {
 				$rootScope.title = "Recherche Médias";
+				$rootScope.activeLink('medias');
 
 				$scope.sizeArrayMedia = 10;
 				$scope.sizeMaxMedia = false;

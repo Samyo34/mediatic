@@ -47,3 +47,14 @@
 main {
 	padding-bottom: 50px;
 }
+
+.btn-return {
+	float:right;
+	height: 38px;
+	padding-top: 9px;
+}
+
+.btn-before {
+	margin-bottom: 10px;
+	margin-left: 10px;
+}

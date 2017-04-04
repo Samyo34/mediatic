@@ -10,13 +10,31 @@
 			'RechercheAdherentCtrl',
 			function($scope, $routeParams, $rootScope, ServiceUrl) {
 				$rootScope.title = "Recherche Adhérents";
-
+				$rootScope.activeLink('adherents');
+				
 				$scope.currentDate = new Date();
 
 				$scope.accurate = false;
 				
 				$scope.accurateSearch = function(){
 					$scope.accurate = !$scope.accurate;
+					if($scope.search != undefined) {
+						if ($scope.search.id != undefined) {
+							$scope.search.id = "";
+						}
+						if ($scope.search.nom != undefined) {
+							$scope.search.nom = "";
+						}
+						if ($scope.search.prenom != undefined) {
+							$scope.search.prenom = "";
+						}
+						if ($scope.search.mail != undefined) {
+							$scope.search.mail = "";
+						}
+						if ($scope.search.nomOuPrenom != undefined) {
+							$scope.search.nomOuPrenom = "";
+						}
+					}
 				}
 				
 				$scope.sizeArrayAd = 10;

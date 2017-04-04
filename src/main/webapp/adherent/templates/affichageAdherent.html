@@ -1,17 +1,18 @@
 <div class='row form-group'>
-	
+
 	<div class="panel panel-default" ng-hide="buttonUpdate">
-		<a ng-href="./#/adherents" class='btn btn-warning btn-sm col-xs-2 col-xs-offset-10'>
+		<a ng-href="./#/adherents" class='btn btn-warning btn-sm btn-return'>
 			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
 		</a>
 		<div class="panel-heading">
-			<h1 class="panel-title">Détails adhérent</h1>
+			<h3 class="panel-title">Détails adhérent</h3>
 		</div>
+
 		<div class='panel-body'>
 			<div class='row form-group'>
 				<div class="row col-sm-6 col-xs-12  form-inline">
-					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Nom : </span>
-					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.nom"> </label>
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Nom : </span> <label
+						class='col-sm-offset-1 col-xs-12' ng-bind="datas.nom"> </label>
 				</div>
 				<div class="row col-sm-5 col-sm-offset-1 col-xs-12 form-inline">
 					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Prenom : </span>
@@ -30,25 +31,29 @@
 			</div>
 			<div class='row form-group'>
 				<div class="row col-sm-6 col-xs-12  form-inline">
-					<span class='col-sm-5  col-xs-12 col-sm-offset-1'>Cotisation : </span>
-					<label class='col-sm-offset-1 col-xs-12' ng-bind="datas.cotisation.debut  | date:'dd-MM-yyyy'"></label>
+					<span class='col-sm-5  col-xs-12 col-sm-offset-1'>Cotisation
+						: </span> <label class='col-sm-offset-1 col-xs-12'
+						ng-bind="datas.cotisation.debut  | date:'dd-MM-yyyy'"></label>
 				</div>
 				<div class="row col-sm-5 col-sm-offset-1 col-xs-12 form-inline">
-					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Montant : </span>
-					<label class=' col-sm-offset-1 col-xs-12' ng-bind="datas.cotisation.montant | currency:'€'"> </label>
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Montant :
+					</span> <label class=' col-sm-offset-1 col-xs-12'
+						ng-bind="datas.cotisation.montant | currency:'€'"> </label>
 				</div>
 			</div>
 			<div class='row form-group'>
 				<div class="row col-sm-6 col-xs-12  form-inline">
-					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Adresse : </span>
-					<label class='col-sm-offset-1 col-xs-12'>
-					<p>{{datas.adresse.ligne2}} {{datas.adresse.ligne1}},
-					{{datas.adresse.codepostal}} {{datas.adresse.ville}}</p></label>
+					<span class='col-sm-4  col-xs-12 col-sm-offset-1'>Adresse :
+					</span> <label class='col-sm-offset-1 col-xs-12'>
+						<p>{{datas.adresse.ligne2}} {{datas.adresse.ligne1}},
+							{{datas.adresse.codepostal}} {{datas.adresse.ville}}</p>
+					</label>
 				</div>
 			</div>
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-info" ng-click="switchEditView()">Modifier</button>
+			<button type="button" class="btn btn-info"
+				ng-click="switchEditView()">Modifier</button>
 		</div>
 	</div>
 
@@ -60,105 +65,115 @@
 		</div>
 		<div class='panel-body'>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12 ">Nom :</span> 
-					<input type='text' class="form-control col-xs-12"
-					ng-model="updateAdherent.nom"></input>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Nom :</span> <input
+						type='text' class="form-control col-xs-12"
+						ng-model="updateAdherent.nom"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12">Prenom :</span>
-					 <input type='text' class="form-control col-sm-offset-1 col-xs-12"
-					 ng-model="updateAdherent.prenom"></input>
-				</div>
-			</div>
-			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12 form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12 ">Naissance :</span>
-					<input type='date' class="form-control col-xs-12"
-					ng-model="updateAdherent.date_naissance"></input>
-				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12">Mail :</span>
-					<input type='mail' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="updateAdherent.email"></input>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-5 col-xs-12">Prenom :</span> <input
+						type='text' class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="updateAdherent.prenom"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12 form-inline" ng-class="{error: }" required> 
-					<span class="text-left col-sm-5 col-xs-12 ">Cotisation :</span>
-					<input type='date' class="form-control col-xs-12"
-					ng-model="updateAdherent.cotisation.debut"></input>
+				<div class="row col-sm-6 col-xs-12 form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Naissance :</span> <input
+						type='date' class="form-control col-xs-12"
+						ng-model="updateAdherent.date_naissance"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12">Montant (&euro;) :</span>
-					<input type='number' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="updateAdherent.cotisation.montant"></input>
-				</div>
-			</div>
-			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12 ">Voie :</span>
-					<input type='text' class="form-control col-xs-12" 
-					ng-model="adresse.ligne1"></input>
-				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12">Annexe :</span>
-					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="adresse.ligne2 "></input>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-5 col-xs-12">Mail :</span> <input
+						type='mail' class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="updateAdherent.email"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12 ">Code postal :</span>
-					<input type='text' class="form-control col-xs-12"
-					ng-model="adresse.codepostal "></input>
+				<div class="row col-sm-6 col-xs-12 form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Cotisation :</span> <input
+						type='date' class="form-control col-xs-12"
+						ng-model="updateAdherent.cotisation.debut"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
-					<span class="text-left col-sm-5 col-xs-12">Ville : </span>
-					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
-					ng-model="adresse.ville"></input>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-5 col-xs-12">Montant (&euro;)
+						:</span> <input type='number'
+						class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="updateAdherent.cotisation.montant"></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Voie :</span> <input
+						type='text' class="form-control col-xs-12"
+						ng-model="adresse.ligne1"></input>
+				</div>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-5 col-xs-12">Annexe :</span> <input
+						type='text' class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="adresse.ligne2 "></input>
+				</div>
+			</div>
+			<div class='row form-group'>
+				<div class="row col-sm-6 col-xs-12  form-inline">
+					<span class="text-left col-sm-5 col-xs-12 ">Code postal :</span> <input
+						type='text' class="form-control col-xs-12"
+						ng-model="adresse.codepostal "></input>
+				</div>
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
+					<span class="text-left col-sm-5 col-xs-12">Ville : </span> <input
+						type='text' class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="adresse.ville"></input>
 				</div>
 			</div>
 		</div>
 		<div class="panel-footer">
-			<button class="btn btn-success" type="submit" ng-click="newUpdateAdherent()">Enregistrer</button>
-			<button type="button" class="btn btn-warning" ng-click="switchEditView()">Annuler</button>
+			<button class="btn btn-success" type="submit"
+				ng-click="newUpdateAdherent()">Enregistrer</button>
+			<button type="button" class="btn btn-warning"
+				ng-click="switchEditView()">Annuler</button>
 		</div>
-	</div>	
+	</div>
 </div>
 
 <!-- 		TABLEAU DES EMPRUNTS		 -->
 
 <div class='row form-group'>
-	<div ng-hide="isAddingEmprunt()">
-		<button class="btn btn-success" type="button" ng-click="setAddingEmprunt()">Nouvel emprunt</button>
+	<div class="btn-before" ng-hide="isAddingEmprunt()">
+		<button class="btn btn-success" type="button"
+			ng-click="setAddingEmprunt()">Nouvel emprunt</button>
 	</div>
-	<div ng-show="isAddingEmprunt()">
-		<button class="btn btn-warning" type="button" ng-click="addingEmprunt = !addingEmprunt">Annuler</button>
+	<div class="btn-before" ng-show="isAddingEmprunt()">
+		<button class="btn btn-warning" type="button"
+			ng-click="addingEmprunt = !addingEmprunt">Annuler</button>
 	</div>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th><button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+				<th><button
+						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Id'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Id'].asc}"
 						ng-click="sort('Id')"></button></th>
 				<th>Titre
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+					<button
+						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Titre'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Titre'].asc}"
 						ng-click="sort('Titre')"></button>
 				</th>
 				<th>Auteur
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+					<button
+						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Auteur'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Auteur'].asc}"
 						ng-click="sort('Auteur')"></button>
 				</th>
 				<th>Date d'emprunt
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+					<button
+						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Date emprunt'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Date emprunt'].asc}"
 						ng-click="sort('Date emprunt')"></button>
 				</th>
 				<th>Date de retour
-					<button class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
+					<button
+						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
 						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Date retour'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Date retour'].asc}"
 						ng-click="sort('Date retour')"></button>
 				</th>
@@ -185,7 +200,8 @@
 				</td>
 			</tr>
 			<!-- Liste des emprunts -->
-			<tr ng-repeat="emprunt in medias
+			<tr
+				ng-repeat="emprunt in emprunts
 				| orderBy: sortedTab['Id'].asc && 'media.id' 
 				| orderBy: sortedTab['Id'].desc && '-media.id' 
 				| orderBy: sortedTab['Titre'].asc && 'media.titre' 
@@ -203,9 +219,10 @@
 						 						'glyphicon glyphicon-book':emprunt.media.type ==='Livre'}">
 				</span> {{emprunt.media.titre}}</td>
 				<td ng-bind="emprunt.media.auteur"></td>
-				<td ng-bind="emprunt.depart | date:'dd-MM-yyyy'"></td>
-				<td ng-bind="emprunt.retour | date:'dd-MM-yyyy'"></td>
-				<td class="btn-detail"><a ng-href="./#/media/{{emprunt.media.id}}">
+				<td ng-bind="emprunt.dateEmprunt | date:'dd-MM-yyyy'"></td>
+				<td ng-bind="emprunt.dateRetourPrevu | date:'dd-MM-yyyy'"></td>
+				<td class="btn-detail"><a
+					ng-href="./#/media/{{emprunt.media.id}}">
 						<button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 						</button>
@@ -213,5 +230,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" ng-click="addSize()" ng-disabled="sizeMaxMedia" class="btn btn-info col-xs-offset-11">Voir plus</button>
+
+	<input type="submit" class="btn btn-info col-xs-offset-11"
+		ng-click="addSize()" ng-disabled="sizeMaxAd" value="Voir plus"/>
 </div>

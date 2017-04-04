@@ -9,7 +9,8 @@
 		})
 	})
 	.controller('AffichageAdherentCtrl',function($scope,$routeParams,$rootScope,ServiceUrl){
-		$rootScope.titre = 'Affichage Adherent';
+		$rootScope.titre = 'Affichage Adhérent';
+		$rootScope.activeLink('adherents');
 		
 		$scope.datas = [] ;
 		$scope.updateAdherent ={};
@@ -21,7 +22,7 @@
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.updateAdherent = angular.copy(data);
-			$scope.medias = $scope.datas.emprunt;
+			$scope.emprunts = $scope.datas.emprunts;
 		});	
 		
 		$scope.sortedTab = [];

@@ -12,8 +12,10 @@
 	
 	.controller('creationMediaCtrl',function($scope,$routeParams,$rootScope, ServiceUrl, $location){	
 		
-		$rootScope.title = 'MEDIAS'; 
-
+		$rootScope.title = 'Création Média';
+		$rootScope.activeLink('media');
+		
+		
 		$scope.media = {};
 
 		$scope.createMedia = function(){
