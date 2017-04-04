@@ -1,6 +1,7 @@
 package fr.dta.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -71,36 +72,39 @@ public class AdherentDAO extends DAO<Adherent> {
 		return ad;
 	}
 	
-	public List<Adherent> getAdherentByParams(Integer id,String nom, String prenom,String email){
-		StringBuilder sb = new StringBuilder("");
-		if(id != null){
-			sb.append("id LIKE '%:id%' AND ");
+	public List<Adherent> getAdherentByParams(Optional<Integer> id,Optional<String> nom, Optional<String> prenom,Optional<String> email){
+		StringBuilder sb = new StringBuilder("where ");
+		if(id.isPresent()){
+			sb.append("id=:id AND ");
 		}
 		
-		if(nom != null){
-			sb.append("nom LIKE '%:nom%' AND ");
+		if(nom.isPresent()){
+			sb.append("nom LIKE :nom AND ");
 		}
 		
-		if(prenom != null){
-			sb.append("prenom LIKE '%:prenom%' AND ");
+		if(prenom.isPresent()){
+			sb.append("prenom LIKE :prenom AND ");
 		}
 		
-		if(email != null){
-			sb.append("mail LIKE '%:email%' AND ");
+		if(email.isPresent()){
+			sb.append("mail LIKE :email AND ");
 		}
 		
-		sb.delete(sb.length()-5, sb.length());		
-		EntityManager em = DatabaseHelper.createEntityManager();
-		DatabaseHelper.beginTx(em);
-		TypedQuery<Adherent> query = em.createQuery("select * "+
-				"from Adherent "+
-				"where "+sb.toString(),Adherent.class);
-		query.setParameter("id", id);
-		query.setParameter("nom", nom);
-		query.setParameter("prenom", prenom);
-		query.setParameter("mail", email);
+		if(sb.length()>0)
+		{
+			sb.delete(sb.length()-5, sb.length());	
+		}
+		System.out.println(sb.toString());
+		TypedQuery<Adherent> query = em.createQuery(" from Adherent "+sb.toString(),Adherent.class);
+		if(id.isPresent())
+		query.setParameter("id",id.get().longValue());
+		if(nom.isPresent())
+		query.setParameter("nom", "%"+nom.get()+"%");
+		if(prenom.isPresent())
+		query.setParameter("prenom", "%"+prenom.get()+"%");
+		if(email.isPresent())
+		query.setParameter("email", "%"+email.get()+"%");
 		List<Adherent> ad = query.getResultList();
-		DatabaseHelper.commitTxAndClose(em);
 		return ad;
 	}
 	
