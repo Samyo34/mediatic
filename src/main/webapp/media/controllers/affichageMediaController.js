@@ -19,7 +19,6 @@
 			$scope.datas = data;
 			$scope.updateMedia = angular.copy(data);
 			$scope.emprunteurs = $scope.datas.emprunteurs;
-			console.log($scope.datas);
 		})
 		
 		$scope.switchEditView = function(){
