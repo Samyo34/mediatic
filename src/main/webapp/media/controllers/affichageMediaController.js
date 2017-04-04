@@ -14,6 +14,8 @@
 		$scope.datas = [] ;
 		$scope.updateMedia ={};
 		$scope.buttonUpdate = false;
+		$scope.sizeArrayMedia = 10;
+		$scope.sizeMaxMedia = false;
 		
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
@@ -64,6 +66,13 @@
 					$scope.hasError = true;
 				}	
 			});
-		}		
+		}
+		
+		$scope.addSize = function() {
+			$scope.sizeArrayMedia += 5;
+			if ($scope.sizeArrayMedia >= $scope.datas.length) {
+				$scope.sizeMaxMedia = true;
+			}
+		}
 	})
 })();

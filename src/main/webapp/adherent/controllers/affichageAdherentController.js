@@ -15,6 +15,8 @@
 		$scope.updateAdherent ={};
 		$scope.adresse={};
 		$scope.buttonUpdate = false;
+		$scope.sizeArrayAdherent = 10;
+		$scope.sizeMaxAdherent = false;
 		
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			$scope.datas = data;
@@ -65,6 +67,13 @@
 					$scope.hasError = true;
 				}	
 			});
-		};		
+		};
+		
+		$scope.addSize = function() {
+			$scope.sizeArrayAdherent += 5;
+			if ($scope.sizeArrayAdherent >= $scope.datas.length) {
+				$scope.sizeMaxAdherent = true;
+			}
+		}
 	});
 })();
