@@ -21,11 +21,9 @@
 //				
 //		};
 		$scope.user.cotisation = {}
-		$scope.user.adresse = {
-				ligne1 : ""
-		}
 		
 		$scope.createUser= function(){
+			console.log($scope.user);
 			if (($scope.user.nom == undefined) ||($scope.user.prenom == undefined) || ($scope.user.adresse == undefined)){
 				console.log("Erreur: tous les champs doivent être remplis");
 			}

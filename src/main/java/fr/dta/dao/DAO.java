@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 
+@Transactional
 public class DAO<T> {
 	
 	private Class<T> klass;
@@ -23,6 +25,7 @@ public class DAO<T> {
 	}
 	
 	public void create(T entity){
+		System.out.println("la la "+entity);
 		em.persist(entity);
 	}
 	

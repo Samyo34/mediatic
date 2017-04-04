@@ -42,26 +42,12 @@ public class AdherentController {
 		return adherentService.getByID(id);	
 	}
 	
-//	@RequestMapping(path="/recherche", method=RequestMethod.GET)
-//	public List<Adherent> getAllAdherent(){
-//		System.out.println(adherentService.getAllAdherent());
-//		List<Adherent> ads =  adherentService.getAllAdherent();
-//		return ads;
-//	}
-	
-//	@RequestMapping(path="/recherche/{id}", method=RequestMethod.GET)
-//	public Adherent getMedia(@PathVariable("id") Long id){
-//		System.out.println(adherentService.getByID(id));
-//		return adherentService.getByID(id);
-//	}
-	
-	@RequestMapping(path=".creation",method=RequestMethod.POST)
+	@RequestMapping(path="/creation",method=RequestMethod.POST)
 	public void addAdherent(@RequestBody Adherent adherent){
-		System.out.println("la2");
 		adherentService.create(adherent);
 	}
 	
-	@RequestMapping(path=".modification",method=RequestMethod.PUT)
+	@RequestMapping(path="/modification",method=RequestMethod.PUT)
 	public Adherent updateAdherent(@RequestBody Adherent newAdherent){
 		return adherentService.updateAdherent(newAdherent);
 	}

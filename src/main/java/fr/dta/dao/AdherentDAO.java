@@ -92,7 +92,7 @@ public class AdherentDAO extends DAO<Adherent> {
 		
 		if(sb.length()>0)
 		{
-			sb.delete(sb.length()-6, sb.length());	
+			sb.delete(sb.length()-5, sb.length());	
 		}
 		System.out.println(sb.toString());
 		TypedQuery<Adherent> query = em.createQuery(" from Adherent "+sb.toString(),Adherent.class);
