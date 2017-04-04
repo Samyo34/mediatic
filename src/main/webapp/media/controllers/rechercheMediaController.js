@@ -18,74 +18,56 @@
 					$scope.medias = medias;
 				});
 
-				$scope.resetSort = function(sortValue) {
-					if (sortValue != $scope.sortedIdAsc)
-						$scope.sortedIdAsc = false;
-					if (sortValue != $scope.sortedIdDesc)
-						$scope.sortedIdDesc = false;
-					if (sortValue != $scope.sortedTitreAsc)
-						$scope.sortedTitreAsc = false;
-					if (sortValue != $scope.sortedTitreDesc)
-						$scope.sortedTitreDesc = false;
-					if (sortValue != $scope.sortedAuteurAsc)
-						$scope.sortedAuteurAsc = false;
-					if (sortValue != $scope.sortedAuteurDesc)
-						$scope.sortedAuteurDesc = false;
-					if (sortValue != $scope.sortedDisponibiliteAsc)
-						$scope.sortedDisponibiliteAsc = false;
-					if (sortValue != $scope.sortedDisponibiliteDesc)
-						$scope.sortedDisponibiliteDesc = false;
+				$scope.sortedTab = [];
+				
+				$scope.initSort = function() {
+					$scope.sortedTab['Id'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Titre'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Auteur'] = {
+							'asc' : false,
+							'desc' : false
+					};
+					$scope.sortedTab['Disponibilite'] = {
+							'asc' : false,
+							'desc' : false
+					};
+				}
+				
+				$scope.resetSort = function(id) {
+					for (var i in $scope.sortedTab) {
+							if($scope.sortedTab[i] == $scope.sortedTab[id])
+							{
+								$scope.sortedTab[i].asc = !$scope.sortedTab[i].asc;
+								$scope.sortedTab[i].desc = !$scope.sortedTab[i].desc;
+							}
+							else
+							{
+								$scope.sortedTab[i].asc = false;
+								$scope.sortedTab[i].desc = false;
+							}
+						}
 				}
 
-				$scope.resetSort();
-
-				$scope.sortId = function() {
-					if ($scope.sortedIdAsc) {
-						$scope.resetSort($scope.sortedIdAsc);
-						$scope.sortedIdAsc = false;
-						$scope.sortedIdDesc = true;
+				$scope.sort = function(id) {
+					var type = $scope.sortedTab[id];
+					if(type.asc) {
+						$scope.resetSort(id);
+						type.asc = false;
+						type.desc = true;
 					} else {
-						$scope.resetSort($scope.sortedIdDesc);
-						$scope.sortedIdDesc = false;
-						$scope.sortedIdAsc = true;
+						$scope.resetSort(id);
+						type.asc = true;
+						type.desc = false;
 					}
 				}
-
-				$scope.sortTitre = function() {
-					if ($scope.sortedTitreAsc) {
-						$scope.resetSort($scope.sortedTitreAsc);
-						$scope.sortedTitreAsc = false;
-						$scope.sortedTitreDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedTitreDesc);
-						$scope.sortedTitreDesc = false;
-						$scope.sortedTitreAsc = true;
-					}
-				}
-
-				$scope.sortAuteur = function() {
-					if ($scope.sortedAuteurAsc) {
-						$scope.resetSort($scope.sortedAuteurAsc);
-						$scope.sortedAuteurAsc = false;
-						$scope.sortedAuteurDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedAuteurDesc);
-						$scope.sortedAuteurDesc = false;
-						$scope.sortedAuteurAsc = true;
-					}
-				}
-
-				$scope.sortDisponibilite = function() {
-					if ($scope.sortedDisponibiliteAsc) {
-						$scope.resetSort($scope.sortedDisponibiliteAsc);
-						$scope.sortedDisponibiliteAsc = false;
-						$scope.sortedDisponibiliteDesc = true;
-					} else {
-						$scope.resetSort($scope.sortedDisponibiliteDesc);
-						$scope.sortedDisponibiliteDesc = false;
-						$scope.sortedDisponibiliteAsc = true;
-					}
-				}
+				
+				$scope.initSort();
 				
 				$scope.startSearch = function() {
 					var params = {};

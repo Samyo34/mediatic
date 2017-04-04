@@ -2,15 +2,18 @@ package fr.dta.model;
 
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -24,9 +27,11 @@ public class Adherent {
 	private String mail;	
 	private String adresse;	
 	private String ville;	
-	private String postal;	
+	private String postal;
+
 	
-//	@OneToMany(mappedBy="adherent")	private List<Emprunt> emprunts;
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="adherent")
+	private List<Emprunt> emprunts;
 //	@OneToOne	private Cotisation coti;
 
 	public Adherent() {}
@@ -63,7 +68,10 @@ public class Adherent {
 	public void setVille(String ville) { this.ville = ville; }
 	public String getPostal() { return postal; }
 	public void setPostal(String postal) { this.postal = postal; }
-//	public List<Emprunt> getEmprunts() {		return emprunts;	}
-//	public void setEmprunts(List<Emprunt> medias) {		this.emprunts = medias;	}
+	public List<Emprunt> getEmprunts() {		return emprunts;	}
+	public void setEmprunts(List<Emprunt> medias) {		this.emprunts = medias;	}
+
+
+
 	
 }

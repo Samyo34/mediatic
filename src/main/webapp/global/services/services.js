@@ -11,12 +11,10 @@
 		var mediaRechercheUrl = rootUrl+"/ws/resource/media/recherche";// GET page, titre, auteur,type,tri:(id,titre,auteur)
 		var mediaCreationUrl = rootUrl+"/ws/resource/media/creation";// POST
 		var mediaModificationUrl = rootUrl+"/ws/resource/media/modification";// GET
-		var mediaAccessionUrl = rootUrl+"/ws/resource/media/accession";// GET
 		
 		var adherentRechercheUrl = rootUrl+"/ws/resource/adherent/recherche";// GET page,id,nom,prenom,email,texte nom prenom,tri : (id,nom,prenom,email,-id,-nom,-prenom,-email)
 		var adherentCreationUrl = rootUrl+"/ws/resource/adherent/creation";// POST
 		var adherentModificationUrl = rootUrl+"/ws/resource/adherent/modification";// GET
-		var adherentAccessionUrl = rootUrl+"/ws/resource/adherent/accession";// GET
 		
 		var ajoutEmrpuntUrl = rootUrl+"/ws/resource/emprunt/ajout";// POST id_adherent,id_media, depart	
 		
@@ -42,7 +40,7 @@
 		}
 		
 		this.getMediaById = function(id){
-			return self.getPromise(mediaAccessionUrl+"?id="+id);
+			return self.getPromise(mediaRechercheUrl+"/"+id);
 		}
 		
 		this.addMedia = function(newMedia){
@@ -63,7 +61,7 @@
 		}
 		
 		this.getAdherentById = function(id){
-			return self.getPromise(adherentAccessionUrl+"?id="+id);
+			return self.getPromise(adherentRechercheUrl+"/"+id);
 		}
 		
 		this.addAdherent = function(newAdherent){

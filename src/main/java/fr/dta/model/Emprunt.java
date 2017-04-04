@@ -3,6 +3,7 @@ package fr.dta.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -22,11 +25,13 @@ public class Emprunt {
 	private Long id;
 
 	@NotNull
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonIgnoreProperties("emprunts")
 	private Media media;
 	
 	@NotNull
 	@ManyToOne
+	@JsonIgnoreProperties("emprunts")
 	private Adherent adherent;
 	
 	@NotNull

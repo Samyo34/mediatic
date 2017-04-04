@@ -7,13 +7,13 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import fr.dta.globale.DatabaseHelper;
 import fr.dta.model.Adherent;
 import fr.dta.model.Media;
 
-@Service
+@Repository
 @Transactional
 public class AdherentDAO extends DAO<Adherent> {
 
@@ -22,8 +22,8 @@ public class AdherentDAO extends DAO<Adherent> {
     }
     
     public List<Adherent> getAllAdherent(){
-    	Query query = getSession().createQuery("from " + Adherent.class.getSimpleName());
-		return query.list();
+    	TypedQuery<Adherent> query = em.createQuery(" from Adherent",Adherent.class);
+		return query.getResultList();
     }
     
     public Adherent getAdherentWithEmpruntById(Long idAdherent){

@@ -6,12 +6,12 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import fr.dta.model.Adherent;
 import fr.dta.model.Media;
 
-@Service
+@Repository
 @Transactional
 public class MediaDAO extends DAO<Media> {
 
@@ -20,8 +20,8 @@ public class MediaDAO extends DAO<Media> {
 	}
 
 	public List<Media> getAllMedias(){
-		Query query = getSession().createQuery("from " + Media.class.getSimpleName());
-		return query.list();
+		TypedQuery<Media> query = em.createQuery(" from Media",Media.class);
+		return query.getResultList();
 	}
 	
 	public Media findOneWithAdherentByID(Long id) {

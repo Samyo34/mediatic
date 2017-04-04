@@ -49,38 +49,38 @@
 			<tr>
 				<th>
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-order' : !sortedIdAsc, 'glyphicon-sort-by-order-alt' : sortedIdAsc}"
-						ng-click="sortId()"></button>
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Id'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Id'].asc}"
+						ng-click="sort('Id')"></button>
 				</th>
 				<th>Nom
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-alphabet' : !sortedNomAsc, 'glyphicon-sort-by-alphabet-alt' : sortedNomAsc}"
-						ng-click="sortNom()"></button>
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTab['Nom'].asc, 'glyphicon-sort-by-alphabet-alt' : sortedTab['Nom'].asc}"
+						ng-click="sort('Nom')"></button>
 				</th>
 				<th>Prénom
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-alphabet' : !sortedPrenom, 'glyphicon-sort-by-alphabet-alt' : sortedPrenom}"
-						ng-click="sortPrenom()"></button>
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTab['Prenom'].asc, 'glyphicon-sort-by-alphabet-alt' : sortedTab['Prenom'].asc}"
+						ng-click="sort('Prenom')"></button>
 				</th>
 				<th class="hidden-xs">Naissance
-					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-order' : !sortedNaissanceAsc, 'glyphicon-sort-by-order-alt' : sortedNaissanceAsc}"
-						ng-click="sortNaissance()"></button>
+					<button class="btn btn-sort bt	n-xs btn-info glyphicon"
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Naissance'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Naissance'].asc}"
+						ng-click="sort('Naissance')"></button>
 				</th>
 				<th>Cotisation
 					<button
 						class="btn btn-sort btn-xs btn-info glyphicon glyphicon-sort"
-						ng-click="sortCotisation()"></button>
+						ng-click="sort('Cotisation')"></button>
 				</th>
 				<th class="hidden-xs">Médias
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-order' : !sortedPossessionsAsc, 'glyphicon-sort-by-order-alt' : sortedPossessionsAsc}"
-						ng-click="sortPossessions()"></button>
+						ng-class="{'glyphicon-sort-by-order' : !sortedTab['Possessions'].asc, 'glyphicon-sort-by-order-alt' : sortedTab['Possessions'].asc}"
+						ng-click="sort('Possessions')"></button>
 				</th>
 				<th>Email
 					<button class="btn btn-sort btn-xs btn-info glyphicon"
-						ng-class="{'glyphicon-sort-by-alphabet' : !sortedMailAsc, 'glyphicon-sort-by-alphabet-alt' : sortedMailAsc}"
-						ng-click="sortMail()"></button>
+						ng-class="{'glyphicon-sort-by-alphabet' : !sortedTab['Mail'].asc, 'glyphicon-sort-by-alphabet-alt' : sortedTab['Mail'].asc}"
+						ng-click="sort('Mail')"></button>
 				</th>
 				<th>Détails</th>
 			</tr>
@@ -88,20 +88,20 @@
 		<tbody>
 			<tr
 				ng-repeat="adherent in adherents 
-				| orderBy: sortedIdAsc && 'id' 
-				| orderBy: sortedIdDesc && '-id' 
-				| orderBy: sortedNomAsc && 'nom' 
-				| orderBy: sortedNomDesc && '-nom' 
-				| orderBy: sortedPrenomAsc && 'prenom' 
-				| orderBy: sortedPrenomDesc && '-prenom' 
-				| orderBy: sortedNaissanceAsc && 'naissance' 
-				| orderBy: sortedNaissanceDesc && '-naissance' 
-				| orderBy: sortedCotisationAsc && 'cotisation.fin' 
-				| orderBy: sortedCotisationDesc && '-cotisation.fin' 
-				| orderBy: sortedPossessionsAsc && 'nombre_media' 
-				| orderBy: sortedPossessionsDesc && '-nombre_media' 
-				| orderBy: sortedMailAsc && 'mail' 
-				| orderBy: sortedMailDesc && '-mail' 
+				| orderBy: sortedTab['Id'].asc && 'id' 
+				| orderBy: sortedTab['Id'].desc && '-id' 
+				| orderBy: sortedTab['Nom'].asc && 'nom' 
+				| orderBy: sortedTab['Nom'].desc && '-nom' 
+				| orderBy: sortedTab['Prenom'].asc && 'prenom' 
+				| orderBy: sortedTab['Prenom'].desc && '-prenom' 
+				| orderBy: sortedTab['Naissance'].asc && 'naissance' 
+				| orderBy: sortedTab['Naissance'].desc && '-naissance' 
+				| orderBy: sortedTab['Cotisation'].asc && 'cotisation.fin' 
+				| orderBy: sortedTab['Cotisation'].desc && '-cotisation.fin' 
+				| orderBy: sortedTab['Possessions'].asc && 'nombre_media' 
+				| orderBy: sortedTab['Possessions'].desc && '-nombre_media' 
+				| orderBy: sortedTab['Mail'].asc && 'mail' 
+				| orderBy: sortedTab['Mail'].desc && '-mail' 
 				| limitTo:sizeArrayAd">
 				<td>#{{ adherent.id }}</td>
 				<td ng-bind="adherent.nom"></td>
@@ -111,7 +111,7 @@
 					ng-class="{ 'glyphicon-ok icon-success':adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'),
 					'glyphicon-remove icon-error':!(adherent.cotisation.fin >= (currentDate | date:'yyyy-MM-dd'))}">
 				</span></td>
-				<td class="hidden-xs" ng-bind="adherent.nombre_media"></td>
+				<td class="hidden-xs" ng-bind="adherent.emprunts.length"></td>
 				<td ng-bind="adherent.mail"></td>
 				<td class="btn-detail"><a href="#/adherent/{{adherent.id}}">
 						<button type="button" class="btn btn-info">

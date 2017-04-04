@@ -7,14 +7,12 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
 
-import fr.dta.globale.DatabaseHelper;
-
 public class DAO<T> {
 	
 	private Class<T> klass;
 	
 	@PersistenceContext
-	EntityManager em;
+	protected EntityManager em;
 
 	protected Session getSession() {
 		return em.unwrap(Session.class);
