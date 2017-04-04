@@ -9,17 +9,20 @@
 		})
 	})
 	.controller('AffichageAdherentCtrl',function($scope,$routeParams,$rootScope,ServiceUrl){
-		$rootScope.titre = 'Affichage Adherent';
+		$rootScope.titre = 'Affichage Adhérent';
+		$rootScope.activeLink('adherents');
 		
 		$scope.datas = [] ;
 		$scope.updateAdherent ={};
 		$scope.adresse={};
 		$scope.buttonUpdate = false;
+		$scope.sizeArrayAdherent = 10;
+		$scope.sizeMaxAdherent = false;
 		
 		ServiceUrl.getAdherentById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.updateAdherent = angular.copy(data);
-			$scope.medias = $scope.datas.emprunt;
+			$scope.emprunts = $scope.datas.emprunts;
 		});	
 		
 		$scope.sortedTab = [];
@@ -120,6 +123,13 @@
 					$scope.hasError = true;
 				}	
 			});
-		};		
+		};
+		
+		$scope.addSize = function() {
+			$scope.sizeArrayAdherent += 5;
+			if ($scope.sizeArrayAdherent >= $scope.datas.length) {
+				$scope.sizeMaxAdherent = true;
+			}
+		}
 	});
 })();

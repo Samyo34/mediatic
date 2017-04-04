@@ -12,7 +12,8 @@
 	
 	.controller('creationAdherentCtrl',function($scope,$routeParams,$rootScope, ServiceUrl, $location){	
 		
-		$rootScope.title = 'MEDIAS';
+		$rootScope.title = 'Création Adhérent';
+		$rootScope.activeLink('adherent');
 		
 		$scope.user = {};
 //		$scope.userBeta = {
@@ -25,6 +26,7 @@
 		$scope.createUser= function(){
 			console.log($scope.user);
 			if (($scope.user.nom == undefined) ||($scope.user.prenom == undefined) || ($scope.user.adresse == undefined)){
+
 				console.log("Erreur: tous les champs doivent être remplis");
 			}
 			else{

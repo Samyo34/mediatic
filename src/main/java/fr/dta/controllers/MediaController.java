@@ -27,7 +27,6 @@ public class MediaController {
 	
 	@RequestMapping(path="/recherche/{id}", method=RequestMethod.GET)
 	public Media getMedia(@PathVariable("id") Long id){
-		System.out.println(mediaService.getByID(id));
 		return mediaService.getByID(id);
 	}
 	

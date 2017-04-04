@@ -10,7 +10,8 @@
 			'RechercheAdherentCtrl',
 			function($scope, $routeParams, $rootScope, ServiceUrl) {
 				$rootScope.title = "Recherche Adhérents";
-
+				$rootScope.activeLink('adherents');
+				
 				$scope.currentDate = new Date();
 
 				$scope.accurate = false;

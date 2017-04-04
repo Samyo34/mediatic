@@ -9,17 +9,19 @@
 		})
 	})
 	.controller('AffichageMediaCtrl',function($scope,$routeParams,$rootScope, ServiceUrl){
-		$rootScope.titre = 'Affichage Media';
+		$rootScope.titre = 'Affichage Média';
+		$rootScope.activeLink('medias');
 		
 		$scope.datas = [] ;
 		$scope.updateMedia ={};
 		$scope.buttonUpdate = false;
+		$scope.sizeArrayMedia = 10;
+		$scope.sizeMaxMedia = false;
 		
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.updateMedia = angular.copy(data);
-			$scope.emprunteurs = $scope.datas.emprunteurs;
-			console.log($scope.datas);
+			$scope.emprunteurs = $scope.datas.emprunts;
 		})
 		
 		$scope.switchEditView = function(){
@@ -64,6 +66,13 @@
 					$scope.hasError = true;
 				}	
 			});
-		}		
+		}
+		
+		$scope.addSize = function() {
+			$scope.sizeArrayMedia += 5;
+			if ($scope.sizeArrayMedia >= $scope.datas.length) {
+				$scope.sizeMaxMedia = true;
+			}
+		}
 	})
 })();
