@@ -203,7 +203,7 @@
 			</tr>
 			<!-- Liste des emprunts -->
 			<tr
-				ng-repeat="emprunt in medias
+				ng-repeat="emprunt in emprunts
 				| orderBy: sortedTab['Id'].asc && 'media.id' 
 				| orderBy: sortedTab['Id'].desc && '-media.id' 
 				| orderBy: sortedTab['Titre'].asc && 'media.titre' 
@@ -221,8 +221,8 @@
 						 						'glyphicon glyphicon-book':emprunt.media.type ==='Livre'}">
 				</span> {{emprunt.media.titre}}</td>
 				<td ng-bind="emprunt.media.auteur"></td>
-				<td ng-bind="emprunt.depart | date:'dd-MM-yyyy'"></td>
-				<td ng-bind="emprunt.retour | date:'dd-MM-yyyy'"></td>
+				<td ng-bind="emprunt.dateEmprunt | date:'dd-MM-yyyy'"></td>
+				<td ng-bind="emprunt.dateRetourPrevu | date:'dd-MM-yyyy'"></td>
 				<td class="btn-detail"><a
 					ng-href="./#/media/{{emprunt.media.id}}">
 						<button type="button" class="btn btn-info">

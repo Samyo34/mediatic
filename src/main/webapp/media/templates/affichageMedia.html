@@ -138,14 +138,14 @@
 						ng-disabled="formEmprunt.$invalid" ng-click="addEmprunt()">Ajouter</button>
 				</td>
 			</tr>
-			<tr ng-repeat="adherent in emprunteurs">
+			<tr ng-repeat="emprunt in emprunteurs">
 				<td>#{{$index}}</td>
-				<td ng-bind='adherent.adherent.nom'></td>
-				<td ng-bind='adherent.adherent.prenom'></td>
-				<td ng-bind='adherent.depart'></td>
-				<td ng-bind='adherent.retour'></td>
+				<td ng-bind='emprunt.adherent.nom'></td>
+				<td ng-bind='emprunt.adherent.prenom'></td>
+				<td ng-bind='emprunt.dateEmprunt'></td>
+				<td ng-bind='emprunt.dateRetourPrevu'></td>
 				<td class="btn-detail"><a
-					ng-href="./#/adherent/{{adherent.adherent.id}}">
+					ng-href="./#/adherent/{{emprunt.adherent.id}}">
 						<button type="button" class="btn btn-info">
 							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 						</button>

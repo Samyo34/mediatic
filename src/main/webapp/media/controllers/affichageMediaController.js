@@ -9,7 +9,8 @@
 		})
 	})
 	.controller('AffichageMediaCtrl',function($scope,$routeParams,$rootScope, ServiceUrl){
-		$rootScope.titre = 'Affichage Media';
+		$rootScope.titre = 'Affichage Média';
+		$rootScope.activeLink('medias');
 		
 		$scope.datas = [] ;
 		$scope.updateMedia ={};
@@ -18,7 +19,7 @@
 		ServiceUrl.getMediaById($routeParams.id).then(function(data){
 			$scope.datas = data;
 			$scope.updateMedia = angular.copy(data);
-			$scope.emprunteurs = $scope.datas.emprunteurs;
+			$scope.emprunteurs = $scope.datas.emprunts;
 		})
 		
 		$scope.switchEditView = function(){
