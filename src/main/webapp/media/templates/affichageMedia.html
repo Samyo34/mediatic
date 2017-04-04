@@ -42,18 +42,19 @@
 			<div class="panel-heading">
 				<h1 class="panel-title">Details du Média</h1>
 			</div>
-			
+			<form class="form" ng-submit="newUpdateMedia()" name="FormMedia" novalidate>
 			<div class="panel-body">
 				<div class="form-group row">
-					<div class="row col-sm-5 col-xs-12 col-sm-offset-1  form-inline">
+					<div class="row col-sm-5 col-xs-12 col-sm-offset-1  form-inline"
+					ng-class="{'has-error': FormMedia.Titre.$dirty && !FormMedia.Titre.$valid, 'has-feedback': FormMedia.Titre.$dirty && !FormMedia.Titre.$valid }">
 						<span class="text-left col-sm-4 col-xs-12">Titre :</span>
-						<input type="text" class="form-control col-sm-offset-1 col-xs-12"
-						ng-model="updateMedia.titre"></input>
+						<input type="text" name="Titre" class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="updateMedia.titre" required ng-required='(updateMedia.titre) ? true : false'></input>
 					</div>
 					<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline">
 						<span class="text-left col-sm-4 col-xs-12">Auteur :</span>
-						<input type="text" class="form-control col-sm-offset-1 col-xs-12"
-						ng-model="updateMedia.auteur"></input>
+						<input type="text" name="Auteur" class="form-control col-sm-offset-1 col-xs-12"
+						ng-model="updateMedia.auteur" required></input>
 					</div>
 				</div>
 			
@@ -70,9 +71,11 @@
 			</div>
 			
 			<div class="panel-footer">
-				<button class="btn btn-success" type="submit" ng-click="newUpdateMedia()">Enregistrer</button>	
+				<button class="btn btn-success" type="submit" ng-disabled="myForm.Titre.$dirty && myForm.Titre.$invalid ||  
+					myForm.Auteur.$dirty && myForm.Auteur.$invalid">Enregistrer</button>	
 				<button class="btn btn-warning" type="submit" ng-click="switchEditView()">Annuler</button>	
 			</div>
+			</form>
 		</div>
 </div>
 	

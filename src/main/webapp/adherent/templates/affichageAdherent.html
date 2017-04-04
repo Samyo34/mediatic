@@ -60,60 +60,60 @@
 		</div>
 		<div class='panel-body'>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }">
+				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12 ">Nom :</span> 
 					<input type='text' class="form-control col-xs-12"
 					ng-model="updateAdherent.nom"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }">
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12">Prenom :</span>
 					 <input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					 ng-model="updateAdherent.prenom"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12 form-inline" ng-class="{error: }">
+				<div class="row col-sm-6 col-xs-12 form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12 ">Naissance :</span>
 					<input type='date' class="form-control col-xs-12"
 					ng-model="updateAdherent.date_naissance"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }">
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12">Mail :</span>
 					<input type='mail' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="updateAdherent.email"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12 form-inline" ng-class="{error: }"> 
+				<div class="row col-sm-6 col-xs-12 form-inline" ng-class="{error: }" required> 
 					<span class="text-left col-sm-5 col-xs-12 ">Cotisation :</span>
 					<input type='date' class="form-control col-xs-12"
 					ng-model="updateAdherent.cotisation.debut"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }">
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12">Montant (&euro;) :</span>
 					<input type='number' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="updateAdherent.cotisation.montant"></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }">
+				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12 ">Voie :</span>
 					<input type='text' class="form-control col-xs-12" 
 					ng-model="adresse.ligne1"></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }">
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12">Annexe :</span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="adresse.ligne2 "></input>
 				</div>
 			</div>
 			<div class='row form-group'>
-				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }">
+				<div class="row col-sm-6 col-xs-12  form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12 ">Code postal :</span>
 					<input type='text' class="form-control col-xs-12"
 					ng-model="adresse.codepostal "></input>
 				</div>
-				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }">
+				<div class="row col-sm-5 col-xs-12 col-sm-offset-1 form-inline" ng-class="{error: }" required>
 					<span class="text-left col-sm-5 col-xs-12">Ville : </span>
 					<input type='text' class="form-control col-sm-offset-1 col-xs-12"
 					ng-model="adresse.ville"></input>
